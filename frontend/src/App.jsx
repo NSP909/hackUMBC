@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/layout/NavigationBar';
 import SideNavigationBar from './components/layout/SideNavigationBar';
 import CourseSelector from './components/courses/CourseSelector';
@@ -14,11 +14,11 @@ function App() {
         <div className="main-content">
           <SideNavigationBar />
           <div className="content-area">
-            <Switch>
+            <Routes>
               <Route exact path="/" component={CourseSelector} />
               <Route path="/course/:id" component={CourseDetail} />
               <Route path="/chatbot" component={Chatbot} />
-            </Switch>
+            </Routes>
           </div>
         </div>
       </div>

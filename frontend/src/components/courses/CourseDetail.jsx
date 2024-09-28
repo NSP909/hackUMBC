@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Route, Switch } from 'react-router-dom';
+import { useParams, Route, Routes } from 'react-router-dom';
 import Grades from '../courseModules/Grades';
 import Assignments from '../courseModules/Assignments';
 import Exams from '../courseModules/Exams';
@@ -33,12 +33,12 @@ function CourseDetail() {
     <div className="course-detail">
       <h2>{course.name}</h2>
       <p>{course.description}</p>
-      <Switch>
+      <Routes>
         <Route path="/course/:id/grades" component={Grades} />
         <Route path="/course/:id/assignments" component={Assignments} />
         <Route path="/course/:id/exams" component={Exams} />
         <Route path="/course/:id/events" component={UpcomingEvents} />
-      </Switch>
+      </Routes>
     </div>
   );
 }
