@@ -6,6 +6,7 @@ import Exams from '../courseModules/Exams';
 import UpcomingEvents from '../courseModules/UpcomingEvents';
 import Loader from '../common/Loader';
 import Error from '../common/Error';
+import './CourseDetail.module.css';
 
 function CourseDetail() {
   const { id } = useParams();

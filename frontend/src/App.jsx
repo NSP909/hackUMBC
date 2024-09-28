@@ -16,11 +16,8 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <button className="toggle-sidebar-button" onClick={toggleSidebar}>
-          {isSidebarOpen ? '←' : '→'}
-        </button>
-        <div className={`main-content ${isSidebarOpen ? '' : 'sidebar-closed'}`}>
-          <SideNavigationBar isOpen={isSidebarOpen} />
+        <div className="main-content">
+          <SideNavigationBar />
           <div className="content-area">
             <Routes>
               <Route path="/" element={<CourseSelector />} />

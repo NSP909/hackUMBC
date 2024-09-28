@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../common/Loader';
 import Error from '../common/Error';
+import './UpcomingEvents.module.css';
 
 function UpcomingEvents() {
   const { id } = useParams();
