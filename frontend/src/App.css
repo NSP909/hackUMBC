@@ -1,14 +1,45 @@
+/* App.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
 .app {
   display: flex;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
 }
 
 .main-content {
   display: flex;
-  flex: 1; /* Take up the remaining space */
+  flex: 1;
 }
 
 .content-area {
-  flex: 1; /* Take up the remaining space */
-  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar-closed {
+  margin-left: -250px;
+}
+
+.toggle-sidebar-button {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.toggle-sidebar-button:hover {
+  background-color: #2980b9;
 }
