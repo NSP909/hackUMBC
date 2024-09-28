@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './CourseSelector.css';
+import './CourseSelector.module.css'; // Import the CSS file for styling
 
 const courses = [
   { id: 1, name: 'Introduction to Computer Science', code: 'CS101' },
@@ -13,18 +13,20 @@ const courses = [
 
 export default function CourseSelector() {
   return (
-    <div className="courseSelector">
-      <h2>Course Selector</h2>
-      <ul className="courseList">
+    <div className="course-selector">
+      <h1 className="course-selector-title">Course Selector</h1>
+      <div className="course-grid">
         {courses.map((course) => (
-          <li key={course.id} className="courseItem">
-            <Link to={`/course/${course.id}`} className="courseLink">
-              <h3>{course.name}</h3>
-              <p>{course.code}</p>
-            </Link>
-          </li>
+          <Link
+            key={course.id}
+            to={`/course/${course.id}`}
+            className="course-box"
+          >
+            <h2 className="course-name">{course.name}</h2>
+            <p className="course-code">{course.code}</p>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

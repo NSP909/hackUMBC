@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SideNavigationBar from './components/layout/SideNavigationBar';
 import CourseSelector from './components/courses/CourseSelector';
@@ -7,24 +7,16 @@ import Chatbot from './components/chatbot/Chatbot';
 import './App.css';
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
   return (
     <Router>
       <div className="app">
-        <div className="main-content">
-          <SideNavigationBar />
-          <div className="content-area">
-            <Routes>
-              <Route path="/" element={<CourseSelector />} />
-              <Route path="/course/:id" element={<CourseDetail />} />
-              <Route path="/chatbot" element={<Chatbot />} />
-            </Routes>
-          </div>
+        <SideNavigationBar />
+        <div className="content-area">
+          <Routes>
+            <Route path="/" element={<CourseSelector />} />
+            <Route path="/course/:id" element={<CourseDetail />} />
+            <Route path="/chatbot" element={<Chatbot />} />
+          </Routes>
         </div>
       </div>
     </Router>
