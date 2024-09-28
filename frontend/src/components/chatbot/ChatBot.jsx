@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Chatbot.module.css';
+import styles from './ChatBot.module.css';
 
 function Chatbot() {
   const [messages, setMessages] = useState([]);
@@ -19,22 +19,23 @@ function Chatbot() {
   };
 
   return (
-    <div className="chatbot">
-      <div className="message-history">
+    <div className={styles.chatbot}>
+      <div className={styles.messageHistory}>
         {messages.map((message, index) => (
-          <div key={index} className={`message ${message.sender}`}>
+          <div key={index} className={`${styles.message} ${styles[message.sender]}`}>
             {message.text}
           </div>
         ))}
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.chatForm}>
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type your message..."
+          className={styles.chatInput}
         />
-        <button type="submit">Send</button>
+        <button type="submit" className={styles.chatButton}>Send</button>
       </form>
     </div>
   );
