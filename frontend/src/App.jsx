@@ -16,8 +16,8 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <SideNavigationBar />
         <div className="main-content">
-          <SideNavigationBar />
           <div className="content-area">
             <Routes>
               <Route path="/" element={<CourseSelector />} />
