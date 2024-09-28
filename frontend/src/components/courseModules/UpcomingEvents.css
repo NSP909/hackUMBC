@@ -1,0 +1,28 @@
+.upcomingEvents {
+    padding: 1rem;
+  }
+  
+  .upcomingEvents h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .eventList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .eventItem {
+    padding: 1rem;
+    background-color: #eafaf1;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+  }
+  
+  .eventTitle {
+    font-weight: bold;
+  }
+  
+  .eventDate {
+    color: #27ae60;
+    font-size: 0.9rem;
+  }

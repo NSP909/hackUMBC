@@ -1,0 +1,28 @@
+.exams {
+    padding: 1rem;
+  }
+  
+  .exams h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .examList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .examItem {
+    padding: 1rem;
+    background-color: #fdeaea;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+  }
+  
+  .examTitle {
+    font-weight: bold;
+  }
+  
+  .examDate {
+    color: #c0392b;
+    font-size: 0.9rem;
+  }

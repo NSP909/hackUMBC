@@ -1,0 +1,30 @@
+.courseSelector {
+    padding: 2rem;
+  }
+  
+  .courseSelector h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .courseList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .courseItem {
+    margin-bottom: 0.5rem;
+  }
+  
+  .courseLink {
+    display: block;
+    padding: 1rem;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .courseLink:hover {
+    background-color: #bdc3c7;
+  }

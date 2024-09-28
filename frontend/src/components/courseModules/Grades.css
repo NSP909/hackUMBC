@@ -1,0 +1,21 @@
+.grades {
+    padding: 1rem;
+  }
+  
+  .grades h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .gradesList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .gradeItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background-color: #f1f1f1;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+  }
