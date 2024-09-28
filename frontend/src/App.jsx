@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavigationBar from './components/layout/NavigationBar';
 import SideNavigationBar from './components/layout/SideNavigationBar';
 import CourseSelector from './components/courses/CourseSelector';
 import CourseDetail from './components/courses/CourseDetail';
@@ -10,7 +9,6 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <NavigationBar />
         <div className="main-content">
           <SideNavigationBar />
           <div className="content-area">

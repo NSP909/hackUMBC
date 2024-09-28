@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../common/Loader';
 import Error from '../common/Error';
+import './CourseSelector.module.css';
 
 function CourseSelector() {
   const [courses, setCourses] = useState([]);

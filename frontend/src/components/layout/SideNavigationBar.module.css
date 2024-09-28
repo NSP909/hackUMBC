@@ -1,20 +1,82 @@
+/* src/components/SideNavigationBar.module.css */
+
 .sideNavigationBar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #1a202c;
+  padding: 2rem 1.5rem;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #e2e8f0;
+  font-family: 'Arial', sans-serif;
+  transition: width 0.3s ease;
+}
+
+.sideNavigationBar h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.sideNavigationBar ul {
+  list-style-type: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.sideNavigationBar li {
+  margin-bottom: 0.75rem;
+}
+
+.sideNavigationBar a {
+  text-decoration: none;
+  color: #cbd5e0;
+  font-size: 1rem;
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sideNavigationBar a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #4299e1;
+  transition: width 0.3s ease;
+}
+
+.sideNavigationBar a:hover {
+  background-color: rgba(66, 153, 225, 0.1);
+  color: #fff;
+}
+
+.sideNavigationBar a:hover::before {
+  width: 100%;
+}
+
+.sideNavigationBar a.active {
+  background-color: #4299e1;
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .sideNavigationBar {
     width: 200px;
-    background-color: #34495e;
-    height: 100vh;
-    padding: 2rem 1rem;
   }
-  
-  .sideNavigationBar a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.5rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  
-  .sideNavigationBar a:hover {
-    background-color: #2c3e50;
-  }
+}

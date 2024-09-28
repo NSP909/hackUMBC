@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../common/Loader';
 import Error from '../common/Error';
+import './Grades.module.css';
 
 function Grades() {
   const { id } = useParams();
