@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styles from './ChatContainer.module.css';
 import MessageList from './MessageList';
+import Dropdown from './Dropdown';
 
 function ChatContainer() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [writtenAnswer, setWrittenAnswer] = useState('');
+  const [selectedCourse, setSelectedCourse] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +24,7 @@ function ChatContainer() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userMessage: input }),
+        body: JSON.stringify({ userMessage: input, course: selectedCourse }),
       });
 
       const quizData = await response.json();
@@ -40,13 +42,7 @@ function ChatContainer() {
       ]);
     } catch (error) {
       console.error('Error fetching quiz:', error);
-      /*
       setMessages(prevMessages => [
-        ...prevMessages,
-        { text: 'Sorry, there was an error fetching the quiz.', sender: 'bot' },
-      ]);
-      */
-     setMessages(prevMessages => [
         ...prevMessages,
         { text: 'What is the capital of France?',
           sender: 'bot',
@@ -96,16 +92,23 @@ function ChatContainer() {
         setWrittenAnswer={setWrittenAnswer}
         handleWrittenAnswerSubmit={handleWrittenAnswerSubmit}
       />
-      <form onSubmit={handleSubmit} className={styles.chatForm}>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type your message..."
-          className={styles.chatInput}
+      <div className={styles.inputContainer}>
+        <Dropdown
+          selectedCourse={selectedCourse}
+          setSelectedCourse={setSelectedCourse}
+          options={['Custom', 'CMSC351', 'MATH246', 'MATH241', 'CMSC320', 'CMSC330']}
         />
-        <button type="submit" className={styles.sendButton}>Send</button>
-      </form>
+        <form onSubmit={handleSubmit} className={styles.chatForm}>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Type your message..."
+            className={styles.chatInput}
+          />
+          <button type="submit" className={styles.sendButton}>Send</button>
+        </form>
+      </div>
     </div>
   );
 }
