@@ -1,0 +1,157 @@
+CMSC320:
+Introduction to Data Science and Data Type
+Experiment Design
+Pandas and SQL
+Probability, Distributions, and Summary Stats
+Hypothesis Testing
+Data Visualization
+Data Exploration
+Data Cleaning
+Introduction to Machine Learning
+Feature Engineering
+Decision Tree
+Classifications
+Regression
+Unsupervised Learning & Dimensionality Reduction
+Introduction to Neural Network
+Image Processing
+Intro to Natural Language Processing
+Introduction to Graph Theory
+Recommender System
+Data Ethics
+
+CMSC351:
+Introduction
+Coin Changing
+Big Notation
+Rigorous Time
+Maximum Contiguous Sum
+BubbleSort
+SelectionSort
+InsertionSort
+Binary Search
+Recurrence Relations, Trees, Digging Down
+Master Theorem
+MergeSort
+Heaps and HeapSort
+QuickSort
+Limitations on Comparison-Based Sorting
+CountingSort
+RadixSort
+Integer Multiplication
+Graphs
+Shortest Path
+Breadth-First Traverse
+Depth-First Traverse
+Dijkstra's Algorithm
+Floyd's Algorithm
+Spanning Trees
+Minimax Algorithm
+Huffman's Algorithm
+P and NP
+
+COMM107:
+Informative Presentation
+Persuasive Presentation
+Small Group Presentation
+Final Presentation
+
+MATH240:
+Systems of Linear Equations
+Row Reduction and Echelon Forms
+Vector Equations
+The Matrix Equation
+Solution Sets of Linear Systems
+Linear Independence
+Introduction to Linear Transformations
+The Matrix of a Linear Transformation
+Matrix Operations
+The Inverse of a Matrix
+Characterizations of Invertible Matrices
+Subspaces of Rn
+Introduction to Determinants
+Properties of Determinants
+Cramer's Rule, Volume, and Linear Transformations 
+Vector Spaces and Subspaces
+Null Spaces, Column Spaces, Row Spaces, and Linear Transformations
+Linearly Independent Sets and Bases 
+Coordinate Systems
+The Dimension of a Vector Space
+Change of Basis
+Eigenvectors and Eigenvalues
+The Characteristic Equation
+Diagonalization
+Eigenvectors and Linear Transformations
+Complex Eigenvalues
+Inner Product, Length, and Orthogonality
+Orthogonal Sets
+Orthogonal Projections
+The Gram-Schmidt Process
+Least-Squares Problems
+Machine Learning and Linear Models
+Inner Product Spaces
+Diagonalization of Symmetric Matrices
+The Singular Value Decomposition
+
+MATH241:
+3D, Points, Axes, Spheres, Distance
+Vectors
+Dot Product
+Cross Product
+Equations of Lines
+Equations of Planes
+Basics of Vector Valued Functions
+Limits of Vector Valued Functions
+Derivatives and Integrals of Vector Valued Functions
+Curves and Associated Definitions
+Tangents and Normals to Curves
+Functions of Several Variables
+Partial Derivatives
+The Chain Rule
+The Directional Derivative
+The Gradient
+Tangent Plane Approximation
+Maxima and Minima
+Lagrange Multipliers
+Double Integrals
+Double Integrals in Polar
+Triple Integrals in Rectangular
+Triple Integrals in Polar
+Triple Integrals in Spherical
+Change of Variables
+Parametrization of Surfaces
+Vector Fields
+Line Integrals of Functions and VFs
+The Fundamental Theorem of Line Integrals
+Greens Theorem
+Surface Integrals of Functions
+Surface Integrals of Vector Fields
+Stokes Theorem
+The Divergence Theorem (Gauss's theorem)
+
+MATH246:
+Introduction to First-Order DEs
+Linear First-Order DEs
+Separable DEs
+Graphical Methods
+Applications
+Approximation Methods
+Exact Differential Equations
+Introduction to Higher Order Linear Differential Equations
+Matrices and Determinants
+Homogeneous DEs - Method and Theory
+Homogeneous DEs with Constant Coefficients
+Nonhomogeneous DEs - Method and Theory
+The Method of Undetermined Coefficients
+Variation of Parameters
+Mechanical Vibrations
+Laplace Transforms
+Introduction to First Order Systems
+Matrix and Vector Essentials
+Notations and Theory for Systems
+Using Eigenpairs to Construct Solutions
+Graphing Solutions
+Graphing Solutions Cheatsheet
+Hamiltonian Systems
+Linearization of Nonlinear Systems
+Population Dynamics
