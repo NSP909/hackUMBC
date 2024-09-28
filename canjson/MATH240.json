@@ -1,0 +1,323 @@
+{
+    "name": "MATH240-0311,0312,0313,0321,0322,0323,0331,0332: Introduction to Linear Algebra-Spring 2024 wwong123",
+    "assignments": {
+        "6691975": {
+            "name": "Suggested Exercises",
+            "due_at": null,
+            "points_possible": null,
+            "score": null,
+            "description": "NOTHING is submitted.\u00a0 Practice at your own leisure. Suggested_Exercises.pdf"
+        },
+        "6708448": {
+            "name": "Assignment 1",
+            "due_at": "2024-02-17T04:59:59Z",
+            "points_possible": 50.0,
+            "score": 48.0,
+            "description": "The first Matlab assignment is due Friday February 16, 2024 at 11:59 PM (Maryland time) on Gradescope. You may work with up to 2 other people ( groups of 3 ) and submit one PDF on Gradescope. Make sure to add ALL NAMES TO YOUR GROUP when you submit 1 file on Gradescope.\u00a0 THERE SHOULD BE AN OPTION TO \"ADD GROUP MEMBERS.\"\u00a0 MAKE SURE TO MARK THE PAGES. Matlab can be downloaded for free here: https://terpware.umd.edu/Windows/Title/1849 Basic instructions on using Matlab can be found here: MATLAB_basics.pdf A simple template you can start your assignment with, and Publish to see the correct formatting: Example_Matlab_File.m A sample output of what your file should look like: Example_Matlab_File_Output.pdf A simple tutorial to upload to Gradescope and\u00a0HOW TO MARK YOUR PAGES: Gradescope_tutorial.mp4 Assignment1_S24.pdf"
+        },
+        "6722886": {
+            "name": "Assignment 2",
+            "due_at": "2024-03-16T03:59:59Z",
+            "points_possible": 50.0,
+            "score": 48.0,
+            "description": "The second Matlab assignment is due Friday March 15, 2024 at 11:59 PM (Maryland time) on Gradescope. You may work with up to 2 other people ( groups of 3 ) and submit one PDF on Gradescope. Make sure to add ALL NAMES TO YOUR GROUP when you submit 1 file on Gradescope.\u00a0 THERE SHOULD BE AN OPTION TO \"ADD GROUP MEMBERS.\"\u00a0 MAKE SURE TO MARK THE PAGES. Assignment2_S24.pdf"
+        },
+        "6740353": {
+            "name": "Assignment 3",
+            "due_at": "2024-04-15T03:59:59Z",
+            "points_possible": 50.0,
+            "score": 50.0,
+            "description": "The third Matlab assignment is due Sunday April 14, 2024 at 11:59 PM (Maryland time) on Gradescope. You may work with up to 2 other people ( groups of 3 ) and submit one PDF on Gradescope. Make sure to add ALL NAMES TO YOUR GROUP when you submit 1 file on Gradescope.\u00a0 THERE SHOULD BE AN OPTION TO \"ADD GROUP MEMBERS.\"\u00a0 MAKE SURE TO MARK THE PAGES. Assignment3_S24.pdf"
+        },
+        "6757138": {
+            "name": "Assignment 4",
+            "due_at": "2024-05-05T03:59:59Z",
+            "points_possible": 50.0,
+            "score": 48.0,
+            "description": "The fourth Matlab assignment is due Saturday May 4, 2024 at 11:59 PM (Maryland time) on Gradescope. You may work with up to 2 other people ( groups of 3 ) and submit one PDF on Gradescope. Make sure to add ALL NAMES TO YOUR GROUP when you submit 1 file on Gradescope.\u00a0 THERE SHOULD BE AN OPTION TO \"ADD GROUP MEMBERS.\"\u00a0 MAKE SURE TO MARK THE PAGES. Assignment4_S24.pdf"
+        },
+        "6713842": {
+            "name": "Quiz 1",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6717827": {
+            "name": "Quiz 2",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6722657": {
+            "name": "Quiz 3",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6728136": {
+            "name": "Quiz 4",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6737524": {
+            "name": "Quiz 5",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6740398": {
+            "name": "Quiz 6",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6745052": {
+            "name": "Quiz 7",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6749652": {
+            "name": "Quiz 8",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6757737": {
+            "name": "Quiz 9",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6762966": {
+            "name": "Quiz 10",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6723307": {
+            "name": "Exam 1 Practice",
+            "due_at": null,
+            "points_possible": null,
+            "score": null,
+            "description": "PracticeProblemsExam1.pdf"
+        },
+        "6743628": {
+            "name": "Exam 2 Practice",
+            "due_at": null,
+            "points_possible": null,
+            "score": null,
+            "description": "PracticeProblemsExam2.pdf"
+        },
+        "6760674": {
+            "name": "Exam 3 Practice",
+            "due_at": null,
+            "points_possible": null,
+            "score": null,
+            "description": "PracticeProblemsExam3.pdf"
+        },
+        "6730062": {
+            "name": "Exam 1",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 100.0,
+            "description": null
+        },
+        "6750890": {
+            "name": "Exam 2",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 100.0,
+            "description": null
+        },
+        "6768456": {
+            "name": "Exam 3",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 99.0,
+            "description": null
+        },
+        "6776744": {
+            "name": "Final Exam",
+            "due_at": null,
+            "points_possible": 200.0,
+            "score": 191.0,
+            "description": null
+        }
+    },
+    "announcements": {
+        "5366173": {
+            "title": "Final Exam Room Locations and Info",
+            "message": "The MATH 240 Final Exam is on Saturday May 11 from 1:30-3:30 PM.\u00a0 The following are room assignments for the final.\u00a0 You should see your TA in the classroom.\u00a0 Some rooms may have another final exam going on simultaneously, so do not assume you are in the wrong room if there are other students you don't recognize in the room. Section 311 and 321 (Shenghao) : KEY 0106 Section 312 and 322 (Qihang): ARM 0126 Section 313 and 331 (Dohoon): ASY 2203 Section 323 and 332 (Yuan-Chih): ESJ 0224",
+            "posted_at": "2024-05-05T18:48:28Z"
+        },
+        "5359326": {
+            "title": "Yuan-Chih's Office Hour This Week",
+            "message": "Hello all, Given that Exam 3 is scheduled for Wednesday in class, it makes no sense for me to hold an office hour right after that. Therefore, I will reschedule my office hour this week: Tuesday: 4-5 PM, ATL 4326 (in person) Thursday: 4-5 PM, ATL 4326 (in person) Hope this helps. Best of luck with your preparations for the exam! Yuan-Chih Hsieh",
+            "posted_at": "2024-04-28T19:33:56Z"
+        },
+        "5357635": {
+            "title": "Exam 3 Info (5/1)",
+            "message": "Exam 3 will be WEDNESDAY May 1 during the usual class time (1-1:50 PM).\u00a0 NO CALCULATORS or any external devices can be used. The rooms will be split up like exam 1 and 2. If you are in Sections 311 or 321 (TA is Shenghao) , you will take the exam in ESJ 2208 . As the exam will state, if you are in the wrong room for the exam, 5 points will be deducted from your exam score. All other sections will take the exam in the regular classroom (ESJ 0202) The exam will cover up to and including Section 6.5, Least Squares Problems.\u00a0 (The main focus begins on Section 5.1, 5.2: Eigenvectors and Eigenvalues, and The Characteristic Equation).",
+            "posted_at": "2024-04-26T03:30:06Z"
+        },
+        "5354973": {
+            "title": "Quiz 10 (4/25)",
+            "message": "Quiz 10 will be on Thursday at the end of discussion.\u00a0 \u00a0It will cover sections 6.1-6.3 (Orthogonal Projections).",
+            "posted_at": "2024-04-23T23:16:19Z"
+        },
+        "5346259": {
+            "title": "Quiz 9 (4/18)",
+            "message": "Quiz 9 will be on Thursday at the end of discussion.\u00a0 \u00a0It will cover sections 5.1-5.3 (Eigenvalues, Eigenvectors, Diagonalization).",
+            "posted_at": "2024-04-14T17:55:13Z"
+        },
+        "5334145": {
+            "title": "Exam 2 Info (4/8)",
+            "message": "Exam 2 will be Monday April 8 during the usual class time (1-1:50 PM).\u00a0 NO CALCULATORS or any external devices can be used. The rooms will be split up like exam 1. If you are in Sections 311 or 321 (TA is Shenghao) , you will take the exam in ESJ 2208 . As the exam will state, if you are in the wrong room for the exam, 5 points will be deducted from your exam score. All other sections will take the exam in the regular classroom (ESJ 0202) The exam will cover up to and including Section 4.6, Change of Bases.\u00a0 (there will be NOTHING on eigenvalues, Section 5.1).",
+            "posted_at": "2024-04-01T13:32:04Z"
+        },
+        "5333748": {
+            "title": "Quiz 8 (4/4) on THURSDAY",
+            "message": "Quiz 8 will be on THURSDAY April 4 at the end of discussion.\u00a0 \u00a0It will cover section 4.6 (Change of Basis).",
+            "posted_at": "2024-03-31T18:57:01Z"
+        },
+        "5329845": {
+            "title": "Yuan-Chih's Office Hour This Week",
+            "message": "Hello all, I have a scheduled meeting this Wednesday which I need to reschedule my office hours this week: Thursday: 4-5 PM, ATL 4326 (in person) Friday: 12-1 PM (Zoom) Please note that there will be no office hours tomorrow. Best, Yuan-Chih Hsieh",
+            "posted_at": "2024-03-27T02:05:02Z"
+        },
+        "5326935": {
+            "title": "Quiz 7 (3/28)",
+            "message": "Quiz 7 will be on Thursday March 28 at the end of discussion.\u00a0 \u00a0It will cover sections 4.3-4.6.",
+            "posted_at": "2024-03-24T17:47:15Z"
+        },
+        "5319962": {
+            "title": "Quiz 6 (3/14)",
+            "message": "Quiz 6 will be on Thursday March 14 at the end of discussion.\u00a0 \u00a0It will cover sections 4.1-4.3.",
+            "posted_at": "2024-03-10T17:23:10Z"
+        },
+        "5313901": {
+            "title": "Quiz 5 (3/7)",
+            "message": "Quiz 5 will be on Thursday March 7 at the end of discussion.\u00a0 \u00a0It will cover sections 3.1-3.3.",
+            "posted_at": "2024-03-03T19:13:56Z"
+        },
+        "5308177": {
+            "title": "Dohoon's Office Hours This Week",
+            "message": "Dear all, I will be out of town for a conference this week, so I will not have office hours this week (Feb 27 and Feb 29). I am still available via email. Best, Dohoon",
+            "posted_at": "2024-02-26T16:52:16Z"
+        },
+        "5308165": {
+            "title": "Dohoon's Discussion Sessions This Week (Sections 0313 and 0331)",
+            "message": "Dear all, Just a final reminder that we won't have discussion this week. (Both Tuesday and Thursday.) I will send the link for Tuesday's discussion shortly. Best, Dohoon",
+            "posted_at": "2024-02-26T16:49:21Z"
+        },
+        "5303839": {
+            "title": "Exam 1 Info (2/26)",
+            "message": "Exam 1 will be Monday February 26 during the usual class time (1-1:50 PM).\u00a0 NO CALCULATORS or any external devices can be used. The exam will be taken in two different classrooms, depending on your section/TA. If you are in Sections 311 or 321 (TA is Shenghao) , you will take the exam in ESJ 2208 . As the exam will state, if you are in the wrong room for the exam, 5 points will be deducted from your exam score. All other sections will take the exam in the regular classroom (ESJ 0202) The exam will cover up to and including Section 2.1 (there will be NOTHING on inverses i.e. Section 2.2).",
+            "posted_at": "2024-02-21T02:44:27Z"
+        },
+        "5303191": {
+            "title": "Yuan-Chih\u2019s Office Hours This Week",
+            "message": "Hello all, I need to reschedule my office hours this week: Tuesday: 4-5 PM, ATL 4326 (in person) Thursday: 4-5 PM, ATL 4326 (in person) There will be no Wednesday office hours this week. It will be back to the regular schedule next week. Best, Yuan-Chih Hsieh",
+            "posted_at": "2024-02-20T16:40:58Z"
+        },
+        "5301161": {
+            "title": "Quiz 4 (2/22)",
+            "message": "Quiz 4 will be on Thursday Feb. 22 at the end of discussion.\u00a0 \u00a0It will cover sections 1.9 and 2.1.",
+            "posted_at": "2024-02-18T18:18:27Z"
+        },
+        "5294581": {
+            "title": "Quiz 3 (2/15)",
+            "message": "Quiz 3 will be on Thursday Feb. 15 at the end of discussion.\u00a0 \u00a0It will cover sections 1.5, 1.7, and 1.8.",
+            "posted_at": "2024-02-11T18:10:58Z"
+        },
+        "5286440": {
+            "title": "Quiz 2 (2/8)",
+            "message": "Quiz 2 will be on Thursday Feb. 8 at the end of discussion.\u00a0 \u00a0It will cover sections 1.3 to 1.5.",
+            "posted_at": "2024-02-05T04:20:58Z"
+        },
+        "5279128": {
+            "title": "Quiz 1 (2/1)",
+            "message": "Quiz 1 will be on Thursday Feb. 1 at the end of discussion.\u00a0 \u00a0It will cover sections 1.1 and 1.2.",
+            "posted_at": "2024-01-28T17:55:22Z"
+        },
+        "5268640": {
+            "title": "Welcome to MATH 240!",
+            "message": "A tentative syllabus has been posted in the Syllabus tab. Suggested exercises from the textbook can be found in the Assignments tab.\u00a0 NO SUBMISSION is required for any of the problems.",
+            "posted_at": "2024-01-23T19:11:09Z"
+        }
+    },
+    "files": {
+        "76791506": {
+            "display_name": "240_Syllabus.pdf",
+            "url": "https://umd.instructure.com/files/76791506/download?download_frd=1&verifier=3j0stEfBWYU5jD26y8LUwhNhokDfJwOyCJsjZ7Bu"
+        },
+        "77071082": {
+            "display_name": "Assignment1_S24.pdf",
+            "url": "https://umd.instructure.com/files/77071082/download?download_frd=1&verifier=9RCW76l7EOOwc6VHtA47kVR416E1AcLsvwFZiaST"
+        },
+        "77194794": {
+            "display_name": "Assignment2_S24.pdf",
+            "url": "https://umd.instructure.com/files/77194794/download?download_frd=1&verifier=iWmbtOVPtwOj1LnKWv9AwgSaDOk5uYD3A0vg633n"
+        },
+        "77879089": {
+            "display_name": "Assignment3_S24.pdf",
+            "url": "https://umd.instructure.com/files/77879089/download?download_frd=1&verifier=7RKTfcqRjq5cTR5EHkPJT8EtFfoatmAuIJjYPA2E"
+        },
+        "78141593": {
+            "display_name": "Assignment4_S24.pdf",
+            "url": "https://umd.instructure.com/files/78141593/download?download_frd=1&verifier=CJTdHTMyLmFY6iWM4QAsovvMw19ltGgVQfcF0jdh"
+        },
+        "76885184": {
+            "display_name": "Example_Matlab_File_Output.pdf",
+            "url": "https://umd.instructure.com/files/76885184/download?download_frd=1&verifier=peUaroaVcEaOfU84MYs6zZTNkC2usfp4GZ2ohNrZ"
+        },
+        "76885181": {
+            "display_name": "Example_Matlab_File.m",
+            "url": "https://umd.instructure.com/files/76885181/download?download_frd=1&verifier=2bAlENtcSY0cmE1gsZgtIrWk2abHkrDu4QbnH4JZ"
+        },
+        "76791409": {
+            "display_name": "Gradescope_tutorial.mp4",
+            "url": "https://umd.instructure.com/files/76791409/download?download_frd=1&verifier=k8H5oLI5n2cb7ZXTCjSHx92ATJstJ21ATgVWMGbe"
+        },
+        "76885148": {
+            "display_name": "MATLAB_basics.pdf",
+            "url": "https://umd.instructure.com/files/76885148/download?download_frd=1&verifier=aDFHQJ9D4TEjvGkWan7IojCAGGVY0ICVK7knefTn"
+        },
+        "77213122": {
+            "display_name": "PracticeProblemsExam1.pdf",
+            "url": "https://umd.instructure.com/files/77213122/download?download_frd=1&verifier=cBf0jlp0bwfUZ4Z5O6e800IXE3JU0BQplH9YGyik"
+        },
+        "77766407": {
+            "display_name": "PracticeProblemsExam2.pdf",
+            "url": "https://umd.instructure.com/files/77766407/download?download_frd=1&verifier=XlGKe2EJu27WTQpHUacQSwdCkVTEnjE3aicQqH0o"
+        },
+        "78235759": {
+            "display_name": "PracticeProblemsExam3.pdf",
+            "url": "https://umd.instructure.com/files/78235759/download?download_frd=1&verifier=oazadsVogBtxcWsBT7Vi70GoBzAgHYJuD6MXseIA"
+        },
+        "77317530": {
+            "display_name": "Quiz4_Sol.pdf",
+            "url": "https://umd.instructure.com/files/77317530/download?download_frd=1&verifier=y6aU6TCcfgDMzzCZAxJ1YVF6OFzc8l3GMEFbbqxe"
+        },
+        "77930834": {
+            "display_name": "SolQuiz8.pdf",
+            "url": "https://umd.instructure.com/files/77930834/download?download_frd=1&verifier=GBTMu23gQr2RceblWm2kwo8Cyy4rHyvEQJUhMlwI"
+        },
+        "76791357": {
+            "display_name": "Suggested_Exercises.pdf",
+            "url": "https://umd.instructure.com/files/76791357/download?download_frd=1&verifier=1BGKyFcmfhsEeZfTFXCsbD8b17jaeA10VmwhI4cP"
+        }
+    }
+}

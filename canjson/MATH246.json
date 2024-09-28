@@ -1,0 +1,250 @@
+{
+    "name": "MATH246-0211,0212,0221,0222,0231,0232,0241,0242: Differential Equations for Scientists and Engineers-Fall 2024 jiconway",
+    "assignments": {
+        "6941887": {
+            "name": "Quiz 1",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6941888": {
+            "name": "Quiz 2",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6941889": {
+            "name": "Quiz 3",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6941890": {
+            "name": "Quiz 4",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6941891": {
+            "name": "Quiz 5",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6941892": {
+            "name": "Quiz 6",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6941893": {
+            "name": "Quiz 7",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6941894": {
+            "name": "Quiz 8",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6941895": {
+            "name": "Quiz 9",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6941896": {
+            "name": "Quiz 10",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6941897": {
+            "name": "Exam 1",
+            "due_at": null,
+            "points_possible": 60.0,
+            "score": null,
+            "description": null
+        },
+        "6941898": {
+            "name": "Exam 2",
+            "due_at": null,
+            "points_possible": 0.0,
+            "score": null,
+            "description": null
+        },
+        "6941899": {
+            "name": "Exam 3",
+            "due_at": null,
+            "points_possible": 0.0,
+            "score": null,
+            "description": null
+        },
+        "6941901": {
+            "name": "Matlab Project 1",
+            "due_at": "2024-10-01T03:59:59Z",
+            "points_possible": 0.0,
+            "score": null,
+            "description": null
+        },
+        "6941902": {
+            "name": "Matlab Project 2",
+            "due_at": "2024-11-05T04:59:59Z",
+            "points_possible": 0.0,
+            "score": null,
+            "description": null
+        },
+        "6941904": {
+            "name": "Matlab Project 3",
+            "due_at": "2024-12-05T04:59:59Z",
+            "points_possible": 0.0,
+            "score": null,
+            "description": null
+        },
+        "6941905": {
+            "name": "Final Exam",
+            "due_at": null,
+            "points_possible": 200.0,
+            "score": null,
+            "description": null
+        }
+    },
+    "announcements": {
+        "5494188": {
+            "title": "Matlab not showing graphs",
+            "message": "Dear class, If when publishing your Matlab to PDF it refuses to include a particular figure, try adding \"snapnow\" after the plot. This will force Matlab to include a picture of the most recently generated figure. Jamie Conway",
+            "posted_at": "2024-09-27T01:41:22Z"
+        },
+        "5493308": {
+            "title": "Office Hour Change for Thursday",
+            "message": "Dear students, Please note that this Thursday\u2019s office hours will be via Zoom instead of in person. The time remains the same. For those who need to take the makeup exam, if you have a conflict with Friday\u2019s office hours (1:00 PM - 2:00 PM), you may come to my office at another time on Friday. I am generally available for makeup exams between 10:00 AM and 3:00 PM. However, if you have general questions, please attend the regular office hours on Friday from 1:00 PM to 2:00 PM. Here is the Zoom link for Thursday\u2019s session: https://umd.zoom.us/j/96876736044 Meeting ID: 968 7673 6044 Best, Shuo",
+            "posted_at": "2024-09-26T12:50:56Z"
+        },
+        "5488933": {
+            "title": "Monday and Friday Office Hour Change",
+            "message": "Dear class, I hope that you are all having a great weekend! My regular office hours coincide with workshop talks that I want to attend next week, so I'll move my next Monday office hour from 3:30- 4:30 PM to 4:30 - 5:30 PM, and next Friday office hour from 10:30 - 11:30 AM to 1:30 - 2:30 PM. Please take note of these changes and sorry for the inconvenience. Best, Hancya",
+            "posted_at": "2024-09-21T22:45:27Z"
+        },
+        "5485929": {
+            "title": "Register for Exam Review",
+            "message": "Hi everyone, This announcement is just to remind you all to pre-register for the GSS exam review session taking place tomorrow 9/19 in ESJ 2204 from 5:00 - 7:00 PM so that I know how many exams to print. https://go.umd.edu/learn Thank you, Logan Maroclo",
+            "posted_at": "2024-09-18T15:45:42Z"
+        },
+        "5484555": {
+            "title": "Exam Review Session This Thursday",
+            "message": "Good Afternoon, With the upcoming exam next Tuesday, I will be hosting a 2-hour Guided Study Session on Thursday 09/19 to provide extra exam review. It will NOT be in the same room as our normal sessions and instead will be in ESJ 2204 from 5:00-7:00 PM . Throughout the session, we will be going over two practice exams that I have created. If you are planning on attending, please pre register at the link below so I know how many exams I need to print out. For those of you who cannot attend I have also linked below a google drive of the materials we have used in previous sessions. Pre register Link: (Make sure you register for the 09/19 date) https://umdtltc.mywconline.com/ Google Drive: https://drive.google.com/drive/folders/1VpSY7MJYqAz8HlHjcpz_4lR5jm-ibYLs?usp=sharing Best of Luck, Logan Maroclo",
+            "posted_at": "2024-09-17T15:26:35Z"
+        },
+        "5482687": {
+            "title": "Matlab project",
+            "message": "Dear class, I've had a few questions about where to find the Matlab projects. They are in the Files tab on Canvas, and detailed instructions are on the first page of the PDF. Jamie Conway",
+            "posted_at": "2024-09-15T20:30:28Z"
+        },
+        "5471220": {
+            "title": " Correction on the Last Example from Today's Class",
+            "message": "Dear Students, I hope you are all doing well. I wanted to let you know that there was a minor mistake in the last example we discussed in today's class. I've made the necessary corrections and included an explanation on the last slide of the attached presentation. Additionally, I believe some of you might still have doubts about the limit of the solution as time approaches negative infinity. I've provided more details on this topic in the corrected slides, so please take a moment to review them carefully. Feel free to reach out if you have any questions or need further clarification. I appreciate your understanding! Best, S.",
+            "posted_at": "2024-09-04T21:41:40Z"
+        },
+        "5469900": {
+            "title": "Office hours this week",
+            "message": "Hi class, Because Monday was a holiday, I will hold office hours this week on Wednesday from 2\u20133 in Kirwan 2316. Jamie Conway",
+            "posted_at": "2024-09-03T22:19:04Z"
+        },
+        "5466106": {
+            "title": "ASTS tutoring",
+            "message": "Dear class, Here is a message and an introductory video from our ASTS tutor Jack Rhead: Hello fellow UMD students, My name is Jack Rhead and I am a junior studying mathematics and minoring in business analytics. I am part of the Academic Success and Tutorial Service Program which is free tutoring services to all UMD students. I tutor STAT100, MATH246, STAT400. Having taken these classes, I've been in your shoes and know how tricky it can sometimes be to navigate new content but I am here to help you excel. To schedule an appointment you can access my scheduling hours at umdtutoring.mywconline.com . Thanks for watching and let's help you get that A! If you have any questions, my email is jrhead@terpmail.umd.edu .",
+            "posted_at": "2024-08-30T00:24:33Z"
+        },
+        "5464385": {
+            "title": "MATH246 Guided Study Sessions",
+            "message": "Good Afternoon, My name is Logan Maroclo and I\u2019ll be leading GSS for Conway\u2019s sections this semester. Guided Study Sessions are group review sessions for traditionally difficult courses held twice a week for 50 minutes. Any section of the class is welcome to attend at any time during the semester. Currently, sessions will take place on Tuesdays and Thursdays from 5:00 - 6:00 PM in room MTH0101. Later in the semester I will share a google drive with material used in these sessions for anyone who is not able to make it. Sessions begin next week on Tuesday 9/3 and if you have any questions please feel free to contact me at lmaroclo@terpmail.umd.edu. Thanks, Logan Maroclo",
+            "posted_at": "2024-08-28T19:37:03Z"
+        }
+    },
+    "files": {
+        "79598481": {
+            "display_name": "01 August 27 - 0, I.1, I.2.pdf",
+            "url": "https://umd.instructure.com/files/79598481/download?download_frd=1&verifier=UJWSY9DtzOz54GjH5Humgdo5Ym9rQxxYHrXwnS9b"
+        },
+        "79639955": {
+            "display_name": "02 August 28 - I.2, I.3.pdf",
+            "url": "https://umd.instructure.com/files/79639955/download?download_frd=1&verifier=URC9yX3TcFCvKA4d4cOuKmet8FNXlyg9vqlqc5hH"
+        },
+        "80073993": {
+            "display_name": "03 September 3 - I.4, I.5.pdf",
+            "url": "https://umd.instructure.com/files/80073993/download?download_frd=1&verifier=2NthVuztaexBE0EbbG9kHaQJwyvKScxSVI3ixm5G"
+        },
+        "79735618": {
+            "display_name": "04 September 5 - I.6.pdf",
+            "url": "https://umd.instructure.com/files/79735618/download?download_frd=1&verifier=cdweiLu4s29TMA8wDveOAMHz7rEJoXJKESTv817g"
+        },
+        "79821468": {
+            "display_name": "05 September 10 - I.6, I.7.pdf",
+            "url": "https://umd.instructure.com/files/79821468/download?download_frd=1&verifier=XhAolrxbFXMYcEApSfv9Wr83XEZe4RPclhBXefQF"
+        },
+        "79867569": {
+            "display_name": "06 September 12 - I.7, I.9.pdf",
+            "url": "https://umd.instructure.com/files/79867569/download?download_frd=1&verifier=HciWG8iOqNfImBiStbOang3vHysoskZZE75jUmeP"
+        },
+        "79958415": {
+            "display_name": "07 September 17 - I.9.pdf",
+            "url": "https://umd.instructure.com/files/79958415/download?download_frd=1&verifier=AtLcd9zHnRSL7NT9nPRLbgSH5xh1DeFiCM9Ev3AP"
+        },
+        "80019278": {
+            "display_name": "08 September 19 - II.1 II.2.pdf",
+            "url": "https://umd.instructure.com/files/80019278/download?download_frd=1&verifier=QdkiDQj5ZjwHc0eXDo0VWsKM6izPWrRbs4WHZ2IM"
+        },
+        "80165911": {
+            "display_name": "09 September 26 - II.2, II.3.pdf",
+            "url": "https://umd.instructure.com/files/80165911/download?download_frd=1&verifier=5qmd3xvpj3yy5ggYViEPG4kyiX7VTePL4R5AG5oX"
+        },
+        "79976184": {
+            "display_name": "246_Lecture1_Aug28.pdf",
+            "url": "https://umd.instructure.com/files/79976184/download?download_frd=1&verifier=aryYjhzjUK0m4p95o0jWVeOlSgO2QrT6TSf1t8FM"
+        },
+        "79721375": {
+            "display_name": "246_Lecture2_Sep4.pdf",
+            "url": "https://umd.instructure.com/files/79721375/download?download_frd=1&verifier=FrKmJgaSqMbcMlh9VsZYcUN4swxL99AeKZseYN96"
+        },
+        "79976185": {
+            "display_name": "246_Lecture3_Sep11.pdf",
+            "url": "https://umd.instructure.com/files/79976185/download?download_frd=1&verifier=BSPlcLxX6O6laraF7bI1c3cPYrYurY1JMYqjCQVD"
+        },
+        "80129613": {
+            "display_name": "246_Lecture4_Sep18.pdf",
+            "url": "https://umd.instructure.com/files/80129613/download?download_frd=1&verifier=pCOBoU2LcqQ21riqhfhf1kxeDxI9nIEZigq06Z1x"
+        },
+        "79354801": {
+            "display_name": "Example_Matlab_File.m",
+            "url": "https://umd.instructure.com/files/79354801/download?download_frd=1&verifier=tKhGyJQRTea6e8tyQmjKiyFLjBb94yQkCmQSNxe7"
+        },
+        "79354800": {
+            "display_name": "Example_Matlab_File.pdf",
+            "url": "https://umd.instructure.com/files/79354800/download?download_frd=1&verifier=JEYOgaXbSo92eBWs3MjGY6eMsFxxJiM76H9oKBQZ"
+        },
+        "79961233": {
+            "display_name": "Matlab Project 1.pdf",
+            "url": "https://umd.instructure.com/files/79961233/download?download_frd=1&verifier=mrt3tRGYongDnpVDFvBoU5cnwDHunAfEPUKyaqyQ"
+        },
+        "79971002": {
+            "display_name": "Matlab Project 2.pdf",
+            "url": "https://umd.instructure.com/files/79971002/download?download_frd=1&verifier=SIlvPJlUfjvRt1xwmxTI0pGg8NhaWeoMwbAGDTkp"
+        },
+        "79970985": {
+            "display_name": "Matlab Project 3.pdf",
+            "url": "https://umd.instructure.com/files/79970985/download?download_frd=1&verifier=xCsZAZIQTztEMbEergJBPAVYlhv0jrJybQqJjczo"
+        }
+    }
+}

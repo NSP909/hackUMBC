@@ -1,0 +1,113 @@
+{
+    "name": "CMSC320-0201/DATA320-0201:  Introduction to Data Science-Fall 2024 fardina/",
+    "assignments": {
+        "6938822": {
+            "name": "HW 1 - Pandas and SQL Section",
+            "due_at": "2024-09-20T03:59:59Z",
+            "points_possible": 70.0,
+            "score": null,
+            "description": "Welcome to the first homework of this semester. Follow the directions carefully! \ud83d\udd25 The section and its instructions are linked here Overview: This section (Pandas AND SQL) \u00a0is worth 70 point s, contributing to a total of 100 points for the entire homework. There are 3 Parts to complete in this section. (DON\u2019T REMOVE ANY PART OF THE QUESTIONS) : Part 1: 25 points Part 2: 30 points Part 3: 15 points Note: ~ Start early, as this is a bit of a lengthy homework (YOU GOT THIS!) ~ Submission: Submit your completed notebook (.ipynb) file to the \"HW1- Pandas and SQL Section\" on Gradescope . Late Submission Policy: A 24-hour late submission is allowed with a 15% penalty ."
+        },
+        "6938825": {
+            "name": "HW 1 - Git Section",
+            "due_at": "2024-09-20T03:59:59Z",
+            "points_possible": 30.0,
+            "score": null,
+            "description": "Welcome to the first homework of this semester. Follow the directions carefully! \ud83d\udd25 The section and its instructions are linked here Overview: This section (Git) \u00a0is worth 3 0 point s, contributing to a total of 100 points for the entire homework. Carefully follow the directions in this section to make sure you complete all the tasks successfully. Note: ~ Start early, as this is a bit of a lengthy homework (YOU GOT THIS!) ~ Submission: Submit ONLY the URL link of your completed repository to the\u00a0 \"HW1- Git Section\" on Gradescope . Late Submission Policy: A 24-hour late submission is allowed with a 15% penalty ."
+        },
+        "6947933": {
+            "name": "HW2 - Python & Statistics & Hypothesis Testing",
+            "due_at": "2024-10-02T03:59:59Z",
+            "points_possible": 100.0,
+            "score": null,
+            "description": "The section and its instructions are linked here Overview: This section (Python & Statistics & Hypothesis Testing) \u00a0is worth 100\u00a0point s, contributing to a total of 100 points for the entire homework. There are 3 Parts to complete in this section. (DON\u2019T REMOVE ANY PART OF THE QUESTIONS) : Part 1: 22 points Part 2: 28 points Part 3: 50 points You will use a dataset named \" theft_data_v3.csv \" for a major part of this assignment. Note: ~ Start early, this homework requires some independent research and there are some open-ended questions. ~ Submission: Submit your completed notebook (.ipynb) file to the \"HW2- Python & Statistics & Hypothesis Testing on Gradescope . Late Submission Policy: A 24-hour late submission is allowed with a 15% penalty ."
+        },
+        "6955279": {
+            "name": "HW3 Exploratory Data Analysis ",
+            "due_at": "2024-10-16T03:59:59Z",
+            "points_possible": 100.0,
+            "score": null,
+            "description": "The Colab Assignment is linked here Overview: In class, we emphasized the importance of exploratory data analysis (EDA) and effective visualization. The goal of this assignment is to conduct EDA on the provided datasets using Pandas, adhering to an EDA checklist. You will explore and analyze the data, and visualize your findings, prioritizing best practices in data visualization In this assignment, you will take on the role of a detective tasked with solving a mystery. Using real-world data analysis techniques, you will explore multiple datasets and uncover valuable clues. Please Read all the directions carefully, as not doing say may result in the loss of points. All the files you need for the assignment are located here --> CMSC320 HW3.zip (UPDATE) We made a few adjustment in the notebook file. Please follow the instructions regarding the variable names. Submission: Submit your completed notebook (.ipynb) file to the \"HW3 Exploratory Data Analysis\" on Gradescope . Late Submission Policy: A 24-hour late submission is allowed with a 15% penalty ."
+        },
+        "6927345": {
+            "name": "Midterm 1 ",
+            "due_at": "2024-10-08T19:30:00Z",
+            "points_possible": 100.0,
+            "score": null,
+            "description": "This is a reminder for your exam."
+        },
+        "6936993": {
+            "name": "BONUS Quiz: Course Logistics Introduction ",
+            "due_at": "2024-09-07T03:59:00Z",
+            "points_possible": 5.0,
+            "score": 4.5,
+            "description": "This is a bonus quiz! This quiz consists of 13 questions including MCQ, Fill in the blanks, T/F. The questions are related to course logistics . The students can find the answers from Syllabus (https://cmsc320.github.io/) and Lecture 01. Do not forget to read the course website (https://cmsc320.github.io/), and syllabus along with the slide before taking this quiz. The total time duration is 12 minutes . Each multiple-choice question has only one correct answer . Note that there are no questions from \"Overview of Data Science\" in this quiz . Please manage your time effectively, as multiple attempts are not allowed . Due date: September 06, 2024."
+        },
+        "6947492": {
+            "name": "HackerRank Extra Credit Activity",
+            "due_at": "2024-09-19T20:45:00Z",
+            "points_possible": 8.0,
+            "score": null,
+            "description": "Instructions for submission will be on Gradescope."
+        },
+        "6927330": {
+            "name": "Final Project - Checkpoint 1",
+            "due_at": "2024-09-25T03:59:59Z",
+            "points_possible": 5.0,
+            "score": null,
+            "description": "Final Project Assignment.pdf Checkpoint 1 of the final project is due on Thursday, 9/24 on Gradescope. Don't forget to add your group on there when you submit! Also, write down all group members name and their UID in the PDF that you will submit."
+        },
+        "6927331": {
+            "name": "Final Project - Checkpoint 2",
+            "due_at": "2024-10-23T03:59:59Z",
+            "points_possible": 25.0,
+            "score": null,
+            "description": "Final Project Assignment-1.pdf Checkpoint 2 of the final project is due on Tuesday, October 22 on Gradescope. Remember to include everyone in your group in the submission."
+        },
+        "6927332": {
+            "name": "Final Project Checkpoint 03",
+            "due_at": "2024-12-04T04:59:59Z",
+            "points_possible": 70.0,
+            "score": null,
+            "description": "Final Project Assignment-2.pdf This is a reminder assignment, submit ONLY on gradescope. This is for your ELMS timeline. Again , you do NOT need to submit anything here."
+        }
+    },
+    "announcements": {
+        "5494201": {
+            "title": "Document with List of Pandas/Numpy/Matplotlib Functions/Problems",
+            "message": "Hi everyone, Link: google_doc I\u2019ve shared a document titled \"List of Pandas/Numpy/Matplotlib Functions/Problems\" , which is now open for you to edit. Please add any functions or problems related to Pandas, Numpy, or Matplotlib that you'd like to learn more about, especially if they are needed for homework but haven\u2019t been covered in class . This is to help improve your coding skills in areas that we haven\u2019t had a chance to fully explore during lectures. You have until tomorrow to fill out the document. Based on your input, we will create notes and materials to address the topics you're interested in. Thank you!",
+            "posted_at": "2024-09-27T02:00:10Z"
+        },
+        "5493580": {
+            "title": "Note Taking Recruitment for CMSC320 by ADS",
+            "message": "Dear Students, Do you take well-organized, comprehensive notes? Do you have good penmanship or do you currently type your notes? Why not get paid to share your notes with classmates who are eligible to receive course lecture notes? If you are interested in providing this much needed service to a fellow student, please go to https://go.umd.edu/adsNoteTakers to apply. If you are selected by an eligible student, the Accessibility and Disability Service (ADS) will compensate you with a one-time payment at the end of the semester. Staff at ADS are available to answer any questions you may have. Feel free to contact us at adsnotetaking@umd.edu . Steps to Apply: Go to adsonline.umd.edu and click on Current Students Select the Note Takers icon You will be directed to the Central Authentication Service (CAS); sign in with your UMD Directory ID and Password Set up your Note Taker Profile to apply to be a Note Taker. If previously completed, skip to step 6 by clicking Courses/Notes tab in upper left menu Read and acknowledge (check box) the Confidentiality Agreement Select in which course(s) you would like to serve as a Note Taker for the semester Upload your Sample Notes \u2013 your application will not be complete until this step is finished It is important to understand, if you are applying to serve as a Note Taker in more than one class, sample notes are required for each individual class. </s After ADS reviews your application and it is determined to be complete, you will be considered an eligible Note Taker. If selected by an ADS student who is seeking a Note Taker, you will receive an email from ADS that you have been chosen and should immediately begin uploading notes. The ADS student will see your name and email address. You will not have their information unless they choose to contact you. After receiving the email confirming you are chosen as a Note Taker, please complete the paperwork listed\u00a0at https://go.umd.edu/adsNoteTakers to receive your compensation\u00a0following the\u00a0conclusion of the semester. _______________________ Thank you, ADS Note Taking Staff",
+            "posted_at": "2024-09-26T16:11:49Z"
+        },
+        "5483570": {
+            "title": "September 19th: HackerRank Extra Credit Challenge!",
+            "message": "Dear all, This Thursday's (September 19, 2024) in-class lecture will be canceled , however, in place, we are holding a HackerRank Challenge which will let you earn some extra credit for this course! It will be held in the same lecture hall where the class is normally held. The problems will be posted on Gradescope. You will submit a screenshot on the Gradescope Assignment (more details about the screenshot will be provided in the instructions on submission). This extra credit opportunity will let you earn full or partial credit depending on whether you can solve the problems in the given time. Expect four problems of various difficulties using Python and SQL (these cheatsheets are the documentation that will benefit you mostly while doing the problems). A practice quiz is provided to you with three different problems. You can submit as many times as you wish to test your speed and proficiency. You must attend in person to participate. There will be TAs in the lecture hall who can assist you. We will check timestamps on Gradescope if you submit too late. Feel free to attend online* for those with ADS Accommodations who wish to participate. There will be a Live Q&A Session on Piazza in which one of our TAs will monitor responses. *Edit for those with ADS Accommodations: Feel free to come and stay in the lecture hall for the entirety of the class time (3:30 PM - 4:45 PM) to get help in person and then move to a different location afterward to get help online till 5:30 PM.",
+            "posted_at": "2024-09-17T02:31:46Z"
+        },
+        "5480306": {
+            "title": "Friday 1PM Office Hour Cancellation",
+            "message": "Dear Students, Due to a conflict with my work hours, all Friday 1PM-2PM Zoom office hours are canceled. I apologize for any inconvenience. Please reach out to me via Thursday office hours or at Piazza. I appreciate your understanding. Best regards, Shengjie",
+            "posted_at": "2024-09-12T17:29:22Z"
+        },
+        "5473499": {
+            "title": "About ADS Accommodation",
+            "message": "Dear Students, For those who have requested ADS accommodations, I have already accepted your requests. I have also provided 1.5x time for the bonus quiz. Thank you, Your Professor",
+            "posted_at": "2024-09-06T22:06:48Z"
+        },
+        "5467571": {
+            "title": "A Bonus quiz has been posted on Course Logistics.",
+            "message": "Dear Students, Feel free to take the quiz if you want to earn some bonus points. Please refer to the course website: https://cmsc320.github.io/ and review Slide 01, specifically the \"Course Intro Logistics\" part, to complete the quiz.",
+            "posted_at": "2024-09-01T06:34:24Z"
+        },
+        "5467537": {
+            "title": "About Course Logistic and Communication",
+            "message": "Dear Students, To help with logistics-related requests, such as extensions or grading issues, please use the . Submitting this form will ensure a quicker response. If you do not receive a response within 48 hours, email cmsc320gradingissues.dr.fardina@gmail.com . Include relevant tags at the beginning of your email subject line, such as [hw_extension/req], [project_extension/req], [gradeissue], etc. If you have a request that does not fit into one of these categories, then email me at fardina@umd.edu with [CMSC320] in the subject line. For assignment or project-related issues, please utilize the TA's office hours and the Piazza platform. I will be adding more TA office hours soon. Enjoy your weekend! Your Professor",
+            "posted_at": "2024-08-31T23:44:56Z"
+        }
+    },
+    "files": {}
+}

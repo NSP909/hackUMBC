@@ -1,0 +1,470 @@
+{
+    "name": "CMSC351-WB21: Algorithms-Summer II 2024 immortal",
+    "assignments": {
+        "6827691": {
+            "name": "hw-1",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 88.8,
+            "description": null
+        },
+        "6833465": {
+            "name": "hw-2",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 100.0,
+            "description": null
+        },
+        "6833466": {
+            "name": "hw-3",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 100.0,
+            "description": null
+        },
+        "6833469": {
+            "name": "hw-4",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 100.0,
+            "description": null
+        },
+        "6833470": {
+            "name": "hw-5",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 100.0,
+            "description": null
+        },
+        "6833471": {
+            "name": "hw-6",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 100.0,
+            "description": null
+        },
+        "6833472": {
+            "name": "hw-7",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 97.5,
+            "description": null
+        },
+        "6833473": {
+            "name": "hw-8",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 100.0,
+            "description": null
+        },
+        "6833474": {
+            "name": "hw-9",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 95.0,
+            "description": null
+        },
+        "6833475": {
+            "name": "hw-10",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 100.0,
+            "description": null
+        },
+        "6833476": {
+            "name": "hw-11",
+            "due_at": null,
+            "points_possible": 100.0,
+            "score": 95.0,
+            "description": null
+        },
+        "6785526": {
+            "name": "Exam 1 Canvas",
+            "due_at": "2024-07-22T03:59:59Z",
+            "points_possible": 50.0,
+            "score": 50.0,
+            "description": null
+        },
+        "6838587": {
+            "name": "Exam 2 Canvas",
+            "due_at": "2024-08-05T03:59:00Z",
+            "points_possible": 50.0,
+            "score": 50.0,
+            "description": null
+        },
+        "6866475": {
+            "name": "Exam 3 Canvas",
+            "due_at": "2024-08-19T03:59:59Z",
+            "points_possible": 50.0,
+            "score": 48.0,
+            "description": null
+        },
+        "6833467": {
+            "name": "we-2",
+            "due_at": null,
+            "points_possible": 50.0,
+            "score": 49.0,
+            "description": null
+        },
+        "6833468": {
+            "name": "we-3",
+            "due_at": null,
+            "points_possible": 50.0,
+            "score": 43.9999,
+            "description": null
+        }
+    },
+    "announcements": {
+        "5416862": {
+            "title": "Sunday Announcement!",
+            "message": "I'm sending this via Canvas since Piazza is inactive during the exam.\u00a0 Note the following: Exams need to be submitted by midnight tonight! No exceptions! The two videos for hw8 and hw8 itself have been released.\u00a0 This due date has been shifted to Tuesday.\u00a0 I'm going to shift hw9 to Friday and those are the final two changes - hw10 will be due the following Monday and hw11 (the last one) the last Thursday of classes. I'm going to record the videos for hw9 and hw9 itself tomorrow. Since nothing is due tomorrow (Monday) I'm going to have in-person office hours Tuesday and Thursday and zoom office hours on Wednesday. I'll be putting details on the Canvas home page shortly. Good luck to those still working on the exams!",
+            "posted_at": "2024-08-04T19:41:52Z"
+        },
+        "5408392": {
+            "title": "Exam 1 multiple choice still active!",
+            "message": "My comment only relates to the written part of the exam. The canvas multiple choice exam is still active and counted.",
+            "posted_at": "2024-07-21T22:32:32Z"
+        },
+        "5408391": {
+            "title": "Exam 1 - The Situation",
+            "message": "Here's the long story:\u00a0 When I wrote the exam I coded the answers in red. Then I added a line of code which made them white (so nobody could see them) and uploaded that copy.\u00a0 However it was brought to my attention that (a) there are various hotkey combinations which would make the white visible in a PDF viewer, and (b) if you cut-and-paste the exam text from the PDF to a text editor and remove the formatting, the answers reappeared. This was brought to my attention by a student who was understandably concerned about academic dishonesty issues.\u00a0 I have no idea whether any other students knew this, or did this, or anything, but the fact of the matter it's just too great a risk. It's not feasible to write another exam and try to run it within the next few days - this would not be fair on anyone. THUS - I'm simply going to cancel this exam and remove it from the syllabus. I realize this may upset some people, especially those who had spent time working on it, but truth be told no single solution will be ideal for everyone. Again - apologies for this, it was a lesson learned for me, and I'm sorry you had to deal with it.",
+            "posted_at": "2024-07-21T22:23:38Z"
+        },
+        "5408332": {
+            "title": "Exam 1 - Written Exam Serious Issue",
+            "message": "There has been a serious issue with the written portion of the first exam and I will have to shut it down.\u00a0 I apologize for this. For now - please work on the canvas version and I'll write more later. My sincere apologies for this.",
+            "posted_at": "2024-07-21T16:12:51Z"
+        },
+        "5397697": {
+            "title": "Office Hours Survey - Please Fill In!",
+            "message": "If you're not on Piazza, or following the posts - In order to help set up office hours I've set up a survey to get your feedback. This should take you no more than 30 seconds. Please go to Canvas->Quizzes->Surveys->Office Hours Poll 1 and answer the two questions. Thank you! Also - please join the course on Piazza!",
+            "posted_at": "2024-06-30T16:09:02Z"
+        }
+    },
+    "files": {
+        "79040317": {
+            "display_name": "exam-1-sample-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79040317/download?download_frd=1&verifier=UfcA0oe7OATDGhGnQeqqXTOZXGM1Ny8amjJGPFfB"
+        },
+        "79037223": {
+            "display_name": "exam-1-sample.pdf",
+            "url": "https://umd.instructure.com/files/79037223/download?download_frd=1&verifier=HIbq4Gkk6JCSFfwO1kgQOYljQ9QILQkcHWzvHL0c"
+        },
+        "79059134": {
+            "display_name": "exam-1-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79059134/download?download_frd=1&verifier=HIZNc6DW1vuQt8VlZrAR4Kk4B9LM5alKd5AfrWrb"
+        },
+        "79059133": {
+            "display_name": "exam-1.pdf",
+            "url": "https://umd.instructure.com/files/79059133/download?download_frd=1&verifier=yuItZPE6pKHP0kzFZu1qQxDr74XgkmuzelisQhdR"
+        },
+        "79141240": {
+            "display_name": "exam-2-sample-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79141240/download?download_frd=1&verifier=WZmiU8d577cCTiACN4kOw1Q3iUdcoIEA1JsTde8L"
+        },
+        "79144887": {
+            "display_name": "exam-2-sample.pdf",
+            "url": "https://umd.instructure.com/files/79144887/download?download_frd=1&verifier=h3k2UhrdieTFHwkgy8XH7jPH0esC6cZYU9SEkZbF"
+        },
+        "79182608": {
+            "display_name": "exam-2-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79182608/download?download_frd=1&verifier=zb5B5XPIzFjlyYzi0rp92F9Pj4wWX2OAuuKjNI6Q"
+        },
+        "79182303": {
+            "display_name": "exam-2.pdf",
+            "url": "https://umd.instructure.com/files/79182303/download?download_frd=1&verifier=GHvtIwS22EGLkFcR10aZTDDByYIBv8iILUDmp3Yr"
+        },
+        "79305817": {
+            "display_name": "exam-3-sample-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79305817/download?download_frd=1&verifier=ibHcDzAKwVdiRCU7FGv8PPW9SLPQyTy7NBxaOuUT"
+        },
+        "79300521": {
+            "display_name": "exam-3-sample.pdf",
+            "url": "https://umd.instructure.com/files/79300521/download?download_frd=1&verifier=FmFDJ1Oxl4OBCBwNLFAjR0093WQEZQsM0JopN7kx"
+        },
+        "78993930": {
+            "display_name": "hw-1-solutions.pdf",
+            "url": "https://umd.instructure.com/files/78993930/download?download_frd=1&verifier=GQgr3vucrJyy4AiI8N5UDkapBPqJjQcy0uEcBsVJ"
+        },
+        "78947378": {
+            "display_name": "hw-1.pdf",
+            "url": "https://umd.instructure.com/files/78947378/download?download_frd=1&verifier=ZeKSQXAq1MyaAL05b8unJkmX2ZSLNYmHecBKDIH8"
+        },
+        "78947379": {
+            "display_name": "hw-1.tex",
+            "url": "https://umd.instructure.com/files/78947379/download?download_frd=1&verifier=lChNZiQSHSe0H4S0S5DCOdeAh1ynACuglOx7Ilm0"
+        },
+        "79089398": {
+            "display_name": "hw-2-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79089398/download?download_frd=1&verifier=kKWkJqwvmkdXxJt2dcvwWRFwOFUZdFQm0atqxqfj"
+        },
+        "78958351": {
+            "display_name": "hw-2.pdf",
+            "url": "https://umd.instructure.com/files/78958351/download?download_frd=1&verifier=RTpKvWqWOSZBBtEgDnSuG8Zjgh22lQy1aOtHERsH"
+        },
+        "78958350": {
+            "display_name": "hw-2.tex",
+            "url": "https://umd.instructure.com/files/78958350/download?download_frd=1&verifier=M8xT07d418wkgQDjI3jSwVuhxsnJtDBzKpAos5RM"
+        },
+        "79059148": {
+            "display_name": "hw-3-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79059148/download?download_frd=1&verifier=wz0AkaG2Qgr2avjZ4iUrhjk7XDtJWeta4OF9GLAH"
+        },
+        "78972918": {
+            "display_name": "hw-3.pdf",
+            "url": "https://umd.instructure.com/files/78972918/download?download_frd=1&verifier=jkBOsJ5d1jVHTvYGSbkS37bhtKEnYV6X0k3vlaWx"
+        },
+        "78972917": {
+            "display_name": "hw-3.tex",
+            "url": "https://umd.instructure.com/files/78972917/download?download_frd=1&verifier=IRaD3qb9AIQ5ix97vewP3zlhvOXcaTT6MVs7J2b7"
+        },
+        "79098904": {
+            "display_name": "hw-4-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79098904/download?download_frd=1&verifier=4j9tyO0pRRxOcLXKFGIiKof3YcbumRKxpRk6MNih"
+        },
+        "79059125": {
+            "display_name": "hw-4.pdf",
+            "url": "https://umd.instructure.com/files/79059125/download?download_frd=1&verifier=yIOOKo0HGYAvxjLVdgpYkL9rN4GVGATjQC9xaj5I"
+        },
+        "79059126": {
+            "display_name": "hw-4.tex",
+            "url": "https://umd.instructure.com/files/79059126/download?download_frd=1&verifier=QKoHU8SxjYgAOsYyPw8kLIOyfxWjNfa8ncgJnBFZ"
+        },
+        "79101528": {
+            "display_name": "hw-5-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79101528/download?download_frd=1&verifier=lL0n78kXfvaw9QzxmTelmf54UQxjKox7Zr0w4jhO"
+        },
+        "79087386": {
+            "display_name": "hw-5.pdf",
+            "url": "https://umd.instructure.com/files/79087386/download?download_frd=1&verifier=cCbPYlQY8fH3h6USmXOLT3Yq5lGAh1CFZr40F3AI"
+        },
+        "79087387": {
+            "display_name": "hw-5.tex",
+            "url": "https://umd.instructure.com/files/79087387/download?download_frd=1&verifier=mxdIQblsB1lm0EMdS8Xd2jfkJF9xr6fZ9NyuG4yG"
+        },
+        "79181820": {
+            "display_name": "hw-6-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79181820/download?download_frd=1&verifier=XPlHc9H3EIzx0TYGU0YT6uK0hID2Tj19yyuqfIG8"
+        },
+        "79098913": {
+            "display_name": "hw-6.pdf",
+            "url": "https://umd.instructure.com/files/79098913/download?download_frd=1&verifier=u28X9Tynlt7JNqWavmq1NKVjxUGUEOHPy7oEVOKR"
+        },
+        "79098914": {
+            "display_name": "hw-6.tex",
+            "url": "https://umd.instructure.com/files/79098914/download?download_frd=1&verifier=tHtHPzDqqCgFdB76jPNkCx0Zni8QtxhSelyLfLvp"
+        },
+        "79223419": {
+            "display_name": "hw-7-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79223419/download?download_frd=1&verifier=A8eroYvFYSvjW1bacrgyBSEe0OtGLJsFJyTncQ37"
+        },
+        "79096546": {
+            "display_name": "hw-7.pdf",
+            "url": "https://umd.instructure.com/files/79096546/download?download_frd=1&verifier=y9cD1tx9kydBfJ7OYuE2Cslew2MmpvdCEypoiuok"
+        },
+        "79096547": {
+            "display_name": "hw-7.tex",
+            "url": "https://umd.instructure.com/files/79096547/download?download_frd=1&verifier=nHvCE4xXq0EkaQZLkSyPjPs9UCntQXrQTDSEXrrT"
+        },
+        "79223420": {
+            "display_name": "hw-8-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79223420/download?download_frd=1&verifier=hBL9LGSONQgh3p3Zr4G9O1P4fJebreuwfrcOFpvk"
+        },
+        "79174486": {
+            "display_name": "hw-8.pdf",
+            "url": "https://umd.instructure.com/files/79174486/download?download_frd=1&verifier=jCKVk3ETVpcn6yeV2U3GQCdFReqNBPXvccWWPLE9"
+        },
+        "79174485": {
+            "display_name": "hw-8.tex",
+            "url": "https://umd.instructure.com/files/79174485/download?download_frd=1&verifier=bdj0bRmNLR3KpLRD6QOLE7Rr2IHX7on49RwU2wYY"
+        },
+        "79250757": {
+            "display_name": "hw-9-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79250757/download?download_frd=1&verifier=gYuItEoch2dYWXNwsKqEuwpbcg2tRyYN2r0nBy1B"
+        },
+        "79179722": {
+            "display_name": "hw-9.pdf",
+            "url": "https://umd.instructure.com/files/79179722/download?download_frd=1&verifier=LbStZmo2CSUFddp12xV4Lk8cshXGTCWf8pmn9EJh"
+        },
+        "79179723": {
+            "display_name": "hw-9.tex",
+            "url": "https://umd.instructure.com/files/79179723/download?download_frd=1&verifier=MdREfBRV5kj9T1fo0QgazaVpMkeiLSKHkczpHbKi"
+        },
+        "79300510": {
+            "display_name": "hw-10-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79300510/download?download_frd=1&verifier=c3xWclJf9DjlYlRuGG2sW6ZBB1dMPA1edtUvJqZA"
+        },
+        "79209043": {
+            "display_name": "hw-10.pdf",
+            "url": "https://umd.instructure.com/files/79209043/download?download_frd=1&verifier=CX4E9A6wwZtZUpVUZF4jk6ON1TttsK7WSxqNnCnn"
+        },
+        "79209044": {
+            "display_name": "hw-10.tex",
+            "url": "https://umd.instructure.com/files/79209044/download?download_frd=1&verifier=cSwZ1kDVcgLty4ovM7dGWLRnUJ3KP0v1ZICw2mn2"
+        },
+        "79324595": {
+            "display_name": "hw-11-solutions.pdf",
+            "url": "https://umd.instructure.com/files/79324595/download?download_frd=1&verifier=mQo8wMlfIVlcgXTgwIHdYEk3FSEXhUzzmNqi9phJ"
+        },
+        "79226449": {
+            "display_name": "hw-11.pdf",
+            "url": "https://umd.instructure.com/files/79226449/download?download_frd=1&verifier=3mjPNwuL5o6ro4aUDJYOnM0VRhuUjfX91Km6wCgN"
+        },
+        "79226451": {
+            "display_name": "hw-11.tex",
+            "url": "https://umd.instructure.com/files/79226451/download?download_frd=1&verifier=PF2EnZpJmlIc79py6WfyqvQan9od95nkV9uSY8yj"
+        },
+        "78787272": {
+            "display_name": "Topic-01-coin-changing.pdf",
+            "url": "https://umd.instructure.com/files/78787272/download?download_frd=1&verifier=zzCow9ZGtCKgPHk4NeO0NmZsgkyKURoZpoQo3wVJ"
+        },
+        "78804499": {
+            "display_name": "Topic-02-bigs-Part-1.pdf",
+            "url": "https://umd.instructure.com/files/78804499/download?download_frd=1&verifier=OiZyF2KXaxZTrpQIoaFIHsvduGkdD5aohnYQGjO6"
+        },
+        "78805670": {
+            "display_name": "Topic-02-bigs-Part-2.pdf",
+            "url": "https://umd.instructure.com/files/78805670/download?download_frd=1&verifier=KLfJCy2V7UGT9NcrrQeoKc3Fkh9av46J5t8HCCJp"
+        },
+        "78807793": {
+            "display_name": "Topic-02-bigs-Part-3.pdf",
+            "url": "https://umd.instructure.com/files/78807793/download?download_frd=1&verifier=xBtNe372Cxnf7r3rK6k54pgNiwCCDj6HreBt2bPB"
+        },
+        "78819176": {
+            "display_name": "Topic-03-time-requirements.pdf",
+            "url": "https://umd.instructure.com/files/78819176/download?download_frd=1&verifier=W7HwgulLwKd4cpFJVEZ222PcenDGb6wgoZODXtOA"
+        },
+        "78823301": {
+            "display_name": "Topic-04-maximum-contiguous-sum-Part-1.pdf",
+            "url": "https://umd.instructure.com/files/78823301/download?download_frd=1&verifier=teRHFri6I4byI18b25GyP7ygJW1Nb6z2ErxN65E0"
+        },
+        "78823979": {
+            "display_name": "Topic-04-maximum-contiguous-sum-Part-2.pdf",
+            "url": "https://umd.instructure.com/files/78823979/download?download_frd=1&verifier=M7lKZlVjxHsHKz9gcuLUvKuQhDWlHJvqffmmFo0Z"
+        },
+        "78824415": {
+            "display_name": "Topic-04-maximum-contiguous-sum-Part-3.pdf",
+            "url": "https://umd.instructure.com/files/78824415/download?download_frd=1&verifier=iWEySVodCgtmnPQLvjDLtA4TR7rmXcqaVm11ECSW"
+        },
+        "78894022": {
+            "display_name": "Topic-05-sorting-overview-and-definitions.pdf",
+            "url": "https://umd.instructure.com/files/78894022/download?download_frd=1&verifier=4758VSm1cYaHx8jKds1HIvhO5qat9AOjRssDFees"
+        },
+        "78894101": {
+            "display_name": "Topic-06-bubble-sort.pdf",
+            "url": "https://umd.instructure.com/files/78894101/download?download_frd=1&verifier=8EwFNEFHZb7AC8bpDWL8SNnmL7KlPq5JIezN3OK2"
+        },
+        "78897136": {
+            "display_name": "Topic-07-selection-sort.pdf",
+            "url": "https://umd.instructure.com/files/78897136/download?download_frd=1&verifier=JVooPgRD5lHPdCUZBa90tMoJ6tHDUKrfPY6aOceD"
+        },
+        "78969525": {
+            "display_name": "Topic-08-insertion-sort.pdf",
+            "url": "https://umd.instructure.com/files/78969525/download?download_frd=1&verifier=Rhen9ClJlbCVzOgMNE6GUaCc04Ijeg722CWhptMt"
+        },
+        "78969982": {
+            "display_name": "Topic-09-binary-search.pdf",
+            "url": "https://umd.instructure.com/files/78969982/download?download_frd=1&verifier=APTTzifUztOfEnofa1zcvYJ128C3R62H2vHnIjch"
+        },
+        "78970788": {
+            "display_name": "Topic-10-recurrence-and-digging-down.pdf",
+            "url": "https://umd.instructure.com/files/78970788/download?download_frd=1&verifier=5IPNEqXCHopHcOieoYtE20QIkKCHPnDGuuiKnwDi"
+        },
+        "79016810": {
+            "display_name": "Topic-11-recurrence-trees.pdf",
+            "url": "https://umd.instructure.com/files/79016810/download?download_frd=1&verifier=2FPWBOMTRYH2m9bHlKtMmynrWeTZ7mCze6R6L34Y"
+        },
+        "79044765": {
+            "display_name": "Topic-12-master-theorem.pdf",
+            "url": "https://umd.instructure.com/files/79044765/download?download_frd=1&verifier=hRKjGCLu78VMXLi0u02hwgSOXVGlR6yysxQp21Xf"
+        },
+        "79046315": {
+            "display_name": "Topic-13-merge-sort.pdf",
+            "url": "https://umd.instructure.com/files/79046315/download?download_frd=1&verifier=jZxSzwCh0yLSgHV0vlDlmsWejoztS0AiXbuiXXel"
+        },
+        "79052174": {
+            "display_name": "Topic-14-heaps.pdf",
+            "url": "https://umd.instructure.com/files/79052174/download?download_frd=1&verifier=B5tlKhgbjxvVfPjTnM9d3qYWRcCd08mjKNwkWsWq"
+        },
+        "79057291": {
+            "display_name": "Topic-15-heap-sort.pdf",
+            "url": "https://umd.instructure.com/files/79057291/download?download_frd=1&verifier=vzwl6KDCOBfQGnqIyg84yKclY7U2bIapMMnTAvzr"
+        },
+        "79065825": {
+            "display_name": "Topic-16-quick-sort.pdf",
+            "url": "https://umd.instructure.com/files/79065825/download?download_frd=1&verifier=m3KAbzTmT2p4ksFkx8QmV0Q1UXc3Cndh8mgGomu0"
+        },
+        "79092202": {
+            "display_name": "Topic-17-counting-sort.pdf",
+            "url": "https://umd.instructure.com/files/79092202/download?download_frd=1&verifier=ZTPRU7PuFMwm6arXMcMAJLs4n8nBMcdqBxkzLtBJ"
+        },
+        "79093132": {
+            "display_name": "Topic-18-radix-sort.pdf",
+            "url": "https://umd.instructure.com/files/79093132/download?download_frd=1&verifier=hSGfqiIgeBm3dSAJnAqp6Z6F2vxERyobwXwaXHtT"
+        },
+        "79095158": {
+            "display_name": "Topic-19-karatsuba-part-1.pdf",
+            "url": "https://umd.instructure.com/files/79095158/download?download_frd=1&verifier=PpMkwer61d41yq9RA5UH1A9n9aLMh9kMTzW1saGw"
+        },
+        "79095159": {
+            "display_name": "Topic-20-karatsuba-part-2.pdf",
+            "url": "https://umd.instructure.com/files/79095159/download?download_frd=1&verifier=DWQtDpPpCwJsZKeTb4itwJ1S0mSitrKDRYHsRQrc"
+        },
+        "79099040": {
+            "display_name": "Topic-21-graphs.pdf",
+            "url": "https://umd.instructure.com/files/79099040/download?download_frd=1&verifier=XLMpqEhMPSmFIEXH8Y9xZaBsw8Osix1frjzgFkoh"
+        },
+        "79099160": {
+            "display_name": "Topic-22-shortest-path-algorithm.pdf",
+            "url": "https://umd.instructure.com/files/79099160/download?download_frd=1&verifier=sMNe7wFLy9qfmcPe5RBsxukdVcGVOTV0B1MU8pOE"
+        },
+        "79099594": {
+            "display_name": "Topic-23-bft.pdf",
+            "url": "https://umd.instructure.com/files/79099594/download?download_frd=1&verifier=Y2VEnbZkV68UaF9TvmoBSO29uhdx6XMk6S0z7R39"
+        },
+        "79099595": {
+            "display_name": "Topic-24-dft.pdf",
+            "url": "https://umd.instructure.com/files/79099595/download?download_frd=1&verifier=hg6BH5q6HFbgqFDQMmQf3TlrOp1R6ii5ezZ6j7Pa"
+        },
+        "79152182": {
+            "display_name": "Topic-25-dijkstra.pdf",
+            "url": "https://umd.instructure.com/files/79152182/download?download_frd=1&verifier=iLpqEdzLK9bWIYslW28ct6nSbthOSHIMXyyvBGf4"
+        },
+        "79153149": {
+            "display_name": "Topic-26-floyd.pdf",
+            "url": "https://umd.instructure.com/files/79153149/download?download_frd=1&verifier=wkJNirbPE0yRxDopWomneHmcXQS3mOeLWvQ0jaH7"
+        },
+        "79171790": {
+            "display_name": "Topic-27-minimal-spanning-trees.pdf",
+            "url": "https://umd.instructure.com/files/79171790/download?download_frd=1&verifier=TgV1fql0gatPoA4Gt6DuP5LwBsx82mRLpmpl2usX"
+        },
+        "79195547": {
+            "display_name": "Topic-28-prim.pdf",
+            "url": "https://umd.instructure.com/files/79195547/download?download_frd=1&verifier=T07eRs6YL9kzXXq5WlzVFGLwxrTyAxqnwCLmN1Dj"
+        },
+        "79171792": {
+            "display_name": "Topic-29-kruskal.pdf",
+            "url": "https://umd.instructure.com/files/79171792/download?download_frd=1&verifier=SfJHg1mpi5cD8ezI4fOYrAZBjevdquGjaZI13yZ6"
+        },
+        "79173480": {
+            "display_name": "Topic-30-minimax.pdf",
+            "url": "https://umd.instructure.com/files/79173480/download?download_frd=1&verifier=fcx1AiDY3pUQlay5uBunmCcwyhsGGhanPzUhTsAc"
+        },
+        "79175242": {
+            "display_name": "Topic-31-huffman.pdf",
+            "url": "https://umd.instructure.com/files/79175242/download?download_frd=1&verifier=FpJnFt3FjAx5ke0bBRXJEbaRTDavefu8I1KrXIGU"
+        },
+        "79191864": {
+            "display_name": "Topic-32-P-and-NP-Part-1.pdf",
+            "url": "https://umd.instructure.com/files/79191864/download?download_frd=1&verifier=4vLYbuD6PO2CKAD0lJkE8s7C6GpCNeYXfjoZFrNG"
+        },
+        "79223718": {
+            "display_name": "Topic-33-P-and-NP-Part-2.pdf",
+            "url": "https://umd.instructure.com/files/79223718/download?download_frd=1&verifier=oYW0KxNnZS8Btqm2nDy5ownwwRH35RNVfLqYolpO"
+        },
+        "79250187": {
+            "display_name": "Topic-34-P-and-NP-Part-3.pdf",
+            "url": "https://umd.instructure.com/files/79250187/download?download_frd=1&verifier=bvudUVs6Ywks1aXO8UxIoorkltKk6TnKCT47ibdb"
+        }
+    }
+}

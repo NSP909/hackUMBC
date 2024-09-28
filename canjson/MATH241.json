@@ -1,0 +1,288 @@
+{
+    "name": "MATH241-0311,0312,0321,0322,0331,0332,0341,0342: Calculus III-Fall 2024 jiconway",
+    "assignments": {
+        "6829911": {
+            "name": "MATLAB Project 1",
+            "due_at": "2024-10-01T03:59:59Z",
+            "points_possible": 100.0,
+            "score": null,
+            "description": null
+        },
+        "6829912": {
+            "name": "MATLAB Project 2",
+            "due_at": "2024-10-29T03:59:00Z",
+            "points_possible": 80.0,
+            "score": null,
+            "description": null
+        },
+        "6829913": {
+            "name": "MATLAB Project 3",
+            "due_at": "2024-12-10T04:59:59Z",
+            "points_possible": 80.0,
+            "score": null,
+            "description": null
+        },
+        "6829914": {
+            "name": "Quiz 1",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6829915": {
+            "name": "Quiz 2",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 19.0,
+            "description": null
+        },
+        "6829916": {
+            "name": "Quiz 3",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": 20.0,
+            "description": null
+        },
+        "6829917": {
+            "name": "Quiz 4",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6829918": {
+            "name": "Quiz 5",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6829919": {
+            "name": "Quiz 6",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6829920": {
+            "name": "Quiz 7",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6829921": {
+            "name": "Quiz 8",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6829922": {
+            "name": "Quiz 9",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6833149": {
+            "name": "Quiz 10",
+            "due_at": null,
+            "points_possible": 20.0,
+            "score": null,
+            "description": null
+        },
+        "6829906": {
+            "name": "Exam 1",
+            "due_at": null,
+            "points_possible": 50.0,
+            "score": null,
+            "description": null
+        },
+        "6829907": {
+            "name": "Exam 2",
+            "due_at": null,
+            "points_possible": 50.0,
+            "score": null,
+            "description": null
+        },
+        "6829908": {
+            "name": "Exam 3",
+            "due_at": null,
+            "points_possible": 50.0,
+            "score": null,
+            "description": null
+        },
+        "6829910": {
+            "name": "Final Exam",
+            "due_at": null,
+            "points_possible": 200.0,
+            "score": null,
+            "description": null
+        }
+    },
+    "announcements": {
+        "5494189": {
+            "title": "Matlab not showing graphs",
+            "message": "Dear class, If when publishing your Matlab to PDF it refuses to include a particular figure, try adding \"snapnow\" after the plot. This will force Matlab to include a picture of the most recently generated figure. Jamie Conway",
+            "posted_at": "2024-09-27T01:41:25Z"
+        },
+        "5491834": {
+            "title": "Today's Activities for Review",
+            "message": "Hey everyone, Here is what we did today in the GSS Session (with my solutions). Good luck tomorrow on your exam!! 9-24 Activities.pdf",
+            "posted_at": "2024-09-24T21:45:00Z"
+        },
+        "5491109": {
+            "title": "This Week's GSS Sessions",
+            "message": "Hey everyone, I'll be holding two more GSS Sessions this week T/Th from 4:00pm - 4:50pm in MTH0103. Tuesday will be a final review of Chapters 11 and 12 before your exam on Wednesday. Thursday will be a quick review after the exam to clear up lasting questions before moving on to also cover 13.1. Like last week, if you plan to come please pre-register attendance at this link Links to an external site. (an account corresponding to your ELMS login has already been made). If you have trouble registering I can help during the session. I've also attached both of last week's activities for those who couldn't attend. 9-17 Activities.pdf 9-19 Activities.pdf",
+            "posted_at": "2024-09-24T16:01:07Z"
+        },
+        "5483489": {
+            "title": "This Week's GSS Sessions",
+            "message": "Hey everyone, I'll be holding two more GSS Sessions this week T/Th from 4:00pm - 4:50pm in MTH0103. We'll be covering more on vector valued functions. Tuesday will cover sections 12.1, 3, & 4 and Thursday will cover through section 12.5. Like last week, if you plan to come please pre-register attendance at this link (an account corresponding to your ELMS login has already been made). If you have trouble registering I can help during the session. I've also attached both of last week's activities for those who couldn't attend. 9-10 Activities.pdf 9-12 Activities.pdf",
+            "posted_at": "2024-09-16T17:00:08Z"
+        },
+        "5482689": {
+            "title": "Matlab project",
+            "message": "Dear class, I've had a few questions about where to find the Matlab projects. They are in the Files tab on Canvas, and detailed instructions are on the first page of the PDF. Jamie Conway",
+            "posted_at": "2024-09-15T20:30:54Z"
+        },
+        "5479790": {
+            "title": "Quiz 2 tomorrow",
+            "message": "Dear class, The quiz tomorrow covers 11.4 and 11.5, not 11.6. On Canvas, it originally said 11.6, but that was a typo, I'm sorry! Section 11.6 is not on the quiz. Jamie Conway",
+            "posted_at": "2024-09-12T02:29:52Z"
+        },
+        "5478652": {
+            "title": "Today's class video",
+            "message": "Dear class, Our recording service was acting up today, and couldn't connect to the server. I still hope to be able to upload our video, but for now, I have copied the video of today's material from when I taught this course in Spring 2024. Jamie Conway",
+            "posted_at": "2024-09-11T18:55:26Z"
+        },
+        "5477511": {
+            "title": "Water bottle left at discussion section",
+            "message": "Someone left a black water bottle in the back of class today (photo attached). It\u2019s in the math department lost and found in Kirwan 1300.",
+            "posted_at": "2024-09-10T19:23:28Z"
+        },
+        "5475146": {
+            "title": "This Week's GSS Sessions",
+            "message": "Hey everyone, I'll be holding two GSS Sessions this week on T/Th from 4pm - 4:50pm in MTH0103. We'll be covering the Cross Product, Lines, and Planes on Tuesday and Section 12.1 (Definitions/Intro to Vector Valued Functions) on Thursday. Also, if you plan to attend either session this week, we ask that you pre-register for them at this link . This link is to MyWCOnline, the website GSS uses to track our attendance. An account with your ELMS login credentials should already be created for you to log in to. If you have any issues registering for a session, please still attend. We can figure out the issue together at the session. I've also attached last week's Tuesday activity to this announcement for those who could not attend. 9-3 Activities.pdf",
+            "posted_at": "2024-09-09T17:00:03Z"
+        },
+        "5471902": {
+            "title": "GSS Session Canceled",
+            "message": "Hey everyone, Unfortunately I\u2019m away from campus so today\u2019s GSS Session is cancelled. Next week\u2019s sessions are unaffected and will be T/Th 4pm-5pm in MTH0103.",
+            "posted_at": "2024-09-05T16:10:01Z"
+        },
+        "5469899": {
+            "title": "Office hours this week",
+            "message": "Hi class, Because Monday was a holiday, I will hold office hours this week on Wednesday from 2\u20133 in Kirwan 2316. Jamie Conway",
+            "posted_at": "2024-09-03T22:18:50Z"
+        },
+        "5468749": {
+            "title": "Today\u2019s GSS Session",
+            "message": "Hello everyone, I\u2019ll be holding the first GSS Session of the semester today in MTH0103 from 4pm-4:50pm. We\u2019ll cover 3D Space and vectors/vector multiplication. Stop by if you have any questions about the material so far.",
+            "posted_at": "2024-09-03T14:00:06Z"
+        },
+        "5463356": {
+            "title": "GSS Session Info",
+            "message": "Hey everyone, Like I said on the first day, I\u2019m Josh, your GSS Leader for this semester. I\u2019ll be holding 2 50 minute sessions each week throughout the whole semester to review lecture topics and practice problems. The purpose of these sessions is to give you guys time to work through the concepts in a collaborative environment. We\u2019ll do things like games, partners, board work, etc. I\u2019m looking forward to this semester and if anyone has questions about the structure of GSS feel free to reach out, my email should be on ELMS. I\u2019ve included the basic information about the sessions like time/place below: Times: T/Th 4pm-5pm (Sessions start Tuesday, 9/3) Place: MTH0103",
+            "posted_at": "2024-08-30T16:50:00Z"
+        },
+        "5465262": {
+            "title": "CLARIFICATION: 0311 & 0321 discussion in MTH 0102 today only",
+            "message": "Hi 0311 and 0321, My apologies, the room change to BPS 1228 starts next Tuesday. Today (Thursday) will still be in MTH 0102. Best, Derek",
+            "posted_at": "2024-08-29T14:44:44Z"
+        },
+        "5465237": {
+            "title": "0311 & 0321 discussion room changed to BPS 1228",
+            "message": "Hey all, The room for the 12pm 0311 discussion and the 1pm 0321 discussion today has been changed to BPS 1228 (Biology-Psychology Building). Sorry for the late notice, I was just told this myself! Best, Derek",
+            "posted_at": "2024-08-29T14:29:00Z"
+        },
+        "5454134": {
+            "title": "Math 241 \u2014 no webassign",
+            "message": "Dear class, I look forward to seeing you all tomorrow for our first class! In advance of that, I wanted to point out that in spite of what Testudo/the bookstore might have you believe, we are not using webassign for homeworks (we have no graded homeworks!). If you have purchased webassign, I suggest you see about returning it. Additionally, there are cheaper ways to get the textbook than via the bookstore (for example, getting the ebook via Cengage Unlimited). Jamie Conway",
+            "posted_at": "2024-08-25T14:58:06Z"
+        }
+    },
+    "files": {
+        "79567533": {
+            "display_name": "01 August 26 - 11.1.pdf",
+            "url": "https://umd.instructure.com/files/79567533/download?download_frd=1&verifier=jiVQUPuTGJxH2jpLmjiumpyUWmXgv9IahbGnkWP0"
+        },
+        "79622321": {
+            "display_name": "02 August 28 - 11.2.pdf",
+            "url": "https://umd.instructure.com/files/79622321/download?download_frd=1&verifier=DAI1xMkJZC9oNR3Xy7cv6jb3MOyQSuRuiCXwogj0"
+        },
+        "79657286": {
+            "display_name": "03 August 30 - 11.3.pdf",
+            "url": "https://umd.instructure.com/files/79657286/download?download_frd=1&verifier=qBUEmrzVPKVarNF9s6w5iJNGtBrUhWKEQBCQAb8q"
+        },
+        "79715844": {
+            "display_name": "04 September 4 - 11.4.pdf",
+            "url": "https://umd.instructure.com/files/79715844/download?download_frd=1&verifier=QbfWH7iaHu4Cea6sYuvTyIwPSTdAiPqpyVf3GNDf"
+        },
+        "79755085": {
+            "display_name": "05 September 6 - 11.5.pdf",
+            "url": "https://umd.instructure.com/files/79755085/download?download_frd=1&verifier=SwEeeb5St839Av6970dVHRG17M9UrF7EcGIr5dmd"
+        },
+        "79793650": {
+            "display_name": "06 September 9 - 11.6.pdf",
+            "url": "https://umd.instructure.com/files/79793650/download?download_frd=1&verifier=1J3NWdT7nY1cqjlzUuEvb7c3CiKDTPGr9pEYCfkw"
+        },
+        "79847046": {
+            "display_name": "07 September 11 - 12.1, 12.2.pdf",
+            "url": "https://umd.instructure.com/files/79847046/download?download_frd=1&verifier=K0a5BJzV8UoSWA3W6gSaiR5G2yq9LyeWLoY1cv6u"
+        },
+        "79892314": {
+            "display_name": "08 September 13 - 12.3.pdf",
+            "url": "https://umd.instructure.com/files/79892314/download?download_frd=1&verifier=ZkxRTFBvPgQnsM2XBlviQQY000iMIzTEtyPksxQ7"
+        },
+        "79933339": {
+            "display_name": "09 September 16 - 12.4.pdf",
+            "url": "https://umd.instructure.com/files/79933339/download?download_frd=1&verifier=di9lg2LV5uRsKqCioDpkDZM4g3e8oPnT0gHNKegC"
+        },
+        "80019273": {
+            "display_name": "10 September 18 - 12.5.pdf",
+            "url": "https://umd.instructure.com/files/80019273/download?download_frd=1&verifier=dvl0cIhsiJAavC6L1tzjiNL63A0z8f7kDGIBdZSZ"
+        },
+        "80046525": {
+            "display_name": "11 September 20 - 13.1.pdf",
+            "url": "https://umd.instructure.com/files/80046525/download?download_frd=1&verifier=CgGo46d5lw8jhy2kg4LbT2nZGZQ2P0H2CSgebtUv"
+        },
+        "80089327": {
+            "display_name": "12 September 23 - Exam 1 Review.pdf",
+            "url": "https://umd.instructure.com/files/80089327/download?download_frd=1&verifier=R9OByIZNE1bsgYrlxusnerTfvEDICI85XejythVo"
+        },
+        "80194145": {
+            "display_name": "13 September 27 - 13.1, 13.2.pdf",
+            "url": "https://umd.instructure.com/files/80194145/download?download_frd=1&verifier=Z7Ani2qVK1Bkmw78fl9mltnHzPeQCJKO4Txd5jg1"
+        },
+        "79064520": {
+            "display_name": "Example_Matlab_File.m",
+            "url": "https://umd.instructure.com/files/79064520/download?download_frd=1&verifier=IHW3ySz8T3iCu2dMAp8ClEPLnw7Fr5qw3Q0HcV76"
+        },
+        "79064523": {
+            "display_name": "Example_Matlab_File.pdf",
+            "url": "https://umd.instructure.com/files/79064523/download?download_frd=1&verifier=iCZCnjz4Cfot0uQEbP5Cjw4Pa7Znu2PNZ0oOmmOC"
+        },
+        "79135142": {
+            "display_name": "Guide.pdf",
+            "url": "https://umd.instructure.com/files/79135142/download?download_frd=1&verifier=3HDnIq2C5AaSuIpcJBMrWHePq83pWZ6WCxeNunNY"
+        },
+        "79823732": {
+            "display_name": "IMG_2544.jpeg",
+            "url": "https://umd.instructure.com/files/79823732/download?download_frd=1&verifier=9e0jFF43q0PGv4bpqXy9HkwfCcOnFxoumn3Mmb59"
+        },
+        "79228695": {
+            "display_name": "MATLAB Project 1.pdf",
+            "url": "https://umd.instructure.com/files/79228695/download?download_frd=1&verifier=C0X25leY1Raak0DpG2T7MPx7p6n6QG7UAjRhHhO7"
+        },
+        "79228694": {
+            "display_name": "MATLAB Project 2.pdf",
+            "url": "https://umd.instructure.com/files/79228694/download?download_frd=1&verifier=wmXLsewdxlJ2DbZw7SFPQkXkj8oj816Q1YWUExvr"
+        },
+        "79228696": {
+            "display_name": "MATLAB Project 3.pdf",
+            "url": "https://umd.instructure.com/files/79228696/download?download_frd=1&verifier=Qly8CEK53nGBHUilmHBkaT4gIESPOLVujtPg0fzx"
+        }
+    }
+}
