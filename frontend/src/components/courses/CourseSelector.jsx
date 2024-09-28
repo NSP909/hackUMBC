@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './CourseSelector.css';
+import './CourseSelector.module.css';
 
 const courses = [
   { id: 1, name: 'Introduction to Computer Science', code: 'CS101' },
