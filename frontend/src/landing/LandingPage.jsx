@@ -1,6 +1,7 @@
 // src/components/LandingPage.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from "@nextui-org/react"; // Importing Next UI Button
 import styles from './LandingPage.module.css';
 
 function LandingPage() {
@@ -16,22 +17,32 @@ function LandingPage() {
     navigate(path);
   };
 
+  const handleBoxClick = () => {
+    document.getElementById('searchInput').focus(); // Focus the input when the box is clicked
+  };
+
   return (
     <div className={styles.landingPage}>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          className={styles.input}
-          placeholder="Enter something..."
-        />
-        <button type="submit" className={styles.submitButton}>Submit</button>
-      </form>
+      <div className={styles.searchContainer} onClick={handleBoxClick}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            id="searchInput"
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Type to search..."
+            className={styles.input}
+          />
+        </form>
+      </div>
+
       <div className={styles.buttons}>
-        <button onClick={() => handleButtonClick('/dashboard')} className={styles.button}>Study</button>
-        <button onClick={() => handleButtonClick('/dashboard')} className={styles.button}>Dashboard</button>
-        <button onClick={() => handleButtonClick('/chatbot')} className={styles.button}>Chat</button>
+        <Button color="grey" variant="faded" onClick={() => handleButtonClick('/dashboard')}>
+          Dashboard
+        </Button>
+        <Button color="grey" variant="faded" onClick={() => handleButtonClick('/chatbot')}>
+          Chat
+        </Button>
       </div>
     </div>
   );
