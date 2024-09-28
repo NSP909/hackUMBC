@@ -15,14 +15,23 @@
     padding: 1rem;
     border-top: 1px solid #ddd;
     box-sizing: border-box; /* Ensure padding is included in the element's total height */
+    border-radius: 20px;
+    margin: 10px;
+    background-color: red;
+
   }
   
   .chatInput {
     flex: 1;
     padding: 0.5rem;
-    border: 1px solid #ccc; /* Slightly darker border color */
-    border-radius: 8px 8px 8px 8px; /* Rounded corners */
+    border: none; /* Slightly darker border color */
     box-sizing: border-box; /* Ensure padding is included in the element's total width */
+    font-size: large;
+    
+  }
+
+  .chatInput:focus {
+    outline: none; /* Remove the default focus outline */
   }
   
   .sendButton {

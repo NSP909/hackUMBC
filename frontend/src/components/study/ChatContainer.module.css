@@ -1,0 +1,52 @@
+.chatbot {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width of the remaining space */
+  background-color: white; /* Background color is white */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.inputContainer {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  box-sizing: border-box; /* Ensure padding is included in the element's total height */
+  border-radius: 20px;
+  margin: 10px;
+  background-color: red;
+}
+
+.chatForm {
+  display: flex;
+  flex: 1;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 0.5rem;
+  border: none; /* Slightly darker border color */
+  box-sizing: border-box; /* Ensure padding is included in the element's total width */
+  font-size: large;
+}
+
+.chatInput:focus {
+  outline: none; /* Remove the default focus outline */
+}
+
+.sendButton {
+  padding: 0.5rem 1rem;
+  background-color: #4299e1; /* Color of the send button */
+  color: white;
+  border: none;
+  border-radius: 8px 8px 8px 8px; /* Rounded corners */
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.sendButton:hover {
+  background-color: #3182ce; /* Slightly darker on hover */
+}

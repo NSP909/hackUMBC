@@ -4,6 +4,7 @@ import SideNavigationBar from './components/layout/SideNavigationBar';
 import CourseSelector from './components/courses/CourseSelector';
 import CourseDetail from './components/courses/CourseDetail';
 import Chatbot from './components/chatbot/Chatbot';
+import Study from './components/study/Study';
 import LandingPage from '../src/landing/LandingPage';
 import './App.css';
 
@@ -28,6 +29,7 @@ function AppContent() {
           <Route path="/dashboard" element={<CourseSelector />} />
           <Route path="/course/:id" element={<CourseDetail />} />
           <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/study" element={<Study />} />
         </Routes>
       </div>
     </div>
