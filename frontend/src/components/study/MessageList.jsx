@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './MessageList.module.css';
 
-function MessageList({ messages }) {
+function MessageList({ messages, writtenAnswer, setWrittenAnswer, handleWrittenAnswerSubmit }) {
   return (
     <div className={styles.messageHistory}>
       {messages.map((message, index) => (
@@ -14,6 +14,24 @@ function MessageList({ messages }) {
                   {option}
                 </div>
               ))}
+            </div>
+          )}
+          {message.type === 'Written' && (
+            <div className={styles.writtenAnswerForm}>
+              <input
+                type="text"
+                value={writtenAnswer}
+                onChange={(e) => setWrittenAnswer(e.target.value)}
+                placeholder="Type your answer..."
+                className={styles.writtenAnswerInput}
+                onKeyPress={(e) => e.key === 'Enter' && handleWrittenAnswerSubmit(index)}
+              />
+              <button
+                onClick={() => handleWrittenAnswerSubmit(index)}
+                className={styles.answerButton}
+              >
+                Answer
+              </button>
             </div>
           )}
         </div>

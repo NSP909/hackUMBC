@@ -5,6 +5,7 @@ import MessageList from './MessageList';
 function ChatContainer() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const [writtenAnswer, setWrittenAnswer] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,27 +38,64 @@ function ChatContainer() {
           correctAnswer: quizData.CorrectAnswer,
         },
       ]);
-     
-
-
     } catch (error) {
       console.error('Error fetching quiz:', error);
+      /*
       setMessages(prevMessages => [
         ...prevMessages,
-        {
-          text: "What is the capital of France?",
+        { text: 'Sorry, there was an error fetching the quiz.', sender: 'bot' },
+      ]);
+      */
+     setMessages(prevMessages => [
+        ...prevMessages,
+        { text: 'What is the capital of France?',
           sender: 'bot',
-          type: "Written",
-          options: ["Paris", "London", "Berlin", "Madrid"],
-          correctAnswer: "Paris",
+          type: 'Written',
+          correctAnswer: 'Paris',},
+      ]);
+    }
+  };
+
+  const handleWrittenAnswerSubmit = async (messageIndex) => {
+    const message = messages[messageIndex];
+    if (!writtenAnswer.trim()) return;
+
+    try {
+      // Simulate an HTTP request to the backend server with the user's answer
+      const response = await fetch('https://your-backend-server.com/submit-answer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ userAnswer: writtenAnswer, correctAnswer: message.correctAnswer }),
+      });
+
+      const result = await response.json();
+
+      // Add the result to the chat
+      setMessages(prevMessages => [
+        ...prevMessages,
+        { text: result.message, sender: 'bot' },
+      ]);
+
+      setWrittenAnswer('');
+    } catch (error) {
+      console.error('Error submitting answer:', error);
+      setMessages(prevMessages => [
+        ...prevMessages,
+        { text: 'Sorry, there was an error submitting your answer.', sender: 'bot' },
       ]);
     }
   };
 
   return (
     <div className={styles.chatbot}>
-      <MessageList messages={messages} />
+      <MessageList
+        messages={messages}
+        writtenAnswer={writtenAnswer}
+        setWrittenAnswer={setWrittenAnswer}
+        handleWrittenAnswerSubmit={handleWrittenAnswerSubmit}
+      />
       <form onSubmit={handleSubmit} className={styles.chatForm}>
         <input
           type="text"

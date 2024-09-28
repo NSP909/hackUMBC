@@ -47,3 +47,29 @@
 .option:hover {
   background-color: #f1f1f1;
 }
+
+.writtenAnswerForm {
+  margin-top: 0.5rem;
+  display: flex;
+}
+
+.writtenAnswerInput {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+}
+
+.answerButton {
+  padding: 0.5rem 1rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.answerButton:hover {
+  background-color: #3182ce;
+}
