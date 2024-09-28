@@ -1,0 +1,25 @@
+.messageHistory {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    box-sizing: border-box; /* Ensure padding is included in the element's total height */
+  }
+  
+  .message {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px; /* Rounded corners */
+    max-width: 80%;
+  }
+  
+  .user {
+    background-color: #3498db;
+    color: white;
+    align-self: flex-end;
+  }
+  
+  .bot {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    align-self: flex-start;
+  }
