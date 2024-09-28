@@ -1,0 +1,103 @@
+/* src/components/LandingPage.module.css */
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #1e1e1e; /* Dark background similar to the reference */
+  font-family: 'Arial', sans-serif;
+  color: #fff; /* White text for contrast */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: #2c2c2c; /* Slightly lighter background for the form */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Stronger shadow for a modern look */
+  width: 100%;
+  max-width: 400px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  background-color: #333;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  border-color: #888;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 14px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #555;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.submitButton:active {
+  transform: scale(0.98);
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.button {
+  padding: 14px 24px;
+  background-color: #3e3e3e; /* Dark buttons with slight color contrast */
+  color: #fff;
+  border: none;
+  border-radius: 30px; /* Rounded button for a modern look */
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #4e4e4e; /* Slight hover change for modern feel */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.landingPage {
+  animation: fadeIn 0.8s ease-in-out;
+}
