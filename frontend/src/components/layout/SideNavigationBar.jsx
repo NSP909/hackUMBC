@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './SideNavigationBar.module.css';
 
-export default function Component() {
+export default function SideNavigationBar() {
   const location = useLocation();
   const isCourseDetail = location.pathname.includes('/course/');
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsExpanded(!isExpanded);
+  };
 
   return (
-    <nav className={styles.sideNavigationBar}>
+    <nav className={`${styles.sideNavigationBar} ${isExpanded ? '' : styles.collapsed}`}>
+      <button className={styles.toggleButton} onClick={toggleSidebar}>
+        {isExpanded ? '<<' : '>>'}
+      </button>
       <h1>LMS</h1>
       <ul>
         <li>

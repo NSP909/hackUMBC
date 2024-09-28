@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import SideNavigationBar from './components/layout/SideNavigationBar';
 import CourseSelector from './components/courses/CourseSelector';
@@ -9,21 +9,27 @@ import LandingPage from '../src/landing/LandingPage';
 import './App.css';
 
 function App() {
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <Router>
-      <AppContent />
+      <AppContent isExpanded={isExpanded} toggleSidebar={toggleSidebar} />
     </Router>
   );
 }
 
-function AppContent() {
+function AppContent({ isExpanded, toggleSidebar }) {
   const location = useLocation();
   const isLandingPage = location.pathname === '/';
 
   return (
     <div className="app">
-      {!isLandingPage && <SideNavigationBar />}
-      <div className="content-area">
+      {!isLandingPage && <SideNavigationBar isExpanded={isExpanded} toggleSidebar={toggleSidebar} />}
+      <div className={`content-area ${isExpanded ? '' : 'collapsed'}`}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/dashboard" element={<CourseSelector />} />

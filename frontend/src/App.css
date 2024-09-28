@@ -21,6 +21,10 @@ body {
   transition: margin-left 0.3s ease-in-out;
 }
 
+.content-area.collapsed {
+  margin-left: 60px; /* Adjusted margin when collapsed */
+}
+
 /* Side Navigation Bar */
 .sideNavigationBar {
   width: 250px;
