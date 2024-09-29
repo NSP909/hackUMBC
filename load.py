@@ -22,21 +22,21 @@ model2 = ChatOpenAI(model="gpt-4o", temperature=0)
 parser = StrOutputParser()
 
 pc=Pinecone(api_key=PINECONE_API_KEY)
-index=pc.Index("assignments")
+index=pc.Index("notes")
 embeddings = OpenAIEmbeddings( model="text-embedding-3-small")
 vectorstore=PineconeVectorStore(index, embeddings)
 
 def load_data(folder_path):
     documents = []
     for filename in os.listdir(folder_path):
-        if filename.endswith(".json"):
+        if filename.endswith(".pdf"):
             file_path = os.path.join(folder_path, filename)
-            loader = JSONLoader(
-                file_path=file_path,
-                jq_schema=".",
-                text_content=False
-            )
-            #loader = PyPDFLoader(file_path)
+            # loader = JSONLoader(
+            #     file_path=file_path,
+            #     jq_schema=".",
+            #     text_content=False
+            # )
+            loader = PyPDFLoader(file_path)
             documents.extend(loader.load())
 
     text_splitter = CharacterTextSplitter(
@@ -48,7 +48,7 @@ def load_data(folder_path):
     )
     docs = text_splitter.split_documents(documents)
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-    index_name = "assignments"
+    index_name = "notes"
     Pinecone = PineconeVectorStore.from_documents(docs, embeddings, index_name=index_name)
     print(Pinecone.similarity_search("Coin Changing", k=3))
 
@@ -72,8 +72,8 @@ def get_unique_filenames(index, top_k=10000):
 
 
 if __name__=="__main__":
-    # load_data("canjson")
-    index=pc.Index("assignments")
+    # load_data("books")
+    index=pc.Index("notes")
     unique_filenames = get_unique_filenames(index)
     print(f"Unique filenames in the index:")
     for filename in unique_filenames:

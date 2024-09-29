@@ -89,7 +89,9 @@ notes_dict = {
     "MATH246": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\MATH246.pdf",
     "MATH241": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\MATH241 Notes.pdf",
     "CMSC351": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\CMSC351 Notes.pdf",
-    "COMM107": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\COMM107.pdf"
+    "COMM107": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\COMM107.pdf",
+    "CMSC320": r"books\datascience.pdf",
+    "MATH240": r"books\linalg.pdf"
 }
 
 syllabi_dict = {
