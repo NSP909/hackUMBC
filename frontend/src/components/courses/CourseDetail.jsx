@@ -128,7 +128,7 @@ function CourseDetail() {
         {/* Radar Chart */}
         <div className="bg-white p-4 shadow-md rounded-lg">
           <h3 className="text-lg font-semibold mb-2">Performance by Difficulty</h3>
-          <div className="h-128">
+          <div className="h-96">
             <Radar data={radarData} options={{ maintainAspectRatio: false }} />
           </div>
         </div>
@@ -136,7 +136,7 @@ function CourseDetail() {
         {/* Stacked Bar Chart */}
         <div className="bg-white p-4 shadow-md rounded-lg">
           <h3 className="text-lg font-semibold mb-2">Correctness Breakdown by Topic</h3>
-          <div className="h-128">
+          <div className="h-96">
             <Bar data={barData} options={{ maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }} />
           </div>
         </div>
@@ -144,7 +144,7 @@ function CourseDetail() {
         {/* Line Chart */}
         <div className="bg-white p-4 shadow-md rounded-lg">
           <h3 className="text-lg font-semibold mb-2">Upcoming Assignment Deadlines</h3>
-          <div className="h-128">
+          <div className="h-96">
             <Line data={lineData} options={{ maintainAspectRatio: false }} />
           </div>
         </div>
@@ -152,7 +152,7 @@ function CourseDetail() {
         {/* Pie Chart */}
         <div className="bg-white p-4 shadow-md rounded-lg">
           <h3 className="text-lg font-semibold mb-2">Upcoming Assignments by Topic</h3>
-          <div className="h-128">
+          <div className="h-96">
             <Pie data={pieData} options={{ maintainAspectRatio: false }} />
           </div>
         </div>

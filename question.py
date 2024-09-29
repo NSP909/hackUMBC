@@ -75,7 +75,7 @@ generate_question_prompt="""You are a tutor and your job is to generate multiple
     Additonaly make sure the question is not one that has been asked in the last 7 questions.
     These are the last 7 questions : {past_questions}
     
-    NOTE - RETURN YOUR ANSWER IN THE FORMAT MENTIONED BELOWED I.E PYTHON DICTIONARY FORMAT. DO NOT RETURN ANYTHING ELSE AS THIS NEEDS TO BE PARSED BY THE SYSTEM.
+    NOTE - RETURN YOUR ANSWER IN THE FORMAT MENTIONED BELOWED I.E DICTIONARY FORMAT. DO NOT RETURN ANYTHING ELSE AS THIS NEEDS TO BE PARSED BY THE SYSTEM.
     """
 
 generate_sub_question_prompt="""You are a tutor and your job is to generate free response questions based on the given topic and given context.
@@ -92,7 +92,8 @@ generate_sub_question_prompt="""You are a tutor and your job is to generate free
     Additonaly make sure the question is not one that has been asked in the last 7 questions.
     These are the last 7 questions : {past_questions}
 
-    NOTE - RETURN YOUR ANSWER IN THE FORMAT MENTIONED BELOWED I.E PYTHON DICTIONARY FORMAT. DO NOT RETURN ANYTHING ELSE AS THIS NEEDS TO BE PARSED BY THE SYSTEM.
+    NOTE - RETURN YOUR ANSWER IN THE FORMAT MENTIONED BELOWED I.E DICTIONARY FORMAT. DO NOT RETURN ANYTHING ELSE AS THIS NEEDS TO BE PARSED BY THE SYSTEM. 
+    DO NOT ADD  ```json``` OR ANYTHING ELSE TO THE RESPONSE.
     """
 
 
@@ -107,7 +108,7 @@ You have to be strict and even a small mistake or partial answer will be conside
 
 Return 1 if you think the answer is correct and 2 if you think the answer is incorrect.
 
-NOTE - ONLY RETURN 1 or 2. DO NOT RETURN ANYTHING ELSE.
+NOTE - ONLY RETURN 1 or 2. DO NOT RETURN ANYTHING ELSE. DO NOT ADD  ```json``` OR ANYTHING ELSE TO THE RESPONSE.
 
 """
 
@@ -171,27 +172,25 @@ def generate_question(query, course):
     response=chain.invoke({"topic":query, "context":context})
     di={1:"Easy", 2 :"Medium", 3:"Hard"}
     typ = random.randint(1, 3)
-    response = random.randint(1, 2)
-    if int(response)==1:
+    response = random.randint(1, 100)
+    if int(response)%2==0:
         ret=execute_mcq(query, course, di[typ], question_queue)
         ret=ast.literal_eval(ret)
         question_queue.append(ret["Question"])
         if len(question_queue) > 7:
                 question_queue.popleft()
-        ret = ret.replace("`", "")
         return {"question": ret, "type":"MCQ", "difficulty":di[typ]}
         #return {'difficulty': 'Easy', 'question': {'Answer': 'To achieve the maximum possible value', 'Options': ['To achieve the maximum possible value', 'To achieve the minimum possible value', 'To achieve an average value', 'To achieve a random value'], 'Question': 'In the Minimax Algorithm, what is the primary goal of the player named Max?'}, 'type': 'MCQ'}
     else:
-        ret = execute_subjective(query, course, di[typ, question_queue])
+        ret = execute_subjective(query, course, di[typ], question_queue)
         ret=ast.literal_eval(ret)
         question_queue.append(ret["Question"])
         if len(question_queue) > 7:
                 question_queue.popleft()
-        ret = ret.replace("`", "")
         return {"question": ret, "type":"Written", "difficulty":di[typ]}
         #return {'difficulty': 'Easy', 'question': {'Answer': 'The brute force method for finding the maximum contiguous sum involves checking the sum of every possible sublist of the given list of integers and keeping track of the maximum sum found. This method has a high time complexity as it requires examining all possible sublists.', 'Question': 'What is the brute force method for finding the maximum contiguous sum in a list of integers?'}, 'type': 'Written'}
 
-def execute_mcq(query, course, typ):
+def execute_mcq(query, course, typ, question_queue):
     prompt=ChatPromptTemplate.from_template(generate_question_prompt)
     chain = prompt | llm| parser
     cour = detect_course(course)
@@ -199,10 +198,10 @@ def execute_mcq(query, course, typ):
         context=notes.similarity_search(query, k=5, filter={"source":cour})
     else:
         context=google_search(query)  
-    response=chain.invoke({"topic":query,"context":context, "type":typ})
+    response=chain.invoke({"topic":query,"context":context, "type":typ, "past_questions":question_queue})
     return response
 
-def execute_subjective(query, course, typ):
+def execute_subjective(query, course, typ, question_queue):
     prompt=ChatPromptTemplate.from_template(generate_sub_question_prompt)
     chain = prompt | llm| parser
     cour = detect_course(course)
@@ -210,7 +209,7 @@ def execute_subjective(query, course, typ):
         context=notes.similarity_search(query, k=5, filter={"source":cour})
     else:
         context=google_search(query)  
-    response=chain.invoke({"topic":query,"context":context, "type":typ})
+    response=chain.invoke({"topic":query,"context":context, "type":typ, "past_questions":question_queue})
     return response
     
 def check_answer(question, sample, answer):
