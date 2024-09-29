@@ -175,7 +175,12 @@ def generate_question(query, course):
     response = random.randint(1, 100)
     if int(response)%2==0:
         ret=execute_mcq(query, course, di[typ], question_queue)
-        ret=ast.literal_eval(ret)
+        try:
+            ret=ast.literal_eval(ret)
+        except:
+            #try again
+            ret=execute_mcq(query, course, di[typ], question_queue)
+            ret=ast.literal_eval(ret)
         question_queue.append(ret["Question"])
         if len(question_queue) > 7:
                 question_queue.popleft()
@@ -184,6 +189,12 @@ def generate_question(query, course):
     else:
         ret = execute_subjective(query, course, di[typ], question_queue)
         ret=ast.literal_eval(ret)
+        try:
+            ret=ast.literal_eval(ret)
+        except:
+            #try again
+            ret=execute_mcq(query, course, di[typ], question_queue)
+            ret=ast.literal_eval(ret)
         question_queue.append(ret["Question"])
         if len(question_queue) > 7:
                 question_queue.popleft()
