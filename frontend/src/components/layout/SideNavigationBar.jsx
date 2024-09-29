@@ -83,11 +83,11 @@ export default function SideNavigationBar({ children }) {
                   expanded={expanded}
                 />
                 <SidebarItem
-                  to={`${location.pathname}/events`}
-                  icon={<IoCalendarOutline />}
-                  text="Upcoming Events"
-                  active={location.pathname.endsWith("/events")}
-                  expanded={expanded}
+                to="/events"
+                icon={<IoCalendarOutline />}
+                text="Upcoming Events"
+                active={location.pathname.endsWith("/events")}
+                expanded={expanded}
                 />
               </>
             )}

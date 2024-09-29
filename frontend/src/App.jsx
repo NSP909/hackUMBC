@@ -7,11 +7,12 @@ import Chatbot from './components/chatbot/ChatBot';
 import Study from './components/study/Study';
 import LandingPage from '../src/landing/LandingPage';
 import Login from '../src/login-page/login';
+import UpcomingEvents from './components/courseModules/UpcomingEvents'; // Import UpcomingEvents component
 import './App.css';
 
 function App() {
   const [isExpanded, setIsExpanded] = useState(true);
-
+  
   const toggleSidebar = () => {
     setIsExpanded(prevState => !prevState);
   };
@@ -36,6 +37,7 @@ function AppContent({ isExpanded, toggleSidebar }) {
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/dashboard" element={<CourseSelector />} />
           <Route path="/course/:id" element={<CourseDetail />} />
+          <Route path="/events" element={<UpcomingEvents />} />  {/* New route for UpcomingEvents */}
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/study" element={<Study />} />
         </Routes>
