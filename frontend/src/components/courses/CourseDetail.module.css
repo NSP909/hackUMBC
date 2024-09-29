@@ -1,0 +1,12 @@
+.courseDetail {
+    padding: 2rem;
+  }
+  
+  .courseDetail h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .courseDescription {
+    margin-bottom: 2rem;
+    color: #7f8c8d;
+  }

@@ -1,0 +1,112 @@
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(46, 46, 43); /* Dark background */
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  background-color: rgb(57, 57, 55); /* Search box background */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  width: 672px;
+  max-width: 100%;
+  padding-bottom: 90px;
+  outline: 1px solid rgb(70, 70, 65);
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.form:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.input {
+  width: 100%;
+  min-height: 40px; /* Adjust as needed */
+  padding: 10px;
+  background-color: rgb(57, 57, 55);
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #fff;
+  outline: none;
+  box-sizing: border-box;
+  line-height: 1.5;
+  caret-color: transparent; /* Initially hide the caret */
+  resize: none; /* Prevent manual resizing */
+  overflow-y: hidden; /* Hide the scrollbar */
+  transition: caret-color 0.3s ease;
+}
+
+.input::placeholder {
+  color: rgb(166, 163, 155);
+  transition: opacity 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  caret-color: #fff; /* Show the caret on focus */
+}
+
+.input:focus::placeholder {
+  opacity: 0.5;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.button {
+  padding: 12px 20px;
+  background-color: rgb(70, 70, 65); /* Consistent with the form outline */
+  color: #fff; /* White text for contrast */
+  border: 1px solid rgb(70, 70, 65); /* Border matches background */
+  border-radius: 20px; /* Rounded corners */
+  font-size: 15px; /* Readable font size */
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow */
+}
+
+.button:hover {
+  background-color: rgb(90, 90, 85); /* Slightly lighter background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+  transform: translateY(-2px); /* Lift the button on hover */
+}
+
+.button:active {
+  background-color: rgb(60, 60, 55); /* Darken on click */
+  transform: translateY(0); /* Button presses down */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Return to original shadow */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

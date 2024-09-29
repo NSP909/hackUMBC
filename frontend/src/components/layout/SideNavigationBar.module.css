@@ -1,0 +1,28 @@
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease;
+}
