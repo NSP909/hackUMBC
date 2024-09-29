@@ -95,7 +95,7 @@ export default function SideNavigationBar({ children }) {
             <SidebarItem
               to="/chatbot"
               icon={<TbMessageChatbot />}
-              text="Chatbot"
+              text="Mentor"
               active={location.pathname === "/chatbot"}
               expanded={expanded}
             />

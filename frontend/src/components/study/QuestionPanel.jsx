@@ -39,7 +39,7 @@ const QuestionPanel = ({
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-          {question.Options.map((option, index) => (
+          {question.Options && question.Options.map((option, index) => (
             <motion.button
               key={index}
               whileHover={{ scale: mcqSelectedOption ? 1 : 1.02 }}
@@ -76,8 +76,8 @@ const QuestionPanel = ({
       </motion.button>
 
       {feedback && (
-        <div className={`mt-4 p-3 rounded-md ${feedback.includes('correct') ? 'bg-green-500' : 'bg-red-500'}`}>
-          {feedback}
+        <div className={`mt-4 p-3 rounded-md ${feedback.isCorrect ? 'bg-green-500' : 'bg-red-500'}`}>
+          {feedback.message}
         </div>
       )}
       
@@ -102,10 +102,10 @@ const QuestionPanel = ({
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className={`p-2 rounded-full ${
-            !isFinalQuestionAnswered ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
+            !showNextButton ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
           }`}
           onClick={onNextQuestion}
-          disabled={!isFinalQuestionAnswered}
+          disabled={!showNextButton}
         >
           <ChevronRight className="w-6 h-6 text-white" />
         </motion.button>

@@ -31,11 +31,7 @@ const Study = () => {
       console.log("Initial data:", initialData);
       if (initialData.result) {
         setCurrentTopic(initialData.course_topic);
-        setQuestions([{
-          type: initialData.result.type,
-          difficulty: initialData.result.difficulty,
-          question: initialData.result.question
-        }]);
+        setQuestions([initialData.result]);
         setCurrentQuestionIndex(0);
       } else {
         throw new Error("No question data in the response");
@@ -95,7 +91,10 @@ const Study = () => {
       }
 
       const data = await response.json();
-      setFeedback(data.result);
+      setFeedback({
+        message: data.result,
+        isCorrect: data.correct // Note the lowercase 'correct'
+      });
       setShowNextButton(true);
     } catch (error) {
       console.error('Error checking answer:', error);
@@ -128,11 +127,7 @@ const Study = () => {
         const newQuestionData = await response.json();
         console.log("New question data:", newQuestionData);
         if (newQuestionData.result) {
-          setQuestions(prevQuestions => [...prevQuestions, {
-            type: newQuestionData.result.type,
-            difficulty: newQuestionData.result.difficulty,
-            question: newQuestionData.result.question
-          }]);
+          setQuestions(prevQuestions => [...prevQuestions, newQuestionData.result]);
           setCurrentQuestionIndex(prevIndex => prevIndex + 1);
           setCurrentTopic(newQuestionData.course_topic);
           setShowNextButton(false);
