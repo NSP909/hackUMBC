@@ -17,6 +17,8 @@ export default {
       },
       colors: {
         indigo: {
+          600: '#4f46e5',
+          700: '#4338ca',
           800: '#3730a3',
           900: '#312e81',
         },
@@ -27,12 +29,12 @@ export default {
         purple: {
           900: '#4c1d95',
         },
-        indigo: {
-          600: '#4f46e5',
-          700: '#4338ca',
-        },
       },
     },
   },
-  plugins: [require('@tailwindcss/forms'),],
+  plugins: [
+    // If you have installed @tailwindcss/forms, keep this line:
+    require('@tailwindcss/forms'),
+    // If you haven't installed it, comment out or remove the line above
+  ],
 }
