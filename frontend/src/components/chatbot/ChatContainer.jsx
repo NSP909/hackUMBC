@@ -98,12 +98,12 @@ function ChatContainer() {
       ]);
     } catch (error) {
       console.error('Error fetching quiz:', error);
+      const placeHolderQuestion = Math.random() < 0.5
+          ? { type: 'Written', text: 'Placeholder question?', answer: 'Placeholder answer' }
+          : { type: 'MCQ', text: 'Which of these is a placeholder option?', options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'], answer: 'Option 1' };
       setMessages(prevMessages => [
         ...prevMessages,
-        { text: 'What is the capital of France?',
-          sender: 'bot',
-          type: 'Written',
-          correctAnswer: 'Paris',},
+        placeHolderQuestion,
       ]);
     }
   };
@@ -132,11 +132,12 @@ function ChatContainer() {
 
       setWrittenAnswer('');
     } catch (error) {
-      console.error('Error submitting answer:', error);
+      //console.error('Error submitting answer:', error);
       setMessages(prevMessages => [
         ...prevMessages,
         { text: 'Sorry, there was an error submitting your answer.', sender: 'bot' },
       ]);
+
     }
   };
 

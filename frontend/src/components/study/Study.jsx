@@ -5,7 +5,7 @@ import styles from './Study.module.css';
 const courses = ["CMSC351", "CMSC320", "CMSC330", "MATH241", "MATH246"];
 
 const initialQuestions = [
-  { type: 'Written', question: 'This is the first question. Fix this later to send http request for the first question later', answer: 'Paris' },
+  { type: 'Written', text: 'This is the first question. Fix this later to send http request for the first question later', answer: 'Paris' },
   // Add more questions as needed
 ];
 
@@ -44,8 +44,8 @@ const Study = () => {
         setShowNextButton(false);
       } catch (error) {
         const placeHolderQuestion = Math.random() < 0.5
-          ? { type: 'Written', question: 'Placeholder question?', answer: 'Placeholder answer' }
-          : { type: 'MCQ', question: 'Which of these is a placeholder option?', options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'], answer: 'Option 1' };
+          ? { type: 'Written', text: 'Placeholder question?', answer: 'Placeholder answer' }
+          : { type: 'MCQ', text: 'Which of these is a placeholder option?', options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'], answer: 'Option 1' };
         setQuestions((prevQuestions) => [...prevQuestions, placeHolderQuestion]);
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
         setAnswer('');

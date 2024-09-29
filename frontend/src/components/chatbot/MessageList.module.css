@@ -44,8 +44,16 @@
   cursor: pointer;
 }
 
-.option:hover {
-  background-color: #f1f1f1;
+.correct {
+  background-color: #2ecc71; /* Green for correct answer */
+  color: white;
+  border: 1px solid #2ecc71;
+}
+
+.incorrect {
+  background-color: #e74c3c; /* Red for incorrect answer */
+  color: white;
+  border: 1px solid #e74c3c;
 }
 
 .writtenAnswerForm {

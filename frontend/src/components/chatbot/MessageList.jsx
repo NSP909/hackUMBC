@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './MessageList.module.css';
 
 function MessageList({ messages, writtenAnswer, setWrittenAnswer, handleWrittenAnswerSubmit }) {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionClick = (messageIndex, option) => {
+    const message = messages[messageIndex];
+    if (message.type === 'MCQ') {
+      setSelectedOption({ messageIndex, option });
+    }
+  };
+
   return (
     <div className={styles.messageHistory}>
       {messages.map((message, index) => (
-        <div key={index} className={`${styles.message} ${styles[message.sender]}`}>
+        <div key={index} className={`${styles.message} ${message.sender === 'user' ? styles.user : styles.bot}`}>
           {message.text}
           {message.type === 'MCQ' && (
             <div className={styles.options}>
-              {message.options.map((option, idx) => (
-                <div key={idx} className={styles.option}>
+              {message.options.map((option, optionIndex) => (
+                <button
+                  key={optionIndex}
+                  className={`${styles.option} ${
+                    selectedOption?.messageIndex === index && selectedOption?.option === option
+                      ? option === message.answer
+                        ? styles.correct
+                        : styles.incorrect
+                      : ''
+                  }`}
+                  onClick={() => handleOptionClick(index, option)}
+                >
                   {option}
-                </div>
+                </button>
               ))}
             </div>
           )}
@@ -24,13 +43,12 @@ function MessageList({ messages, writtenAnswer, setWrittenAnswer, handleWrittenA
                 onChange={(e) => setWrittenAnswer(e.target.value)}
                 placeholder="Type your answer..."
                 className={styles.writtenAnswerInput}
-                onKeyPress={(e) => e.key === 'Enter' && handleWrittenAnswerSubmit(index)}
               />
               <button
                 onClick={() => handleWrittenAnswerSubmit(index)}
                 className={styles.answerButton}
               >
-                Answer
+                Submit
               </button>
             </div>
           )}

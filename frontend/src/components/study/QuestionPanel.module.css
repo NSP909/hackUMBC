@@ -3,21 +3,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50%;
-    width: 50%;
+    height: 60%;
+    width: 60%;
     text-align: center;
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px rgba(54, 66, 108, 0.7);
     position: relative;
   }
   
   .questionPanel h3 {
     font-size: 1.5rem;
     margin-bottom: 20px;
-    color: #333;
+    color: rgb(54, 66, 108);
   }
   
   .writtenQuiz {
@@ -53,14 +52,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 40%;
     position: absolute;
     bottom: 10px;
   }
   
   .arrowButton {
     padding: 10px;
-    border-radius: 50%;
     background-color: #3498db;
     color: #fff;
     border: none;
@@ -69,6 +67,8 @@
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s ease;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(71, 111, 246, 0.7);
   }
   
   .arrowButton:hover {
@@ -78,13 +78,16 @@
   .arrowButton:disabled {
     background-color: #bdc3c7;
     cursor: not-allowed;
+    box-shadow: none;
   }
   
   .questionIndex {
     font-size: 1rem;
-    color: #333;
+    color: rgb(54, 66, 108);
+    margin: 0;
   }
   
   .arrowIcon {
-    font-size: 1.2rem;
+    width: 20px;
+    height: 20px;
   }
