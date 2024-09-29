@@ -1,18 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import QuestionPanel from './QuestionPanel';
 
-const courses = ["CMSC351", "CMSC320", "CMSC330", "MATH241", "MATH246"];
-
-const initialQuestions = [
-  {question: {Question: "What is the capital of France?", Options: ["Paris", "London", "Berlin", "Madrid"], Answer: "Paris"}, type: "MCQ", difficulty: "easy"},
-];
+const courses = ["CMSC351", "CMSC320", "COMM107", "MATH240", "MATH246", "MATH241"];
 
 const Study = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
-  const [questions, setQuestions] = useState(initialQuestions);
+  const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answer, setAnswer] = useState('');
   const [showNextButton, setShowNextButton] = useState(false);
+
+  useEffect(() => {
+    const fetchInitialQuestions = async () => {
+      try {
+        // Simulate an HTTP request to get initial question data
+        const response = await fetch('/api/nextQuestion', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            user_id: 1,
+            flag: false
+          })
+        });
+        const initialQuestions = await response.json().then((data) => {
+          return data.result;
+        });
+        setQuestions(initialQuestions);
+      } catch (error) {
+        console.error('Error fetching initial questions:', error);
+        const placeHolderQuestion = (Math.random() < 0.5)
+          ? { question: {Question: "What is photosynthesis?", Answer: "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll." }, type: "Written", difficulty: "easy"}
+          : { question: {Question: "What is the capital of France?", Options: ["Paris", "London", "Berlin", "Madrid"], Answer: "Paris" }, type: "MCQ", difficulty: "easy"};
+        setQuestions([placeHolderQuestion]);
+      }
+    };
+
+    fetchInitialQuestions();
+  }, []);
 
   const handleCourseSelect = (course) => {
     setSelectedCourse(course);
@@ -43,7 +69,6 @@ const Study = () => {
             user_id: 1,
             flag: true
           })
-
         });
         const newQuestion = await response.json().then((data) => {
           return data.result;

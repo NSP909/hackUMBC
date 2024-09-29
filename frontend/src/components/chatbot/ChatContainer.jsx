@@ -79,14 +79,14 @@ function ChatContainer() {
         </AnimatePresence>
         <div ref={messageEndRef} />
       </div>
-      <div className="p-4 bg-gradient-to-r from-blue-500 to-indigo-600">
+      <div className="p-4">
         <form onSubmit={handleSubmit} className="flex items-center bg-white bg-opacity-20 rounded-full p-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
-            className="flex-grow bg-transparent text-white placeholder-gray-300 focus:outline-none px-4"
+            className="flex-grow bg-transparent text-white placeholder-gray-300 focus:outline-none px-4 border-transparent focus:border-transparent"
           />
           <motion.button
             type="submit"
