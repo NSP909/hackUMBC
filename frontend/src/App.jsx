@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import SideNavigationBar from './components/layout/SideNavigationBar';
 import CourseSelector from './components/courses/CourseSelector';
 import CourseDetail from './components/courses/CourseDetail';
-import Chatbot from './components/chatbot/Chatbot';
+import Chatbot from './components/chatbot/ChatBot';
 import Study from './components/study/Study';
 import LandingPage from '../src/landing/LandingPage';
 import './App.css';
