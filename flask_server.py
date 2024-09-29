@@ -69,15 +69,16 @@ def get_user():
     return jsonify(user)
 
 
-@app.route(("/get_grades"), methods=["POST"])
+# TODO: COMPLETE THIS
+@app.route(("/get_analytics"), methods=["POST"])
 def get_grades():
     data = request.get_json()
     user_id = data["user_id"]
     user = main_db["users"].find_one({"_id": ObjectId(user_id)})
     return jsonify(user["grades"])
-    
 
-@app.route("/query", methods=["POST"])
+
+@app.route("/query", methods=["GET"])
 def rag_endpoint():
     data = request.json
     if "question" not in data:
@@ -90,60 +91,76 @@ def rag_endpoint():
     return jsonify(messages)
 
 
-# TODO: test
-@app.route("/generate_question", methods=["POST"])
+# TODO: TEST THIS
+@app.route("/generate_question", methods=["GET"])
 def api_generate_question():
     data = request.get_json()
     user_id = data["user_id"]
-    user = main_db["users"].find_one({"_id": ObjectId(user_id)})
-    for course in user["grades"]:
-        upcoming_assignments = 0  # Replace with actual number of upcoming assignments
-        days_to_deadline = 0  # Replace with actual days to deadline
-        for course_topic in user["grades"][course]:
-            new_data = {
-                "course": [course],
-                "course_topic": [course_topic],
-                "course_grade": [user["grades"][course]["grade"]],
-                "easy_correct": [user["grades"][course][course_topic]["easy_correct"]],
-                "medium_correct": [
-                    user["grades"][course][course_topic]["medium_correct"]
-                ],
-                "hard_correct": [user["grades"][course][course_topic]["hard_correct"]],
-                "upcoming_assignment": [upcoming_assignments],
-                "days_to_deadline": [days_to_deadline],
-            }
-            predictions = recommend_study(new_data)
-            user["grades"][course][course_topic]["importance"] = predictions[0]
-
-    if data["course"]:  # if user wants to practice a specific course
-        course = data["course"]
-        # find most important topic in the course
-        sorted_course_importance = sorted(
-            user["grades"][course].items(),
-            key=lambda x: x[1]["importance"],
-            reverse=True,
-        )
+    flag = data["flag"]
+    if flag:
+        course = data.get("course")
+        course_topic = data.get("course_topic")
     else:
-        course = None
-        # find most important course
-        sorted_course_importance = []
-        for course in user["grades"]:
-            for course_topic in user["grades"][course]:
-                sorted_course_importance.append(
-                    (course, user["grades"][course][course_topic]["importance"])
-                )
 
-        sorted_course_importance = sorted(
-            sorted_course_importance, key=lambda x: x[1], reverse=True
-        )
-        course = sorted_course_importance[0][0]
-        course_topic = sorted_course_importance[0][1]
+        user = main_db["users"].find_one({"_id": ObjectId(user_id)})
+        for course in user["grades"]:
+            upcoming_assignments = (
+                0  # Replace with actual number of upcoming assignments
+            )
+            days_to_deadline = 0  # Replace with actual days to deadline
+            for course_topic in user["grades"][course]:
+                new_data = {
+                    "course": [course],
+                    "course_topic": [course_topic],
+                    "course_grade": [user["grades"][course]["grade"]],
+                    "easy_correct": [
+                        user["grades"][course][course_topic]["easy_correct"]
+                    ],
+                    "medium_correct": [
+                        user["grades"][course][course_topic]["medium_correct"]
+                    ],
+                    "hard_correct": [
+                        user["grades"][course][course_topic]["hard_correct"]
+                    ],
+                    "upcoming_assignment": [upcoming_assignments],
+                    "days_to_deadline": [days_to_deadline],
+                }
+                predictions = recommend_study(new_data)
+                user["grades"][course][course_topic]["importance"] = predictions[
+                    0
+                ]  # update importance
+
+        if "course" in data:
+            course = data["course"]
+            # find most important topic in the course
+            sorted_course_importance = sorted(
+                user["grades"][course].items(),
+                key=lambda x: x[1]["importance"],
+                reverse=True,
+            )
+            course_topic = sorted_course_importance[0][0]
+        else:
+            course = None
+            # find most important course
+            sorted_course_importance = []
+            for course in user["grades"]:
+                for course_topic in user["grades"][course]:
+                    sorted_course_importance.append(
+                        (course, user["grades"][course][course_topic]["importance"])
+                    )
+
+            sorted_course_importance = sorted(
+                sorted_course_importance, key=lambda x: x[1], reverse=True
+            )
+            course = sorted_course_importance[0][0]
+            course_topic = sorted_course_importance[0][1]
 
     result = generate_question(course_topic, course)
-    return jsonify(result)
+    return jsonify("result": result, "course": course, "course_topic": course_topic)
 
 
-@app.route("/check_answer", methods=["POST"])
+# TODO: TEST THIS
+@app.route("/check_answer", methods=["GET"])
 def api_check_answer():
     data = request.json
     question = data.get("question")
@@ -173,7 +190,7 @@ def api_check_answer():
     return jsonify({"result": result})
 
 
-@app.route("/clear_doubt", methods=["POST"])
+@app.route("/clear_doubt", methods=["GET"])
 def api_clear_doubt():
     data = request.json
     conversation = data.get("conversation")

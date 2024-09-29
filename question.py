@@ -159,9 +159,9 @@ def generate_question(query, course):
     di={1:"Easy", 2 :"Medium", 3:"Hard"}
     typ = random.randint(1, 3)
     if int(response)==1:
-        return {"question": ast.literal_eval(execute_mcq(query, course, di[typ])), "type":"mcq", "difficulty":di[typ]}
+        return {"question": ast.literal_eval(execute_mcq(query, course, di[typ])), "type":"MCQ", "difficulty":di[typ]}
     else:
-        return {"question": ast.literal_eval(execute_subjective(query, course, di[typ])), "type":"mcq", "difficulty":di[typ]}
+        return {"question": ast.literal_eval(execute_subjective(query, course, di[typ])), "type":"Written", "difficulty":di[typ]}
 
 def execute_mcq(query, course, typ):
     prompt=ChatPromptTemplate.from_template(generate_question_prompt)
