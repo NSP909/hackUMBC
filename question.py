@@ -25,15 +25,15 @@ from pinecone import Pinecone
 from langchain_pinecone import PineconeVectorStore
 import ast
 import random
-
+from collections import deque
 load_dotenv()
 
 os.environ['OPENAI_API_KEY']=os.getenv("OPENAI_API_KEY")
 MODEL_ID=os.getenv("MODEL_ID")
 PINECONE_API_KEY=os.getenv("PINECONE_API_KEY")
-model1 = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+
 model2 = ChatOpenAI(model="gpt-4o", temperature=0)
-model3=  Baseten( model=MODEL_ID, deployment="production")
+
 parser = StrOutputParser()
 embeddings = OpenAIEmbeddings()
 
@@ -47,7 +47,7 @@ notes=PineconeVectorStore(index2, embeddings)
 
 
 llm = model2
-llm2=model1
+
 
 question_type_prompt="""You are a teaching assistant and you are helping me prepare questions for an exam.
 Your job is to determmine what type of question would better suit a particular topic based on the context provided.
@@ -58,7 +58,7 @@ This is the context scraped : {context}
 If you think it woulld be better to ask a multiple choice question, return 1.
 If you think it would be better to ask a subjective question, return 2.
 
-Do not return anything other than 1 or 2.
+NOTE - Do not return anything other than 1 or 2.
 
 """
 
@@ -72,7 +72,10 @@ generate_question_prompt="""You are a tutor and your job is to generate multiple
     
     The question needs to be {type}
     
-    Do not return anything other than the dictionary.
+    Additonaly make sure the question is not one that has been asked in the last 7 questions.
+    These are the last 7 questions : {past_questions}
+    
+    NOTE - RETURN YOUR ANSWER IN THE FORMAT MENTIONED BELOWED I.E PYTHON DICTIONARY FORMAT. DO NOT RETURN ANYTHING ELSE AS THIS NEEDS TO BE PARSED BY THE SYSTEM.
     """
 
 generate_sub_question_prompt="""You are a tutor and your job is to generate free response questions based on the given topic and given context.
@@ -86,7 +89,10 @@ generate_sub_question_prompt="""You are a tutor and your job is to generate free
     
     The question needs to be {type}
 
-    Do not return anything other than the dictionary.
+    Additonaly make sure the question is not one that has been asked in the last 7 questions.
+    These are the last 7 questions : {past_questions}
+
+    NOTE - RETURN YOUR ANSWER IN THE FORMAT MENTIONED BELOWED I.E PYTHON DICTIONARY FORMAT. DO NOT RETURN ANYTHING ELSE AS THIS NEEDS TO BE PARSED BY THE SYSTEM.
     """
 
 
@@ -100,6 +106,8 @@ This is the user's answer: {answer}
 You have to be strict and even a small mistake or partial answer will be considered incorrect.
 
 Return 1 if you think the answer is correct and 2 if you think the answer is incorrect.
+
+NOTE - ONLY RETURN 1 or 2. DO NOT RETURN ANYTHING ELSE.
 
 """
 
@@ -149,6 +157,8 @@ def detect_course(course):
         return notes_dict[courses[query_lower]]
     return None
 
+question_queue = deque(maxlen=8)
+
 def generate_question(query, course):
     prompt=ChatPromptTemplate.from_template(question_type_prompt)
     chain = prompt | llm| parser
@@ -163,20 +173,22 @@ def generate_question(query, course):
     typ = random.randint(1, 3)
     response = random.randint(1, 2)
     if int(response)==1:
-        ret = execute_mcq(query, course, di[typ])
+        ret=execute_mcq(query, course, di[typ], question_queue)
+        ret=ast.literal_eval(ret)
+        question_queue.append(ret["Question"])
+        if len(question_queue) > 7:
+                question_queue.popleft()
         ret = ret.replace("`", "")
-        ret = ret.replace("'", "\'")
-        ret = ret.replace("{", "\{")
-        ret = ret.replace("}", "\}")
-        return {"question": ast.literal_eval(ret), "type":"MCQ", "difficulty":di[typ]}
+        return {"question": ret, "type":"MCQ", "difficulty":di[typ]}
         #return {'difficulty': 'Easy', 'question': {'Answer': 'To achieve the maximum possible value', 'Options': ['To achieve the maximum possible value', 'To achieve the minimum possible value', 'To achieve an average value', 'To achieve a random value'], 'Question': 'In the Minimax Algorithm, what is the primary goal of the player named Max?'}, 'type': 'MCQ'}
     else:
-        ret = execute_subjective(query, course, di[typ])
+        ret = execute_subjective(query, course, di[typ, question_queue])
+        ret=ast.literal_eval(ret)
+        question_queue.append(ret["Question"])
+        if len(question_queue) > 7:
+                question_queue.popleft()
         ret = ret.replace("`", "")
-        ret = ret.replace("'", "\'")
-        ret = ret.replace("{", "\{")
-        ret = ret.replace("}", "\}")
-        return {"question": ast.literal_eval(ret), "type":"Written", "difficulty":di[typ]}
+        return {"question": ret, "type":"Written", "difficulty":di[typ]}
         #return {'difficulty': 'Easy', 'question': {'Answer': 'The brute force method for finding the maximum contiguous sum involves checking the sum of every possible sublist of the given list of integers and keeping track of the maximum sum found. This method has a high time complexity as it requires examining all possible sublists.', 'Question': 'What is the brute force method for finding the maximum contiguous sum in a list of integers?'}, 'type': 'Written'}
 
 def execute_mcq(query, course, typ):
