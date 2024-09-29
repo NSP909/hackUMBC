@@ -64,7 +64,7 @@ def get_user():
     if not user:
         return jsonify({"error": "User not found"}), 404
     if "_id" in user:
-        user["_id"] = str(user["_id"]) 
+        user["_id"] = str(user["_id"])
     return jsonify(user)
 
 
@@ -94,21 +94,23 @@ def rag_endpoint():
 
 @app.route("/generate_question", methods=["GET"])
 def api_generate_question():
+    global past_topics
     user_id = request.args.get("user_id")
     flag = request.args.get("flag", type=bool)
     course = request.args.get("course")
 
     if flag:
-        #set it to false sometimes so we regenerate the recommendation
+        # set it to false sometimes so we regenerate the recommendation
         rand = random.randint(0, 2)
-        course_topic = request.args.get("course_topic")
-        past_topics.append(course_topic)
         if rand == 0:
-            flag = False
+            flag = None
+            course_topic = request.args.get("course_topic")
+            past_topics.append(course_topic)
+            print("set flag to false")
 
-    rand = random.randint(0, 15)
-    if rand == 0:
-        past_topics.clear()
+        rand = random.randint(0,8)
+        if rand == 0:
+            past_topics = []
 
     if not user_id:
         return jsonify({"error": "user_id is required"}), 400
@@ -128,6 +130,7 @@ def api_generate_question():
             )
     else:
         # Update importance for all courses and topics
+        print("refreshing")
         for c, course_data in user["grades"].items():
             topics_data = []
             for topic, topic_data in course_data["topics"].items():
@@ -166,10 +169,9 @@ def api_generate_question():
             for i, (topic, topic_data) in enumerate(course_data["topics"].items()):
                 topic_data["importance"] = float(predictions[i])
 
-
             for topic in past_topics:
-                course_data["topics"].pop(topic, None)
-
+                if topic in course_data["topics"]:
+                    course_data["topics"][topic]["importance"] = -1
 
         if course:
             # Find the most important topic within the specified course
@@ -179,27 +181,30 @@ def api_generate_question():
                     404,
                 )
 
-            most_important = max(
-                (
-                    (topic, data["importance"])
-                    for topic, data in user["grades"][course]["topics"].items()
-                ),
-                key=lambda x: x[1],
-            )
+            topics = user["grades"][course]["topics"]
+            important_topics = [
+                (topic, data["importance"])
+                for topic, data in topics.items()
+                if data["importance"] > 0
+            ]
+            most_important = max(important_topics, key=lambda x: x[-1])
             course_topic, _ = most_important
+
         else:
             # Find the most important course and topic globally
-            most_important = max(
-                (
-                    (c, topic, data["importance"])
-                    for c, course_data in user["grades"].items()
-                    for topic, data in course_data["topics"].items()
-                ),
-                key=lambda x: x[2],
-            )
+            important_topics = [
+                (c, topic, data["importance"])
+                for c, course_data in user["grades"].items()
+                for topic, data in course_data["topics"].items()
+                if data["importance"] > 0
+            ]
+
+            most_important = max(important_topics, key=lambda x: x[-1])
+
             course, course_topic, _ = most_important
 
     result = generate_question(course_topic, course)
+    print(course_topic)
     return jsonify({"result": result, "course": course, "course_topic": course_topic})
 
 
@@ -230,7 +235,9 @@ def api_check_answer():
             if sample == answer:
                 result = "Great JOB! Your answer is correct."
             else:
-                result = "Sorry, your answer is incorrect. The correct answer is " + sample
+                result = (
+                    "Sorry, your answer is incorrect. The correct answer is " + sample
+                )
         else:
             result = check_answer(question, sample, answer)
 
@@ -256,7 +263,7 @@ def api_check_answer():
 
         if update_result.matched_count == 0:
             return jsonify({"error": "User not found"}), 404
-            
+
         return jsonify({"result": result})
 
     except Exception as e:
