@@ -62,6 +62,7 @@
   padding: 10px;
   background-color: transparent; /* Make input background transparent */
   border: none;
+  outline: none;
   border-radius: 12px;
   font-size: 16px;
   color: #fff;
@@ -86,6 +87,7 @@
 
 .input:focus::placeholder {
   opacity: 0.5;
+  outline: none;
 }
 
 .button {
@@ -102,6 +104,11 @@
    transition: all 0.3s ease;
    display: inline-block; /* Ensures consistent sizing */
  }
+
+ textarea:focus{
+    outline: none;
+ }
+
  
  .button:hover {
    background-color: rgba(0, 123, 255, 0.2); /* Light blue background on hover */

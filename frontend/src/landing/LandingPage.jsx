@@ -63,7 +63,7 @@ function LandingPage() {
       const fadeOutTimeout = setTimeout(() => {
         navigate(`/chatbot?input=${encodeURIComponent(inputValue)}`);
       }, 1000); // Adjust the delay to match the CSS transition duration
-
+  
       return () => clearTimeout(fadeOutTimeout);
     }
   }, [isFadingOut, navigate, inputValue]);
