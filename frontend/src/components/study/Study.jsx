@@ -5,7 +5,7 @@ import styles from './Study.module.css';
 const courses = ["CMSC351", "CMSC320", "CMSC330", "MATH241", "MATH246"];
 
 const initialQuestions = [
-  { type: 'Written', question: 'This is the first question. Fix this later to send http request for the first question later', answer: 'Paris' },
+  { type: 'Written', text: 'This is the first question. Fix this later to send http request for the first question later', answer: 'Paris' },
   // Add more questions as needed
 ];
 
