@@ -23,7 +23,7 @@ from websearch import extract_url, scrape_website, google_search
 from langchain_community.vectorstores import Pinecone as Pine
 from pinecone import Pinecone
 from langchain_pinecone import PineconeVectorStore
-
+import ast
 
 load_dotenv()
 
@@ -151,10 +151,10 @@ def generate_question(query, course):
     else:
         context=google_search(query)  
     response=chain.invoke({"topic":query, "context":context})
-    if response==1:
-        return execute_mcq(query, course)
+    if int(response)==1:
+        return {"question": ast.literal_eval(execute_mcq(query, course)), "type":"mcq"}
     else:
-        return execute_subjective(query, course)
+        return {"question": ast.literal_eval(execute_subjective(query, course)), "type":"mcq"}
 
 def execute_mcq(query, course):
     prompt=ChatPromptTemplate.from_template(generate_question_prompt)
@@ -182,7 +182,7 @@ def check_answer(question, sample, answer):
     prompt=ChatPromptTemplate.from_template(check_answer_template)
     chain = prompt | llm| parser
     response=chain.invoke({"question":question, "sample":sample, "answer":answer})
-    if response==1:
+    if int(response)==1:
         return "Great JOB! Your answer is correct."
     else:
         prompt2=ChatPromptTemplate.from_template(respond_to_query_template)

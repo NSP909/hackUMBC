@@ -75,47 +75,7 @@ def get_grades():
     user_id = data["user_id"]
     user = main_db["users"].find_one({"_id": ObjectId(user_id)})
     return jsonify(user["grades"])
-
-
-@app.route(("/generate_recommendations"), methods=["GET"])
-def get_top_recommendations():
-    data = request.get_json()
-    user_id = data["user_id"]
-    user = main_db["users"].find_one({"_id": ObjectId(user_id)})
-    for course in user["grades"]:
-        upcoming_assignments = 0  # Replace with actual number of upcoming assignments
-        days_to_deadline = 0  # Replace with actual days to deadline
-        for course_topic in user["grades"][course]:
-            new_data = {
-                "course": [course],
-                "course_topic": [course_topic],
-                "course_grade": [user["grades"][course]["grade"]],
-                "easy_correct": [user["grades"][course][course_topic]["easy_correct"]],
-                "medium_correct": [
-                    user["grades"][course][course_topic]["medium_correct"]
-                ],
-                "hard_correct": [user["grades"][course][course_topic]["hard_correct"]],
-                "upcoming_assignment": [upcoming_assignments],
-                "days_to_deadline": [days_to_deadline],
-            }
-            predictions = recommend_study(new_data)
-            user["grades"][course][course_topic]["importance"] = predictions[0]
-
-    return jsonify(user["grades"])
-
-
-@app.route(("/update_practice"), methods=["POST"])
-def update_practice():
-    data = request.get_json()
-    user_id = data["user_id"]
-    course = data["course"]
-    course_topic = data["course_topic"]
-    main_db["users"].update_one(
-        {"_id": ObjectId(user_id)},
-        {"$set": {"grades." + course + "." + course_topic + ".importance": 0}},
-    )
-    return jsonify({"status": "success"})
-
+    
 
 @app.route("/query", methods=["POST"])
 def rag_endpoint():
@@ -182,15 +142,6 @@ def api_generate_question():
     result = generate_question(course_topic, course)
     return jsonify(result)
 
-# @app.route(("/update_grades"), methods=["POST"])
-# def update_grades():
-#     data = request.get_json()
-#     user_id = data["user_id"]
-#     grades = data["grades"]
-#     main_db["users"].update_one(
-#         {"_id": ObjectId(user_id)}, {"$set": {"grades": grades}}
-#     )
-#     return jsonify({"status": "success"})
 
 @app.route("/check_answer", methods=["POST"])
 def api_check_answer():
@@ -204,11 +155,21 @@ def api_check_answer():
         return jsonify({"error": "Missing question, sample, or answer"}), 400
 
     result = check_answer(question, sample, answer)
-    #combine /update_grades and /check_answer
+    # combine /update_grades and /check_answer
     user = main_db["users"].find_one({"_id": ObjectId(user_id)})
     course = question["course"]
     course_topic = question["course_topic"]
-    grade = result
+    question_type = question["question_type"]
+    user["grades"][course][course_topic][question_type + "_total"] += 1
+    if result == "Great JOB! Your answer is correct.":
+        user["grades"][course][course_topic][question_type + "_correct"] += 1
+    else:
+        user["grades"][course][course_topic][question_type + "_incorrect"] += 1
+
+    main_db["users"].update_one(
+        {"_id": ObjectId(user_id)}, {"$set": {"grades": user["grades"]}}
+    )
+
     return jsonify({"result": result})
 
 
