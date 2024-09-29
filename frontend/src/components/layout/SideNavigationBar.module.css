@@ -26,3 +26,21 @@
 .transition-transform {
   transition: transform 0.3s ease;
 }
+
+/* Ensure the sidebar is fixed and stays in place */
+motion.aside {
+  position: fixed; /* Sidebar will remain fixed */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full height of the screen */
+  z-index: 10; /* Ensures the sidebar is above other elements */
+  overflow: hidden; /* Prevent content overflow */
+  transition: width 0.3s ease-in-out; /* Smooth transition for expanding */
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-right: 1px solid rgba(255, 255, 255, 0.1); /* Sidebar border */
+}
