@@ -7,14 +7,16 @@ function LandingPage() {
   const [inputValue, setInputValue] = useState('');
   const [inputHeight, setInputHeight] = useState('auto');
   const [showSecondLine, setShowSecondLine] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/chatbot?input=${encodeURIComponent(inputValue)}`);
+    setIsFadingOut(true);
   };
 
   const handleButtonClick = (path) => {
+    setIsFadingOut(true);
     navigate(path);
   };
 
@@ -31,7 +33,7 @@ function LandingPage() {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      navigate(`/chatbot?input=${encodeURIComponent(inputValue)}`);
+      setIsFadingOut(true);
     }
   };
 
@@ -54,8 +56,16 @@ function LandingPage() {
     return () => clearTimeout(timeout);
   }, []);
 
+  useEffect(() => {
+    if (isFadingOut) {
+      const fadeOutTimeout = setTimeout(() => {
+        navigate(`/chatbot?input=${encodeURIComponent(inputValue)}`);
+      }, 1000); // Adjust the delay to match the CSS transition duration
+    }
+  }, [isFadingOut, navigate, inputValue]);
+
   return (
-    <div className={styles.landingPage}>
+    <div className={`${styles.landingPage} ${isFadingOut ? styles.fadeOut : ''}`}>
       <div className={styles.title}>
         <Typewriter
           options={{
