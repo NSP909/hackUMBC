@@ -209,7 +209,7 @@ def api_check_answer():
 
         course = question["course"]
         course_topic = question["course_topic"]
-        question_type = question["question_type"]
+        question_type = question["question_type"].lower()
 
         # Prepare the update operation
         update_operation = {
