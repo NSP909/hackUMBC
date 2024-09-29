@@ -29,6 +29,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
 from bson.objectid import ObjectId
 from pymongo.errors import PyMongoError
+import pandas as pd
 
 load_dotenv()
 
