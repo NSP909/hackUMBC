@@ -86,7 +86,9 @@ function ChatContainer() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
-            className="flex-grow bg-transparent text-white placeholder-gray-300 focus:outline-none px-4 border-transparent focus:border-transparent"
+            outline="none"
+            className="flex-grow bg-transparent text-white placeholder-gray-300 focus:outline-none px-4 border-transparent focus:ring-0"
+            style={{ border: 'none' }}
           />
           <motion.button
             type="submit"
