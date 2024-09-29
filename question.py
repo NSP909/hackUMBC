@@ -24,6 +24,7 @@ from langchain_community.vectorstores import Pinecone as Pine
 from pinecone import Pinecone
 from langchain_pinecone import PineconeVectorStore
 import ast
+import random
 
 load_dotenv()
 
@@ -69,6 +70,8 @@ generate_question_prompt="""You are a tutor and your job is to generate multiple
     You need to return ouput in the following format:
     "{{"Question": "What is the capital of France?", "Options": ["Paris", "London", "Berlin", "Madrid"], "Answer": "Paris"}}"
     
+    The question needs to be {typ}
+    
     Do not return anything other than the dictionary.
     """
 
@@ -81,6 +84,8 @@ generate_sub_question_prompt="""You are a tutor and your job is to generate free
     "{{"Question": "What is photosynthesis?",
       "Answer": "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll."}}"
     
+    The question needs to be {typ}
+
     Do not return anything other than the dictionary.
     """
 
@@ -151,12 +156,14 @@ def generate_question(query, course):
     else:
         context=google_search(query)  
     response=chain.invoke({"topic":query, "context":context})
+    di={1:"Easy", 2 :"Medium", 3:"Hard"}
+    typ = random.randint(1, 3)
     if int(response)==1:
-        return {"question": ast.literal_eval(execute_mcq(query, course)), "type":"mcq"}
+        return {"question": ast.literal_eval(execute_mcq(query, course, di[typ])), "type":"mcq", "difficulty":di[typ]}
     else:
-        return {"question": ast.literal_eval(execute_subjective(query, course)), "type":"mcq"}
+        return {"question": ast.literal_eval(execute_subjective(query, course, di[typ])), "type":"mcq", "difficulty":di[typ]}
 
-def execute_mcq(query, course):
+def execute_mcq(query, course, typ):
     prompt=ChatPromptTemplate.from_template(generate_question_prompt)
     chain = prompt | llm| parser
     cour = detect_course(course)
@@ -164,10 +171,10 @@ def execute_mcq(query, course):
         context=notes.similarity_search(query, k=5, filter={"source":cour})
     else:
         context=google_search(query)  
-    response=chain.invoke({"topic":query,"context":context})
+    response=chain.invoke({"topic":query,"context":context, "type":typ})
     return response
 
-def execute_subjective(query, course):
+def execute_subjective(query, course, typ):
     prompt=ChatPromptTemplate.from_template(generate_sub_question_prompt)
     chain = prompt | llm| parser
     cour = detect_course(course)
@@ -175,7 +182,7 @@ def execute_subjective(query, course):
         context=notes.similarity_search(query, k=5, filter={"source":cour})
     else:
         context=google_search(query)  
-    response=chain.invoke({"topic":query,"context":context})
+    response=chain.invoke({"topic":query,"context":context, "type":typ})
     return response
     
 def check_answer(question, sample, answer):
