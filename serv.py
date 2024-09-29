@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+<<<<<<< HEAD
 from gaph import run_rag_agent
 from todo_list import get_todo
+=======
+>>>>>>> e3c37f6c19a17b72f4900197e4ff5521a713b0b2
 
 from question import generate_question, check_answer, clear_doubt
 from flask import Flask, jsonify, request
@@ -11,7 +14,6 @@ from uagents.envelope import Envelope
 import asyncio
 # from custom_input_agent import PDFInputResponse
 import json
-from gmail_agent import EmailRequest, EditRequest, EmailConfirmation
 import os
 
 from dotenv import load_dotenv
