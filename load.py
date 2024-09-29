@@ -13,6 +13,7 @@ from pinecone import Pinecone
 from langchain_community.vectorstores import Pinecone as Pine
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+
 load_dotenv()
 os.environ['OPENAI_API_KEY']=os.getenv("OPENAI_API_KEY")
 PINECONE_API_KEY=os.getenv("PINECONE_API_KEY")
@@ -52,5 +53,29 @@ def load_data(folder_path):
     print(Pinecone.similarity_search("Coin Changing", k=3))
 
 
+def get_unique_filenames(index, top_k=10000):
+    empty_vector = [0] * index.describe_index_stats()['dimension']
+    
+    results = index.query(vector=empty_vector, top_k=top_k, include_metadata=True)
+    
+    # Extract filenames from metadata
+    filenames = set()
+    for match in results['matches']:
+        if 'source' in match['metadata']:
+            filenames.add(match['metadata']['source'])
+    
+    return list(filenames)
+
+# Get and print unique filenames
+
+
+
+
 if __name__=="__main__":
-    load_data("canjson")
+    # load_data("canjson")
+    index=pc.Index("assignments")
+    unique_filenames = get_unique_filenames(index)
+    print(f"Unique filenames in the index:")
+    for filename in unique_filenames:
+        print(filename)
+    print(f"\nTotal unique files: {len(unique_filenames)}")

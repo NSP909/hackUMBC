@@ -4,7 +4,7 @@ from canvasapi import Canvas
 import json
 from datetime import datetime, date
 from bs4 import BeautifulSoup
-
+from langchain_community.vectorstores import Pinecone as Pine
 load_dotenv()
 API_URL = "https://umd.instructure.com"
 API_KEY = os.getenv("CANVAS_API_KEY")
