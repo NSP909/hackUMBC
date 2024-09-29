@@ -14,7 +14,7 @@ const QuestionPanel = ({ question, answer, onChange, onSubmit, showNextButton, o
 
   return (
     <div className={styles.questionPanel}>
-      <h3>{question.question}</h3>
+      <h3>{question.text}</h3>
       {question.type === 'Written' ? (
         <div className={styles.writtenQuiz}>
           <input

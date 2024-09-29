@@ -44,8 +44,8 @@ const Study = () => {
         setShowNextButton(false);
       } catch (error) {
         const placeHolderQuestion = Math.random() < 0.5
-          ? { type: 'Written', question: 'Placeholder question?', answer: 'Placeholder answer' }
-          : { type: 'MCQ', question: 'Which of these is a placeholder option?', options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'], answer: 'Option 1' };
+          ? { type: 'Written', text: 'Placeholder question?', answer: 'Placeholder answer' }
+          : { type: 'MCQ', text: 'Which of these is a placeholder option?', options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'], answer: 'Option 1' };
         setQuestions((prevQuestions) => [...prevQuestions, placeHolderQuestion]);
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
         setAnswer('');
