@@ -4,8 +4,7 @@ import QuestionPanel from './QuestionPanel';
 const courses = ["CMSC351", "CMSC320", "CMSC330", "MATH241", "MATH246"];
 
 const initialQuestions = [
-  { type: 'Written', text: 'This is the first question. Fix this later to send http request for the first question later', answer: 'Paris' },
-  // Add more questions as needed
+  {question: {Question: "What is the capital of France?", Options: ["Paris", "London", "Berlin", "Madrid"], Answer: "Paris"}, type: "MCQ", difficulty: "easy"},
 ];
 
 const Study = () => {
@@ -35,16 +34,28 @@ const Study = () => {
     } else {
       try {
         // Simulate an HTTP request to get new question data
-        const response = await fetch('/api/nextQuestion');
-        const newQuestion = await response.json();
+        const response = await fetch('/api/nextQuestion', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            user_id: 1,
+            flag: true
+          })
+
+        });
+        const newQuestion = await response.json().then((data) => {
+          return data.result;
+        });
         setQuestions((prevQuestions) => [...prevQuestions, newQuestion]);
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
         setAnswer('');
         setShowNextButton(false);
       } catch (error) {
-        const placeHolderQuestion = Math.random() < 0.5
-          ? { type: 'Written', text: 'Placeholder question?', answer: 'Placeholder answer' }
-          : { type: 'MCQ', text: 'Which of these is a placeholder option?', options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'], answer: 'Option 1' };
+        const placeHolderQuestion = (Math.random() < 0.5)
+          ? { question: {Question: "What is photosynthesis?", Answer: "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll." }, type: "Written", difficulty: "easy"}
+          : { question: {Question: "What is the capital of France?", Options: ["Paris", "London", "Berlin", "Madrid"], Answer: "Paris" }, type: "MCQ", difficulty: "easy"};
         setQuestions((prevQuestions) => [...prevQuestions, placeHolderQuestion]);
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
         setAnswer('');
@@ -89,7 +100,8 @@ const Study = () => {
     return (
       <div className="flex justify-center items-center h-screen bg-gray-100">
         <QuestionPanel
-          question={question}
+          type={question.type}
+          question={question.question}
           answer={answer}
           onChange={handleAnswerChange}
           onSubmit={handleSubmit}
