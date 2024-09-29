@@ -11,7 +11,7 @@ const QuestionPanel = ({ type, question, answer, onChange, onSubmit, showNextBut
     onSubmit();
   };
 
-  console.log(question);
+  console.log("Question in QuestionPanel:", question);
 
   const handleNextQuestion = () => {
     setSelectedOption(null);
@@ -23,9 +23,25 @@ const QuestionPanel = ({ type, question, answer, onChange, onSubmit, showNextBut
     onPreviousQuestion();
   };
 
+  // Check if question is undefined or null
+  if (!question) {
+    return (
+      <div className="w-full max-w-3xl mx-auto text-white text-center">
+        <h3 className="text-2xl md:text-3xl font-bold mb-6">Loading question...</h3>
+      </div>
+    );
+  }
+
+  // Check if question.question exists (nested structure)
+  const questionText = question.question ? question.question.Question : question.Question;
+  const questionOptions = question.question ? question.question.Options : question.Options;
+  const questionAnswer = question.question ? question.question.Answer : question.Answer;
+
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">{question.Question}</h3>
+      <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
+        {questionText || "Question not available"}
+      </h3>
       
       {type === 'Written' ? (
         <div className="mb-6">
@@ -45,13 +61,15 @@ const QuestionPanel = ({ type, question, answer, onChange, onSubmit, showNextBut
             Submit
           </motion.button>
         </div>
-      ) : (
+      ) : questionOptions ? (
         <MCQQuiz
-          options={question.Options}
-          answer={question.Answer}
+          options={questionOptions}
+          answer={questionAnswer}
           selectedOption={selectedOption}
           onOptionClick={handleOptionClick}
         />
+      ) : (
+        <div className="text-white text-center">Question options not available</div>
       )}
       
       <div className="flex justify-between items-center mt-8">

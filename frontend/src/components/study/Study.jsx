@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import QuestionPanel from './QuestionPanel';
 
@@ -11,11 +11,14 @@ const Study = () => {
   const [answer, setAnswer] = useState('');
   const [showNextButton, setShowNextButton] = useState(false);
   const [currentTopic, setCurrentTopic] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleCourseSelect = async (course) => {
     setSelectedCourse(course);
+    setIsLoading(true);
+    setError(null);
     try {
-      // Simulate fetching questions for the selected course
       const response = await fetch(`http://161.35.127.128:5000/generate_question?user_id=${1}&course=${course}`, {
         method: 'GET',
         headers: {
@@ -23,18 +26,19 @@ const Study = () => {
         },
       });
       const initialData = await response.json();
-      console.log(initialData);
-      const initialQuestions = initialData.result;
-      setCurrentTopic(initialData.course_topic);
-      setQuestions([initialQuestions]); // Ensure this is an array
-      console.log([initialQuestions]);
-      setCurrentQuestionIndex(0);
+      console.log("Initial data:", initialData);
+      if (initialData.result) {
+        setCurrentTopic(initialData.course_topic);
+        setQuestions([initialData.result]);
+        setCurrentQuestionIndex(0);
+      } else {
+        throw new Error("No question data in the response");
+      }
     } catch (error) {
-      console.error('Error fetching initial questions:', error);
-      const placeHolderQuestion = (Math.random() < 0.5)
-        ? { question: {Question: "What is photosynthesis?", Answer: "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll." }, type: "Written", difficulty: "easy"}
-        : { question: {Question: "What is the capital of France?", Options: ["Paris", "London", "Berlin", "Madrid"], Answer: "Paris" }, type: "MCQ", difficulty: "easy"};
-      setQuestions([placeHolderQuestion]); // Ensure this is an array
+      console.error('Error fetching initial question:', error);
+      setError("Failed to fetch the initial question. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -47,41 +51,38 @@ const Study = () => {
   };
 
   const handleNextQuestion = async () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      setAnswer('');
-      setShowNextButton(false);
-    } else {
-      try {
-        console.log(selectedCourse);
-        console.log(currentTopic);
-        const response = await fetch(`http://161.35.127.128:5000/generate_question?user_id=${1}&flag=${true}&course=${selectedCourse}&course_topic=${currentTopic}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        const newQuestion = await response.json();
-        setQuestions((prevQuestions) => [...prevQuestions, newQuestion]);
-        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    setIsLoading(true);
+    setError(null);
+    try {
+      console.log("Fetching next question for:", selectedCourse, currentTopic);
+      const response = await fetch(`http://161.35.127.128:5000/generate_question?user_id=${1}&flag=${true}&course=${selectedCourse}&course_topic=${currentTopic}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const newQuestionData = await response.json();
+      console.log("New question data:", newQuestionData);
+      if (newQuestionData.result) {
+        setQuestions(prevQuestions => [...prevQuestions, newQuestionData.result]);
+        setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+        setCurrentTopic(newQuestionData.course_topic);
         setAnswer('');
         setShowNextButton(false);
-      } catch (error) {
-        console.error('Error fetching next question:', error);
-        const placeHolderQuestion = (Math.random() < 0.5)
-          ? { question: {Question: "What is photosynthesis?", Answer: "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll." }, type: "Written", difficulty: "easy"}
-          : { question: {Question: "What is the capital of France?", Options: ["Paris", "London", "Berlin", "Madrid"], Answer: "Paris" }, type: "MCQ", difficulty: "easy"};
-        setQuestions((prevQuestions) => [...prevQuestions, placeHolderQuestion]);
-        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-        setAnswer('');
-        setShowNextButton(false);
+      } else {
+        throw new Error("No question data in the response");
       }
+    } catch (error) {
+      console.error('Error fetching next question:', error);
+      setError("Failed to fetch the next question. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handlePreviousQuestion = () => {
     if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+      setCurrentQuestionIndex(prevIndex => prevIndex - 1);
       setAnswer('');
       setShowNextButton(false);
     }
@@ -101,6 +102,17 @@ const Study = () => {
         className="bg-white bg-opacity-20 backdrop-blur-lg rounded-xl shadow-lg p-8 w-full max-w-4xl mx-auto"
       >
         <AnimatePresence mode="wait">
+          {error && (
+            <motion.div
+              key="error"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="text-red-500 text-center mb-4"
+            >
+              {error}
+            </motion.div>
+          )}
           {!selectedCourse ? (
             <motion.div
               key="course-selection"
@@ -125,7 +137,18 @@ const Study = () => {
                 ))}
               </div>
             </motion.div>
-          ) : currentQuestionIndex < questions.length ? (
+          ) : isLoading ? (
+            <motion.h2
+              key="loading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-4xl text-center text-white font-bold"
+            >
+              Loading...
+            </motion.h2>
+          ) : questions.length > 0 && currentQuestionIndex < questions.length ? (
             <motion.div
               key="question-panel"
               initial={{ opacity: 0 }}
@@ -150,14 +173,14 @@ const Study = () => {
             </motion.div>
           ) : (
             <motion.h2
-              key="quiz-completed"
+              key="no-questions"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className="text-4xl text-center text-white font-bold"
             >
-              Loading Questions...
+              No questions available. Please try again.
             </motion.h2>
           )}
         </AnimatePresence>
