@@ -234,10 +234,12 @@ def api_check_answer():
         if question_type == "MCQ":
             if sample == answer:
                 result = "Great JOB! Your answer is correct."
+                correct = True
             else:
                 result = (
                     "Sorry, your answer is incorrect. The correct answer is " + sample
                 )
+                correct = False
         else:
             result = check_answer(question, sample, answer)
 
@@ -255,6 +257,9 @@ def api_check_answer():
             update_operation["$inc"][
                 f"grades.{course}.topics.{course_topic}.{difficulty}_correct"
             ] = 1
+            correct = True
+        else:
+            correct = False
 
         # Update user grades
         update_result = main_db["users"].update_one(
@@ -264,7 +269,7 @@ def api_check_answer():
         if update_result.matched_count == 0:
             return jsonify({"error": "User not found"}), 404
 
-        return jsonify({"result": result})
+        return jsonify({"result": result, "correct": correct})
 
     except Exception as e:
         # Log the error here
