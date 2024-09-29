@@ -25,7 +25,7 @@ function App() {
 
 function AppContent({ isExpanded, toggleSidebar }) {
   const location = useLocation();
-  const isLandingPage = location.pathname === '/';
+  const isLandingPage = location.pathname === '/' || location.pathname === '/landing';
 
   return (
     <div className="app">
