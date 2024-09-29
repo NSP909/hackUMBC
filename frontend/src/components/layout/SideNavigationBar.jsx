@@ -1,94 +1,76 @@
-import React from 'react';
+import React, { useContext, createContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton, Typography, Box } from '@mui/material';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import EventIcon from '@mui/icons-material/Event';
-import ChatIcon from '@mui/icons-material/Chat';
-import GradeIcon from '@mui/icons-material/Grade';
+import { MoreVertical, ChevronLast, ChevronFirst } from 'lucide-react';
 
-export default function SideNavigationBar({ isExpanded, toggleSidebar }) {
+const SidebarContext = createContext();
+
+export default function SideNavigationBar({ children }) {
+  const [expanded, setExpanded] = useState(true);
   const location = useLocation();
-  const isCourseDetail = location.pathname.includes('/course/');
-  const drawerWidth = 240;
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      {/* Toggle Button */}
-      <IconButton 
-        onClick={toggleSidebar} 
-        sx={{
-          position: 'absolute',
-          top: 8,
-          left: isExpanded ? `${drawerWidth - 40}px` : '8px',
-          zIndex: 1300,
-          transition: 'left 0.3s',
-        }}
-      >
-        {isExpanded ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-      </IconButton>
+    <SidebarContext.Provider value={{ expanded }}>
+      <aside className="h-screen">
+        <nav className="h-full flex flex-col bg-gray-800 text-white border-r shadow-sm">
+          <div className="p-4 pb-2 flex justify-between items-center">
+            <h1 className={`overflow-hidden transition-all ${expanded ? 'w-32' : 'w-0'}`}>LMS</h1>
+            <button
+              onClick={() => setExpanded((curr) => !curr)}
+              className="p-1.5 rounded-lg bg-gray-700 hover:bg-gray-600"
+            >
+              {expanded ? <ChevronFirst /> : <ChevronLast />}
+            </button>
+          </div>
+          <ul className="flex-1 px-3">
+            <SidebarItem to="/" active={location.pathname === '/'} text="Course Selector" />
+            {location.pathname.includes('/course/') && (
+              <>
+                <SidebarItem
+                  to={`${location.pathname}/grades`}
+                  active={location.pathname.endsWith('/grades')}
+                  text="Grades"
+                />
+                <SidebarItem
+                  to={`${location.pathname}/assignments`}
+                  active={location.pathname.endsWith('/assignments')}
+                  text="Assignments"
+                />
+                <SidebarItem
+                  to={`${location.pathname}/exams`}
+                  active={location.pathname.endsWith('/exams')}
+                  text="Exams"
+                />
+                <SidebarItem
+                  to={`${location.pathname}/events`}
+                  active={location.pathname.endsWith('/events')}
+                  text="Upcoming Events"
+                />
+              </>
+            )}
+            <SidebarItem to="/chatbot" active={location.pathname === '/chatbot'} text="Chatbot" />
+          </ul>
+        </nav>
+      </aside>
+    </SidebarContext.Provider>
+  );
+}
 
-      <Drawer
-        variant="persistent"
-        anchor="left"
-        open={isExpanded}
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-            overflowX: 'hidden',
-            transition: 'width 0.3s',
-          },
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', padding: '8px' }}>
-          <Typography variant="h6" noWrap>
-            LMS
-          </Typography>
-        </div>
-        <List>
-          <ListItem button component={Link} to="/" selected={location.pathname === '/'}>
-            <ListItemText primary="Course Selector" />
-          </ListItem>
-          {isCourseDetail && (
-            <>
-              <ListItem button component={Link} to={`${location.pathname}/grades`} selected={location.pathname.endsWith('/grades')}>
-                <ListItemIcon>
-                  <GradeIcon />
-                </ListItemIcon>
-                <ListItemText primary="Grades" />
-              </ListItem>
-              <ListItem button component={Link} to={`${location.pathname}/assignments`} selected={location.pathname.endsWith('/assignments')}>
-                <ListItemIcon>
-                  <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Assignments" />
-              </ListItem>
-              <ListItem button component={Link} to={`${location.pathname}/exams`} selected={location.pathname.endsWith('/exams')}>
-                <ListItemIcon>
-                  <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Exams" />
-              </ListItem>
-              <ListItem button component={Link} to={`${location.pathname}/events`} selected={location.pathname.endsWith('/events')}>
-                <ListItemIcon>
-                  <EventIcon />
-                </ListItemIcon>
-                <ListItemText primary="Upcoming Events" />
-              </ListItem>
-            </>
-          )}
-          <ListItem button component={Link} to="/chatbot" selected={location.pathname === '/chatbot'}>
-            <ListItemIcon>
-              <ChatIcon />
-            </ListItemIcon>
-            <ListItemText primary="Chatbot" />
-          </ListItem>
-        </List>
-      </Drawer>
-    </Box>
+export function SidebarItem({ to, active, text }) {
+  const { expanded } = useContext(SidebarContext);
+
+  return (
+    <li
+      className={`relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors group ${
+        active ? 'bg-indigo-500 text-white' : 'hover:bg-indigo-600 text-gray-300'
+      }`}
+    >
+      <Link to={to} className="flex w-full items-center">
+        <span
+          className={`overflow-hidden transition-all ${expanded ? 'w-52 ml-3' : 'w-0'}`}
+        >
+          {text}
+        </span>
+      </Link>
+    </li>
   );
 }
