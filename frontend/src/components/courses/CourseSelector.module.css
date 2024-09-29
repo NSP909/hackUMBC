@@ -21,10 +21,9 @@
 }
 
 .courseItem {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 300px;  /* Fixed height to ensure all items are equal */
+  display: flex;
+  flex-direction: column;
 }
 
 .courseItem:hover {
@@ -33,10 +32,10 @@
 }
 
 .courseLink {
-  display: block;
-  padding: 1.5rem;
-  text-decoration: none;
-  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }
 
 .courseLink h3 {
@@ -48,4 +47,33 @@
 .courseLink p {
   font-size: 1rem;
   color: #7f8c8d;
+}
+
+.courseLink svg {
+  font-size: 2rem;
+  color: #2980b9;
+  margin-bottom: 1rem;
+}
+
+.courseCode {
+  font-weight: bold;
+  color: #3498db;
+  margin-bottom: 0.5rem;
+}
+
+.courseName {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.courseDescription {
+  color: #7f8c8d;
+  flex-grow: 1;
+}
+
+.courseIcon {
+  font-size: 2rem;
+  color: #3498db;
+  margin-bottom: 1rem;
 }

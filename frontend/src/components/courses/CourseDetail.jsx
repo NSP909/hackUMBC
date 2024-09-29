@@ -7,6 +7,7 @@ import UpcomingEvents from '../courseModules/UpcomingEvents';
 import Loader from '../common/Loader';
 import Error from '../common/Error';
 import './CourseDetail.module.css';
+import GeneralAnalytics from '../courseModules/GeneralAnalytics';
 
 function CourseDetail() {
   const { id } = useParams();
@@ -35,6 +36,7 @@ function CourseDetail() {
       <h2>{course.name}</h2>
       <p>{course.description}</p>
       <Routes>
+        <Route path='/course/:id' element={<GeneralAnalytics />} />
         <Route path="/course/:id/grades" component={Grades} />
         <Route path="/course/:id/assignments" component={Assignments} />
         <Route path="/course/:id/exams" component={Exams} />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 function MessageList({ messages, writtenAnswer, setWrittenAnswer, handleWrittenAnswerSubmit }) {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -10,31 +11,37 @@ function MessageList({ messages, writtenAnswer, setWrittenAnswer, handleWrittenA
     }
   };
 
+  const messageVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
+  };
+
   return (
     <div className="flex-1 overflow-y-auto p-4 flex flex-col">
       {messages.map((message, index) => (
-        <div
+        <motion.div
           key={index}
-          className={`mb-2 p-3 rounded-lg max-w-xs ${
+          variants={messageVariants}
+          initial="hidden"
+          animate="visible"
+          className={`mb-4 p-4 rounded-lg max-w-[80%] ${
             message.sender === 'user'
-              ? 'bg-gray-800 text-white self-end rounded-br-none'
-              : 'bg-gray-100 text-gray-800 self-start rounded-bl-none'
+              ? 'bg-blue-600 text-white self-end'
+              : 'bg-[#393937] bg-opacity-80 text-white self-start'
           }`}
         >
-          <div className="break-words">
-            {message.text}
-          </div>
+          <div className="break-words">{message.text}</div>
           {message.type === 'MCQ' && (
-            <div className="mt-2 flex flex-col">
+            <div className="mt-4 flex flex-col space-y-2">
               {message.options.map((option, optionIndex) => (
                 <button
                   key={optionIndex}
-                  className={`p-2 mb-1 border rounded-md cursor-pointer ${
+                  className={`p-2 rounded-md cursor-pointer transition-colors ${
                     selectedOption?.messageIndex === index && selectedOption?.option === option
-                      ? option === message.answer
-                        ? 'bg-green-500 text-white border-green-500'
-                        : 'bg-red-500 text-white border-red-500'
-                      : 'border-gray-300'
+                      ? option === message.correctAnswer
+                        ? 'bg-green-500 text-white'
+                        : 'bg-red-500 text-white'
+                      : 'bg-gray-700 text-white hover:bg-gray-600'
                   }`}
                   onClick={() => handleOptionClick(index, option)}
                 >
@@ -44,23 +51,23 @@ function MessageList({ messages, writtenAnswer, setWrittenAnswer, handleWrittenA
             </div>
           )}
           {message.type === 'Written' && (
-            <div className="mt-2 flex">
+            <div className="mt-4 flex flex-col space-y-2">
               <input
                 type="text"
                 value={writtenAnswer}
                 onChange={(e) => setWrittenAnswer(e.target.value)}
                 placeholder="Type your answer..."
-                className="flex-1 p-2 border rounded-md mr-2"
+                className="p-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
               <button
                 onClick={() => handleWrittenAnswerSubmit(index)}
-                className="p-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600"
+                className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
               >
                 Submit
               </button>
             </div>
           )}
-        </div>
+        </motion.div>
       ))}
     </div>
   );
