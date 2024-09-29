@@ -8,6 +8,7 @@ import { MdOutlineAssignmentTurnedIn } from "react-icons/md";
 import { CiPen } from "react-icons/ci";
 import { IoCalendarOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
+import { TbSelect } from "react-icons/tb";
 
 const SidebarContext = createContext();
 
@@ -21,6 +22,7 @@ export default function SideNavigationBar({ children }) {
         initial={false}
         animate={{ width: expanded ? "16rem" : "4rem" }}
         className="h-screen bg-gradient-to-b from-blue-900 via-purple-900 to-indigo-900 overflow-hidden"
+        style={{ minWidth: expanded ? "16rem" : "4rem" }}
       >
         <nav className="h-full flex flex-col text-white border-r border-indigo-800 shadow-lg">
           <div className="p-4 pb-2 flex justify-between items-center">
@@ -51,7 +53,7 @@ export default function SideNavigationBar({ children }) {
           <ul className="flex-1 px-3">
             <SidebarItem
               to="/dashboard"
-              icon={<IoBookOutline />}
+              icon={<TbSelect />}
               text="Course Selector"
               active={location.pathname === "/dashboard"}
               expanded={expanded}
@@ -97,6 +99,14 @@ export default function SideNavigationBar({ children }) {
               active={location.pathname === "/chatbot"}
               expanded={expanded}
             />
+
+            <SidebarItem
+              to="/study"
+              icon={<IoBookOutline />}
+              text="Study"
+              active={location.pathname === "/study"}
+              expanded={expanded}
+            />
           </ul>
         </nav>
       </motion.aside>
@@ -117,7 +127,7 @@ function SidebarItem({ to, icon, text, active, expanded }) {
               : "text-blue-300 hover:bg-indigo-800 hover:text-white"
           }`}
         >
-          <div className={`text-xl ${!expanded && 'mx-auto'}`}>{icon}</div>
+          <div className={`text-xl ${!expanded && "mx-auto"}`}>{icon}</div>
           <AnimatePresence>
             {expanded && (
               <motion.span
