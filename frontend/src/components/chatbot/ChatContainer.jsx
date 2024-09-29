@@ -1,73 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Send } from 'lucide-react';
-import MessageList from './MessageList';
 
 function ChatContainer() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [writtenAnswer, setWrittenAnswer] = useState('');
-  const [selectedCourse, setSelectedCourse] = useState('');
-  const location = useLocation();
-  const [initialMessageSent, setInitialMessageSent] = useState(false);
   const messageEndRef = useRef(null);
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const inputValue = searchParams.get('input');
-    if (inputValue && !initialMessageSent) {
-      setInput(inputValue);
-      handleInitialSubmit(inputValue);
-      setInitialMessageSent(true);
-    }
-  }, [location.search, initialMessageSent]);
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
-  const handleInitialSubmit = async (initialInput) => {
-    const messageToSend = initialInput.trim();
-    if (!messageToSend) return;
-
-    // Add the user's message to the chat
-    setMessages([...messages, { text: messageToSend, sender: 'user' }]);
-    setInput('');
-
-    try {
-      // Simulate an HTTP request to the backend server
-      const response = await fetch('https://your-backend-server.com/get-quiz', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userMessage: messageToSend, course: selectedCourse }),
-      });
-
-      const quizData = await response.json();
-
-      // Add the quiz question to the chat
-      setMessages(prevMessages => [
-        ...prevMessages,
-        {
-          text: quizData.text,
-          sender: 'bot',
-          type: quizData.type,
-          options: quizData.options,
-          correctAnswer: quizData.answer,
-        },
-      ]);
-    } catch (error) {
-      console.error('Error fetching quiz:', error);
-      setMessages(prevMessages => [
-        ...prevMessages,
-        { text: 'What is the capital of France?',
-          sender: 'bot',
-          type: 'Written',
-          correctAnswer: 'Paris',},
-      ]);
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -80,95 +22,80 @@ function ChatContainer() {
 
     try {
       // Simulate an HTTP request to the backend server
-      const response = await fetch('https://your-backend-server.com/get-quiz', {
+      const response = await fetch('https://your-backend-server.com/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userMessage: messageToSend, course: selectedCourse }),
+        body: JSON.stringify({ userMessage: messageToSend }),
       });
 
-      const quizData = await response.json();
+      const botResponse = await response.json();
 
-      // Add the quiz question to the chat
+      // Add the bot's response to the chat
       setMessages(prevMessages => [
         ...prevMessages,
-        {
-          text: quizData.Question,
-          sender: 'bot',
-          type: quizData.Type,
-          options: quizData.Options,
-          correctAnswer: quizData.CorrectAnswer,
-        },
+        { text: botResponse.message, sender: 'bot' },
       ]);
     } catch (error) {
-      console.error('Error fetching quiz:', error);
-      const placeHolderQuestion = Math.random() < 0.5
-          ? { type: 'Written', text: 'Placeholder question?', answer: 'Placeholder answer' }
-          : { type: 'MCQ', text: 'Which of these is a placeholder option?', options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'], answer: 'Option 1' };
+      console.error('Error fetching response:', error);
       setMessages(prevMessages => [
         ...prevMessages,
-        placeHolderQuestion,
+        { text: 'Sorry, there was an error processing your request.', sender: 'bot' },
       ]);
     }
   };
 
-  const handleWrittenAnswerSubmit = async (messageIndex) => {
-    const message = messages[messageIndex];
-    if (!writtenAnswer.trim()) return;
-
-    try {
-      // Simulate an HTTP request to the backend server with the user's answer
-      const response = await fetch('https://your-backend-server.com/submit-answer', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userAnswer: writtenAnswer, correctAnswer: message.correctAnswer }),
-      });
-
-      const result = await response.json();
-
-      // Add the result to the chat
-      setMessages(prevMessages => [
-        ...prevMessages,
-        { text: result.message, sender: 'bot' },
-      ]);
-
-      setWrittenAnswer('');
-    } catch (error) {
-      //console.error('Error submitting answer:', error);
-      setMessages(prevMessages => [
-        ...prevMessages,
-        { text: 'Sorry, there was an error submitting your answer.', sender: 'bot' },
-      ]);
-
-    }
+  const messageVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+    exit: { opacity: 0, y: -50, transition: { duration: 0.3 } }
   };
 
   return (
     <div className="flex flex-col h-screen bg-gradient-to-br from-blue-400 via-purple-500 to-indigo-600 overflow-hidden">
-      <div className="flex-grow overflow-auto">
-        <MessageList
-          messages={messages}
-          writtenAnswer={writtenAnswer}
-          setWrittenAnswer={setWrittenAnswer}
-          handleWrittenAnswerSubmit={handleWrittenAnswerSubmit}
-        />
+      <div className="flex-grow overflow-auto p-4">
+        <AnimatePresence>
+          {messages.map((message, index) => (
+            <motion.div
+              key={index}
+              variants={messageVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} mb-4`}
+            >
+              <div 
+                className={`p-4 rounded-lg max-w-[80%] ${
+                  message.sender === 'user'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-[#393937] bg-opacity-80 text-white'
+                }`}
+              >
+                <div className="break-words">{message.text}</div>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
         <div ref={messageEndRef} />
       </div>
-      <div className="p-4">
-        <form onSubmit={handleSubmit} className="flex items-center bg-[#393937] bg-opacity-80 rounded-lg p-2">
+      <div className="p-4 bg-gradient-to-r from-blue-500 to-indigo-600">
+        <form onSubmit={handleSubmit} className="flex items-center bg-white bg-opacity-20 rounded-full p-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
-            className="flex-grow bg-transparent text-white placeholder-gray-400 focus:outline-none"
+            className="flex-grow bg-transparent text-white placeholder-gray-300 focus:outline-none px-4"
           />
-          <button type="submit" className="ml-2 text-white hover:text-blue-300 transition-colors">
+          <motion.button
+            type="submit"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="ml-2 bg-white text-indigo-600 rounded-full p-2 hover:bg-opacity-90 transition-colors"
+          >
             <Send size={24} />
-          </button>
+          </motion.button>
         </form>
       </div>
     </div>
