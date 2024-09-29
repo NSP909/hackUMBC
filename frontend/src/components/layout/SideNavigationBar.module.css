@@ -1,144 +1,28 @@
-.sideNavigationBarContainer {
-  display: flex;
-  position: relative;
+.icon {
+  width: 24px;
+  height: 24px;
 }
 
-.drawerHeader {
+.flex {
   display: flex;
+}
+
+.items-center {
   align-items: center;
+}
+
+.justify-center {
   justify-content: center;
-  padding: 16px;
-  background-color: #333; /* Dark grey */
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-.sideNavigationBar {
-  width: 240px;a.sidebar {
-    position: relative;
-    width: 240px;
-    transition: width 0.3s;
-    overflow: hidden;
-    background-color: #f4f4f4; /* Light background color */
-  }
-  
-  .sidebar.collapsed {
-    width: 60px; /* Width when collapsed */
-  }
-  
-  .toggle-button {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-  }
-  
-  .sidebar-header {
-    padding: 16px;
-    text-align: center;
-  }
-  
-  .sidebar-nav {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .nav-item {
-    padding: 12px 16px;
-    text-decoration: none;
-    color: #333; /* Text color */
-    transition: background-color 0.3s;
-  }
-  
-  .nav-item:hover {
-    background-color: #ddd; /* Hover color */
-  }
-  
-  .active {
-    background-color: #ccc; /* Active link color */
-    font-weight: bold; /* Highlight active link */
-  }
-  
-  background-color: #2e2e2e; /* Medium dark grey */
-  color: #e0e0e0; /* Light grey text */
-  font-family: 'Arial', sans-serif;
-  transition: width 0.3s ease, background-color 0.3s ease;
-  position: relative;
-  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.15);
+.w-full {
+  width: 100%;
 }
 
-.sideNavigationBar.collapsed {
-  width: 60px;
+.ml-2 {
+  margin-left: 0.5rem;
 }
 
-.sideNavigationList {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  flex-grow: 1;
-}
-
-.sideNavigationItem {
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.75rem;
-  border-radius: 8px;
-  color: #b0b0b0; /* Light grey */
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.sideNavigationItem:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
-  color: #fff;
-}
-
-.sideNavigationItem.selected {
-  background-color: #444; /* Darker grey for selected items */
-  color: #fff;
-  font-weight: bold;
-}
-
-.toggleButton {
-  position: absolute;
-  top: 10px;
-  right: -30px;
-  background-color: #2e2e2e; /* Same as sidebar background */
-  border: none;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.toggleButton:hover {
-  background-color: #444; /* Darker grey for hover */
-}
-
-.MuiDrawer-paper {
-  background-color: #2e2e2e; /* Sidebar background */
-  color: #e0e0e0; /* Light grey */
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-.collapsed .MuiDrawer-paper {
-  width: 60px;
-}
-
-@media (max-width: 768px) {
-  .sideNavigationBar {
-    width: 200px;
-  }
-
-  .sideNavigationItem {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
-  }
+.transition-transform {
+  transition: transform 0.3s ease;
 }
