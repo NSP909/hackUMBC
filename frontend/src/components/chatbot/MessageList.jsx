@@ -21,7 +21,9 @@ function MessageList({ messages, writtenAnswer, setWrittenAnswer, handleWrittenA
               : 'bg-gray-100 text-gray-800 self-start rounded-bl-none'
           }`}
         >
-          {message.text}
+          <div className="break-words">
+            {message.text}
+          </div>
           {message.type === 'MCQ' && (
             <div className="mt-2 flex flex-col">
               {message.options.map((option, optionIndex) => (
@@ -52,7 +54,7 @@ function MessageList({ messages, writtenAnswer, setWrittenAnswer, handleWrittenA
               />
               <button
                 onClick={() => handleWrittenAnswerSubmit(index)}
-                className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                className="p-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600"
               >
                 Submit
               </button>
