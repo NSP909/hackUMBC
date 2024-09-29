@@ -34,8 +34,8 @@ export default function SideNavigationBar({ children }) {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Link to="/" className="text-xl font-bold text-blue-300">
-                    Vecotr Mentor
+                  <Link to="/landing" className="text-xl font-bold text-blue-300">
+                    Vector Mentor
                   </Link>
                 </motion.div>
               )}
