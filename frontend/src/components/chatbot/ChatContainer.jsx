@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 function ChatContainer() {
   const [messages, setMessages] = useState([]);
@@ -72,7 +73,9 @@ function ChatContainer() {
                     : 'bg-[#393937] bg-opacity-80 text-white'
                 }`}
               >
-                <div className="break-words">{message.text}</div>
+                <ReactMarkdown className="break-words">
+                  {message.text}
+                </ReactMarkdown>
               </div>
             </motion.div>
           ))}
