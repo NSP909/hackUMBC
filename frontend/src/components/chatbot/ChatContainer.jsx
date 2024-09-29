@@ -5,8 +5,6 @@ import MessageList from './MessageList';
 function ChatContainer() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [writtenAnswer, setWrittenAnswer] = useState('');
-  const [selectedCourse, setSelectedCourse] = useState('');
   const location = useLocation();
   const [initialMessageSent, setInitialMessageSent] = useState(false); // Flag to prevent multiple submissions
 
@@ -30,35 +28,26 @@ function ChatContainer() {
 
     try {
       // Simulate an HTTP request to the backend server
-      const response = await fetch('https://your-backend-server.com/get-quiz', {
+      const response = await fetch('https://your-backend-server.com/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userMessage: messageToSend, course: selectedCourse }),
+        body: JSON.stringify({ userMessage: messageToSend }),
       });
 
-      const quizData = await response.json();
+      const chatResponse = await response.json();
 
-      // Add the quiz question to the chat
+      // Add the bot's response to the chat
       setMessages(prevMessages => [
         ...prevMessages,
-        {
-          text: quizData.text,
-          sender: 'bot',
-          type: quizData.type,
-          options: quizData.options,
-          correctAnswer: quizData.answer,
-        },
+        { text: chatResponse.message, sender: 'bot' },
       ]);
     } catch (error) {
-      console.error('Error fetching quiz:', error);
+      console.error('Error fetching chat response:', error);
       setMessages(prevMessages => [
         ...prevMessages,
-        { text: 'What is the capital of France?',
-          sender: 'bot',
-          type: 'Written',
-          correctAnswer: 'Paris',},
+        { text: 'Sorry, there was an error processing your message.', sender: 'bot' },
       ]);
     }
   };
@@ -74,80 +63,33 @@ function ChatContainer() {
 
     try {
       // Simulate an HTTP request to the backend server
-      const response = await fetch('https://your-backend-server.com/get-quiz', {
+      const response = await fetch('https://your-backend-server.com/query', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userMessage: messageToSend, course: selectedCourse }),
+        body: JSON.stringify({ question: messageToSend }),
       });
 
-      const quizData = await response.json();
+      const chatResponse = await response.json();
 
-      // Add the quiz question to the chat
+      // Add the bot's response to the chat
       setMessages(prevMessages => [
         ...prevMessages,
-        {
-          text: quizData.Question,
-          sender: 'bot',
-          type: quizData.Type,
-          options: quizData.Options,
-          correctAnswer: quizData.CorrectAnswer,
-        },
+        { text: chatResponse.messages[-1], sender: 'bot' },
       ]);
     } catch (error) {
-      console.error('Error fetching quiz:', error);
-      const placeHolderQuestion = Math.random() < 0.5
-          ? { type: 'Written', text: 'Placeholder question?', answer: 'Placeholder answer' }
-          : { type: 'MCQ', text: 'Which of these is a placeholder option?', options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'], answer: 'Option 1' };
+      console.error('Error fetching chat response:', error);
       setMessages(prevMessages => [
         ...prevMessages,
-        placeHolderQuestion,
+        { text: 'Sorry, there was an error processing your message.', sender: 'bot' },
       ]);
-    }
-  };
-
-  const handleWrittenAnswerSubmit = async (messageIndex) => {
-    const message = messages[messageIndex];
-    if (!writtenAnswer.trim()) return;
-
-    try {
-      // Simulate an HTTP request to the backend server with the user's answer
-      const response = await fetch('https://your-backend-server.com/submit-answer', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userAnswer: writtenAnswer, correctAnswer: message.correctAnswer }),
-      });
-
-      const result = await response.json();
-
-      // Add the result to the chat
-      setMessages(prevMessages => [
-        ...prevMessages,
-        { text: result.message, sender: 'bot' },
-      ]);
-
-      setWrittenAnswer('');
-    } catch (error) {
-      //console.error('Error submitting answer:', error);
-      setMessages(prevMessages => [
-        ...prevMessages,
-        { text: 'Sorry, there was an error submitting your answer.', sender: 'bot' },
-      ]);
-
     }
   };
 
   return (
     <div className="flex flex-col h-screen w-full bg-white overflow-hidden">
-      <MessageList
-        messages={messages}
-        writtenAnswer={writtenAnswer}
-        setWrittenAnswer={setWrittenAnswer}
-        handleWrittenAnswerSubmit={handleWrittenAnswerSubmit}
-      />
+      <MessageList messages={messages} />
       <div className="flex p-4 border-t border-gray-200">
         <form onSubmit={handleSubmit} className="flex w-full">
           <input
