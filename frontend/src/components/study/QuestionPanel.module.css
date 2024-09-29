@@ -3,8 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60%;
-    width: 60%;
+    height: 50%;
+    width: 50%;
     text-align: center;
     background-color: #fff;
     padding: 20px;
@@ -49,10 +49,16 @@
     background-color: #27ae60;
   }
   
-  .nextButton {
+  .navigationBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     position: absolute;
     bottom: 10px;
-    right: 10px;
+  }
+  
+  .arrowButton {
     padding: 10px;
     border-radius: 50%;
     background-color: #3498db;
@@ -65,8 +71,18 @@
     transition: background-color 0.3s ease;
   }
   
-  .nextButton:hover {
+  .arrowButton:hover {
     background-color: #2980b9;
+  }
+  
+  .arrowButton:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+  
+  .questionIndex {
+    font-size: 1rem;
+    color: #333;
   }
   
   .arrowIcon {

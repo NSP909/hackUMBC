@@ -5,8 +5,7 @@ import styles from './Study.module.css';
 const courses = ["CMSC351", "CMSC320", "CMSC330", "MATH241", "MATH246"];
 
 const initialQuestions = [
-  { type: 'Written', question: 'What is the capital of France?', answer: 'Paris' },
-  { type: 'MCQ', question: 'Which of these is a programming language?', options: ['Java', 'HTML', 'CSS', 'XML'], answer: 'Java' },
+  { type: 'Written', question: 'This is the first question. Fix this later to send http request for the first question later', answer: 'Paris' },
   // Add more questions as needed
 ];
 
@@ -55,6 +54,18 @@ const Study = () => {
     }
   };
 
+  const handlePreviousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+      setAnswer('');
+      setShowNextButton(false);
+    }
+  };
+
+  const isFinalQuestionAnswered = () => {
+    return showNextButton || currentQuestionIndex < questions.length - 1;
+  };
+
   if (!selectedCourse) {
     return (
       <div className={styles.courseSelection}>
@@ -81,6 +92,10 @@ const Study = () => {
           onSubmit={handleSubmit}
           showNextButton={showNextButton}
           onNextQuestion={handleNextQuestion}
+          onPreviousQuestion={handlePreviousQuestion}
+          currentQuestionIndex={currentQuestionIndex}
+          totalQuestions={questions.length}
+          isFinalQuestionAnswered={isFinalQuestionAnswered()}
         />
       </div>
     );
