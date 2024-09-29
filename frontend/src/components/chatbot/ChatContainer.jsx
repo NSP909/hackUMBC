@@ -45,11 +45,11 @@ function ChatContainer() {
       setMessages(prevMessages => [
         ...prevMessages,
         {
-          text: quizData.Question,
+          text: quizData.text,
           sender: 'bot',
-          type: quizData.Type,
-          options: quizData.Options,
-          correctAnswer: quizData.CorrectAnswer,
+          type: quizData.type,
+          options: quizData.options,
+          correctAnswer: quizData.answer,
         },
       ]);
     } catch (error) {
