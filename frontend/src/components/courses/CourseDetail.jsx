@@ -120,32 +120,41 @@ function CourseDetail() {
   };
 
   return (
-    <div className="course-detail">
-      <h2 className="text-2xl font-bold mb-4">Course: {courses.find((course) => course.id === parseInt(id)).name}</h2>
+    <div className="course-detail p-4">
+      <h2 className="text-2xl font-bold mb-6">Course: {courses.find((course) => course.id === parseInt(id)).name}</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Responsive grid layout for 4 equal-sized charts */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
         {/* Radar Chart */}
-        <div className="chart-container">
-          <h3 className="text-xl font-semibold mb-2">Performance by Difficulty</h3>
-          <Radar data={radarData} />
+        <div className="bg-white p-4 shadow-md rounded-lg">
+          <h3 className="text-lg font-semibold mb-2">Performance by Difficulty</h3>
+          <div className="h-128">
+            <Radar data={radarData} options={{ maintainAspectRatio: false }} />
+          </div>
         </div>
 
         {/* Stacked Bar Chart */}
-        <div className="chart-container">
-          <h3 className="text-xl font-semibold mb-2">Correctness Breakdown by Topic</h3>
-          <Bar data={barData} options={{ scales: { x: { stacked: true }, y: { stacked: true } } }} />
+        <div className="bg-white p-4 shadow-md rounded-lg">
+          <h3 className="text-lg font-semibold mb-2">Correctness Breakdown by Topic</h3>
+          <div className="h-128">
+            <Bar data={barData} options={{ maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }} />
+          </div>
         </div>
 
         {/* Line Chart */}
-        <div className="chart-container">
-          <h3 className="text-xl font-semibold mb-2">Upcoming Assignment Deadlines</h3>
-          <Line data={lineData} />
+        <div className="bg-white p-4 shadow-md rounded-lg">
+          <h3 className="text-lg font-semibold mb-2">Upcoming Assignment Deadlines</h3>
+          <div className="h-128">
+            <Line data={lineData} options={{ maintainAspectRatio: false }} />
+          </div>
         </div>
 
         {/* Pie Chart */}
-        <div className="chart-container">
-          <h3 className="text-xl font-semibold mb-2">Upcoming Assignments by Topic</h3>
-          <Pie data={pieData} />
+        <div className="bg-white p-4 shadow-md rounded-lg">
+          <h3 className="text-lg font-semibold mb-2">Upcoming Assignments by Topic</h3>
+          <div className="h-128">
+            <Pie data={pieData} options={{ maintainAspectRatio: false }} />
+          </div>
         </div>
       </div>
     </div>
