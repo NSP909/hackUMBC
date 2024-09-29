@@ -1,13 +1,18 @@
 import React from 'react';
-import styles from './MCQQuiz.module.css';
 
 const MCQQuiz = ({ options, answer, selectedOption, onOptionClick }) => {
   return (
-    <div className={styles.mcqQuiz}>
+    <div className="grid grid-cols-2 gap-4">
       {options.map((option, index) => (
         <button
           key={index}
-          className={`${styles.optionButton} ${selectedOption === option ? (option === answer ? styles.correct : styles.incorrect) : ''}`}
+          className={`p-4 text-white font-medium rounded-md transition-colors duration-300 ${
+            selectedOption === option
+              ? option === answer
+                ? 'bg-green-500'
+                : 'bg-red-500'
+              : 'bg-gray-800'
+          }`}
           onClick={() => onOptionClick(option)}
         >
           {option}

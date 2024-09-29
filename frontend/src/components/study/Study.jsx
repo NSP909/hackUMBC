@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import QuestionPanel from './QuestionPanel';
-import styles from './Study.module.css';
 
 const courses = ["CMSC351", "CMSC320", "CMSC330", "MATH241", "MATH246"];
 
@@ -68,11 +67,15 @@ const Study = () => {
 
   if (!selectedCourse) {
     return (
-      <div className={styles.courseSelection}>
-        <h2>Select a Course to Study</h2>
-        <div className={styles.courseButtons}>
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-5 rounded-lg shadow-md">
+        <h2 className="text-3xl mb-5 text-gray-800">Select a Course to Study</h2>
+        <div className="flex flex-wrap justify-center">
           {courses.map((course) => (
-            <button key={course} onClick={() => handleCourseSelect(course)}>
+            <button
+              key={course}
+              onClick={() => handleCourseSelect(course)}
+              className="m-2 p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300"
+            >
               {course}
             </button>
           ))}
@@ -84,7 +87,7 @@ const Study = () => {
   if (currentQuestionIndex < questions.length) {
     const question = questions[currentQuestionIndex];
     return (
-      <div className={styles.studyContainer}>
+      <div className="flex justify-center items-center h-screen bg-gray-100">
         <QuestionPanel
           question={question}
           answer={answer}
@@ -101,7 +104,7 @@ const Study = () => {
     );
   }
 
-  return <h2>Quiz Completed!</h2>;
+  return <h2 className="text-3xl text-center text-gray-800">Quiz Completed!</h2>;
 };
 
 export default Study;
