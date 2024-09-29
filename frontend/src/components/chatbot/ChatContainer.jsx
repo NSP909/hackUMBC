@@ -22,20 +22,20 @@ function ChatContainer() {
 
     try {
       // Simulate an HTTP request to the backend server
-      const response = await fetch('https://your-backend-server.com/chat', {
+      const response = await fetch(`http://161.35.127.128:5000/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userMessage: messageToSend }),
+        body: JSON.stringify({ question: messageToSend }),
       });
 
       const botResponse = await response.json();
-
+      console.log(botResponse);
       // Add the bot's response to the chat
       setMessages(prevMessages => [
         ...prevMessages,
-        { text: botResponse.message, sender: 'bot' },
+        { text: botResponse[botResponse.length - 1], sender: 'bot' },
       ]);
     } catch (error) {
       console.error('Error fetching response:', error);

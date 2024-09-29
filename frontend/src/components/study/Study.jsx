@@ -10,48 +10,31 @@ const Study = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answer, setAnswer] = useState('');
   const [showNextButton, setShowNextButton] = useState(false);
-
-  useEffect(() => {
-    const fetchInitialQuestions = async () => {
-      try {
-        // Simulate an HTTP request to get initial question data
-        const response = await fetch('/api/nextQuestion', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            user_id: 1,
-            flag: false
-          })
-        });
-        const initialQuestions = await response.json().then((data) => {
-          return data.result;
-        });
-        setQuestions(initialQuestions);
-      } catch (error) {
-        console.error('Error fetching initial questions:', error);
-        const placeHolderQuestion = (Math.random() < 0.5)
-          ? { question: {Question: "What is photosynthesis?", Answer: "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll." }, type: "Written", difficulty: "easy"}
-          : { question: {Question: "What is the capital of France?", Options: ["Paris", "London", "Berlin", "Madrid"], Answer: "Paris" }, type: "MCQ", difficulty: "easy"};
-        setQuestions([placeHolderQuestion]);
-      }
-    };
-
-    fetchInitialQuestions();
-  }, []);
+  const [currentTopic, setCurrentTopic] = useState(null);
 
   const handleCourseSelect = async (course) => {
     setSelectedCourse(course);
-    // Simulate fetching questions for the selected course
     try {
-      const response = await fetch(`/api/questions/${course}`);
-      const data = await response.json();
-      setQuestions(data.questions || initialQuestions);
+      // Simulate fetching questions for the selected course
+      const response = await fetch(`http://161.35.127.128:5000/generate_question?user_id=${1}&course=${course}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const initialData = await response.json();
+      console.log(initialData);
+      const initialQuestions = initialData.result;
+      setCurrentTopic(initialData.course_topic);
+      setQuestions([initialQuestions]); // Ensure this is an array
+      console.log([initialQuestions]);
       setCurrentQuestionIndex(0);
     } catch (error) {
-      console.error('Error fetching questions:', error);
-      setQuestions(initialQuestions);
+      console.error('Error fetching initial questions:', error);
+      const placeHolderQuestion = (Math.random() < 0.5)
+        ? { question: {Question: "What is photosynthesis?", Answer: "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll." }, type: "Written", difficulty: "easy"}
+        : { question: {Question: "What is the capital of France?", Options: ["Paris", "London", "Berlin", "Madrid"], Answer: "Paris" }, type: "MCQ", difficulty: "easy"};
+      setQuestions([placeHolderQuestion]); // Ensure this is an array
     }
   };
 
@@ -70,16 +53,13 @@ const Study = () => {
       setShowNextButton(false);
     } else {
       try {
-        const response = await fetch('/api/nextQuestion', {
-          method: 'POST',
+        console.log(selectedCourse);
+        console.log(currentTopic);
+        const response = await fetch(`http://161.35.127.128:5000/generate_question?user_id=${1}&flag=${true}&course=${selectedCourse}&course_topic=${currentTopic}`, {
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            user_id: 1,
-            flag: true,
-            course: selectedCourse
-          })
         });
         const newQuestion = await response.json();
         setQuestions((prevQuestions) => [...prevQuestions, newQuestion]);
@@ -177,7 +157,7 @@ const Study = () => {
               transition={{ duration: 0.3 }}
               className="text-4xl text-center text-white font-bold"
             >
-              Quiz Completed!
+              Loading Questions...
             </motion.h2>
           )}
         </AnimatePresence>
@@ -185,6 +165,5 @@ const Study = () => {
     </div>
   );
 };
-
 
 export default Study;

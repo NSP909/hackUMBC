@@ -5,11 +5,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const QuestionPanel = ({ type, question, answer, onChange, onSubmit, showNextButton, onNextQuestion, onPreviousQuestion, currentQuestionIndex, totalQuestions, isFinalQuestionAnswered }) => {
   const [selectedOption, setSelectedOption] = useState(null);
-
+  
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     onSubmit();
   };
+
+  console.log(question);
 
   const handleNextQuestion = () => {
     setSelectedOption(null);
