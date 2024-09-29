@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { BookOpen, Code, Globe, Database, Brain, ChartLine } from 'lucide-react';
 
 const courses = [
-  { id: 1, name: 'Introduction to Computer Science', code: 'CS101', icon: BookOpen },
-  { id: 2, name: 'Data Structures and Algorithms', code: 'CS201', icon: Code },
-  { id: 3, name: 'Web Development', code: 'CS301', icon: Globe },
-  { id: 4, name: 'Database Systems', code: 'CS401', icon: Database },
-  { id: 5, name: 'Artificial Intelligence', code: 'CS501', icon: Brain },
-  { id: 6, name: 'Machine Learning', code: 'CS601', icon: ChartLine },
+  { id: 1, name: 'Introduction to Data Science', code: 'CMSC320', icon: BookOpen, description: 'Learn the basics of data science and machine learning' },
+  { id: 2, name: 'Algorithms', code: 'CMSC351', icon: Code, description: 'Learn about algorithms' },
+  { id: 3, name: 'Oral Communication', code: 'COMM107', icon: Globe, description: 'Get better at public speaking' },
+  { id: 4, name: 'Linear Algebra', code: 'MATH240', icon: Database, description: 'Get introduced to the world of Linear Algebra' },
+  { id: 5, name: 'Calculus III', code: 'MATH241', icon: Brain, description: 'Discover the complexities of Calculus III' },
+  { id: 6, name: 'Differential Equations', code: 'MATH246', icon: ChartLine, description: 'See how differential equations are used in the real world' },
 ];
 
 export default function CourseSelector() {
@@ -29,7 +29,7 @@ export default function CourseSelector() {
               <span className="text-xl font-semibold text-blue-200">{course.code}</span>
             </div>
             <h2 className="text-2xl font-bold mb-2">{course.name}</h2>
-            <p className="text-sm opacity-80">Discover the fundamentals and advance your skills in this exciting field.</p>
+            <p className="text-sm opacity-80">{course.description}</p>
           </Link>
         ))}
       </div>
