@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styles from './LandingPage.module.css';
-import Typewriter from 'typewriter-effect';
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "./LandingPage.module.css";
+import Typewriter from "typewriter-effect";
 
 function LandingPage() {
-  const [inputValue, setInputValue] = useState('');
-  const [inputHeight, setInputHeight] = useState('auto');
+  const [inputValue, setInputValue] = useState("");
+  const [inputHeight, setInputHeight] = useState("auto");
   const [showSecondLine, setShowSecondLine] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
+  const hasTypedFirstLine = useRef(false);
+  const hasTypedSecondLine = useRef(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -21,30 +23,30 @@ function LandingPage() {
   };
 
   const handleBoxClick = () => {
-    document.getElementById('searchInput').focus(); 
+    document.getElementById("searchInput").focus();
   };
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    setInputHeight('auto');
+    setInputHeight("auto");
     setInputHeight(`${e.target.scrollHeight}px`);
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       setIsFadingOut(true);
     }
   };
 
   useEffect(() => {
-    const input = document.getElementById('searchInput');
-    input.style.caretColor = 'transparent';
-    input.addEventListener('focus', () => {
-      input.style.caretColor = '#fff';
+    const input = document.getElementById("searchInput");
+    input.style.caretColor = "transparent";
+    input.addEventListener("focus", () => {
+      input.style.caretColor = "#fff";
     });
-    input.addEventListener('blur', () => {
-      input.style.caretColor = 'transparent';
+    input.addEventListener("blur", () => {
+      input.style.caretColor = "transparent";
     });
   }, []);
 
@@ -64,74 +66,88 @@ function LandingPage() {
     }
   }, [isFadingOut, navigate, inputValue]);
 
+  const startTypewriter = (typewriter, text, ref) => {
+    if (!ref.current) {
+      typewriter
+        .typeString(text)
+        .callFunction(() => {
+          console.log(`${text} typed out!`);
+          ref.current = true; // Set ref to true after typing
+        })
+        .start();
+    }
+  };
+
   return (
-    <div className={`${styles.landingPage} ${isFadingOut ? styles.fadeOut : ''}`}>
+    <div className={`${styles.landingPage} ${isFadingOut ? styles.fadeOut : ""}`}>
       <div className={styles.title}>
         <Typewriter
           options={{
-            strings: ['Hi Ritesh!'], // Changed from 'Hi User' to 'Hi Ritesh!'
+            strings: ["Hi Ritesh!"],
             autoStart: true,
             loop: false,
             delay: 75,
+            cursor: "", // Hide the cursor for the first typewriter
           }}
-          onInit={(typewriter) => {
-            typewriter
-              .typeString('Hi Ritesh!') // Changed from 'Hi User' to 'Hi Ritesh!'
-              .callFunction(() => {
-                console.log('First string typed out!');
-              })
-              .start();
-          }}
+          onInit={(typewriter) => startTypewriter(typewriter, "Hi Ritesh!", hasTypedFirstLine)}
         />
       </div>
+
       {showSecondLine && (
         <div className={styles.subtitle}>
           <Typewriter
             options={{
-              strings: ['What Would You Like To Do Today?'],
+              strings: ["What Would You Like To Do Today?"],
               autoStart: true,
               loop: false,
-              delay: 75, // Adjusted for faster typing
+              delay: 75,
+              cursor: "|", // Show the cursor for the second typewriter
             }}
-            onInit={(typewriter) => {
-              typewriter // Use a reasonable delay for testing
-                .typeString('What Would You Like To Do Today?')
-                .callFunction(() => {
-                  console.log('Second string typed out!');
-                })
-                .start()
-                .stop(); // Stop the typewriter effect after typing
-            }}
+            onInit={(typewriter) => startTypewriter(typewriter, "What Would You Like To Do Today?", hasTypedSecondLine)}
           />
         </div>
       )}
-      
+
       <div className={styles.searchContainer} onClick={handleBoxClick}>
         <form onSubmit={handleSubmit} className={styles.form}>
           <textarea
             id="searchInput"
             value={inputValue}
             onChange={handleInputChange}
-            onKeyDown={handleKeyDown} 
+            onKeyDown={handleKeyDown}
             placeholder="Type to search..."
             className={styles.input}
-            style={{ height: inputHeight }} 
+            style={{ height: inputHeight }}
           />
         </form>
       </div>
 
       <div className={styles.buttons}>
-        <button className={styles.button} color="grey" variant="faded" onClick={() => handleButtonClick('/dashboard')}>
+        <button
+          className={styles.button}
+          color="grey"
+          variant="faded"
+          onClick={() => handleButtonClick("/dashboard")}
+        >
           Dashboard
         </button>
-        <button className={styles.button} color="grey" variant="faded" onClick={() => handleButtonClick('/chatbot')}>
+        <button
+          className={styles.button}
+          color="grey"
+          variant="faded"
+          onClick={() => handleButtonClick("/chatbot")}
+        >
           Chat
         </button>
-        <button className={styles.button} color="grey" variant="faded" onClick={() => handleButtonClick('/study')}>
+        <button
+          className={styles.button}
+          color="grey"
+          variant="faded"
+          onClick={() => handleButtonClick("/study")}
+        >
           Study
         </button>
       </div>
-      
     </div>
   );
 }
