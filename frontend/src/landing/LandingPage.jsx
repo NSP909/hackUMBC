@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './LandingPage.module.css';
+import Typewriter from 'typewriter-effect';
 
 function LandingPage() {
   const [inputValue, setInputValue] = useState('');
   const [inputHeight, setInputHeight] = useState('auto');
+  const [showSecondLine, setShowSecondLine] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -44,9 +46,56 @@ function LandingPage() {
     });
   }, []);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowSecondLine(true);
+    }, 2000); // Adjust the delay as needed
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <div className={styles.landingPage}>
-      <h1 className={styles.title}>Hi User</h1>
+      <div className={styles.title}>
+        <Typewriter
+          options={{
+            strings: ['Hi Ritesh!'], // Changed from 'Hi User' to 'Hi Ritesh!'
+            autoStart: true,
+            loop: false,
+            delay: 75,
+          }}
+          onInit={(typewriter) => {
+            typewriter
+              .typeString('Hi Ritesh!') // Changed from 'Hi User' to 'Hi Ritesh!'
+              .callFunction(() => {
+                console.log('First string typed out!');
+              })
+              .start();
+          }}
+        />
+      </div>
+      {showSecondLine && (
+        <div className={styles.subtitle}>
+          <Typewriter
+            options={{
+              strings: ['What Would You Like To Do Today?'],
+              autoStart: true,
+              loop: false,
+              delay: 75, // Adjusted for faster typing
+            }}
+            onInit={(typewriter) => {
+              typewriter // Use a reasonable delay for testing
+                .typeString('What Would You Like To Do Today?')
+                .callFunction(() => {
+                  console.log('Second string typed out!');
+                })
+                .start()
+                .stop(); // Stop the typewriter effect after typing
+            }}
+          />
+        </div>
+      )}
+      
       <div className={styles.searchContainer} onClick={handleBoxClick}>
         <form onSubmit={handleSubmit} className={styles.form}>
           <textarea
