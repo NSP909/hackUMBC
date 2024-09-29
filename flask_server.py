@@ -61,6 +61,8 @@ def get_user():
     user = main_db["users"].find_one({"user_id": user_id})
     if not user:
         return jsonify({"error": "User not found"}), 404
+    if "_id" in user:
+        user["_id"] = str(user["_id"]) 
     return jsonify(user)
 
 
@@ -137,10 +139,14 @@ def api_generate_question():
                         )
                     ],
                 }
-                topics_data.append(new_data)
+                # Convert each new_data dictionary to a DataFrame
+                topics_data.append(pd.DataFrame(new_data))
+
+            # Concatenate all DataFrames in topics_data
+            topics_df = pd.concat(topics_data, ignore_index=True)
 
             # Batch predict importance for all topics in the course
-            predictions = recommend_study(pd.concat(topics_data, ignore_index=True))
+            predictions = recommend_study(topics_df)
 
             # Update importance for each topic
             for i, (topic, topic_data) in enumerate(course_data["topics"].items()):
@@ -254,4 +260,4 @@ def todo_endpoint():
     return jsonify(todo_list)
 
 
-app.run(port=5000, debug=True)
+app.run(port=5000, debug=False)

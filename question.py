@@ -70,7 +70,7 @@ generate_question_prompt="""You are a tutor and your job is to generate multiple
     You need to return ouput in the following format:
     "{{"Question": "What is the capital of France?", "Options": ["Paris", "London", "Berlin", "Madrid"], "Answer": "Paris"}}"
     
-    The question needs to be {typ}
+    The question needs to be {type}
     
     Do not return anything other than the dictionary.
     """
@@ -84,7 +84,7 @@ generate_sub_question_prompt="""You are a tutor and your job is to generate free
     "{{"Question": "What is photosynthesis?",
       "Answer": "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll."}}"
     
-    The question needs to be {typ}
+    The question needs to be {type}
 
     Do not return anything other than the dictionary.
     """
@@ -200,7 +200,7 @@ def clear_doubt(conversation, question, course):
     prompt=ChatPromptTemplate.from_template(clear_doubt_prompt)
     chain = prompt | llm| parser
     cour = detect_course(course)
-    context=notes.similarity_search(conversation, k=5, filters={"source":cour})
+    context=notes.similarity_search(conversation, k=5, filter={"source":cour})
     response=chain.invoke({"conversation":conversation, "context":context, "question":question})
     return response
 

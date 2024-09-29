@@ -1,0 +1,1492 @@
+{
+    "CMSC320": {
+        "grade": 91.91814253897003,
+        "topics": {
+            "Classifications": {
+                "days_to_deadline": 0.4422941318117961,
+                "easy_correct": 75,
+                "easy_total": 76,
+                "hard_correct": 53,
+                "hard_total": 60,
+                "medium_correct": 67,
+                "medium_total": 84,
+                "upcoming_assignment": 1
+            },
+            "Data Cleaning": {
+                "days_to_deadline": 0.96974346775152,
+                "easy_correct": 36,
+                "easy_total": 45,
+                "hard_correct": 47,
+                "hard_total": 70,
+                "medium_correct": 87,
+                "medium_total": 88,
+                "upcoming_assignment": 1
+            },
+            "Data Ethics": {
+                "days_to_deadline": 0.1547258873814873,
+                "easy_correct": 74,
+                "easy_total": 78,
+                "hard_correct": 52,
+                "hard_total": 64,
+                "medium_correct": 39,
+                "medium_total": 53,
+                "upcoming_assignment": 1
+            },
+            "Data Exploration": {
+                "days_to_deadline": 0.6529254485568635,
+                "easy_correct": 72,
+                "easy_total": 89,
+                "hard_correct": 88,
+                "hard_total": 98,
+                "medium_correct": 74,
+                "medium_total": 76,
+                "upcoming_assignment": 1
+            },
+            "Data Visualization": {
+                "days_to_deadline": "None",
+                "easy_correct": 27,
+                "easy_total": 33,
+                "hard_correct": 38,
+                "hard_total": 39,
+                "medium_correct": 41,
+                "medium_total": 51,
+                "upcoming_assignment": 0
+            },
+            "Decision Tree": {
+                "days_to_deadline": 0.15516826506429593,
+                "easy_correct": 38,
+                "easy_total": 43,
+                "hard_correct": 58,
+                "hard_total": 59,
+                "medium_correct": 87,
+                "medium_total": 94,
+                "upcoming_assignment": 1
+            },
+            "Experiment Design": {
+                "days_to_deadline": 0.5926907631063886,
+                "easy_correct": 60,
+                "easy_total": 66,
+                "hard_correct": 48,
+                "hard_total": 73,
+                "medium_correct": 66,
+                "medium_total": 74,
+                "upcoming_assignment": 1
+            },
+            "Feature Engineering": {
+                "days_to_deadline": 0.9578910011996242,
+                "easy_correct": 40,
+                "easy_total": 48,
+                "hard_correct": 24,
+                "hard_total": 28,
+                "medium_correct": 45,
+                "medium_total": 47,
+                "upcoming_assignment": 1
+            },
+            "Hypothesis Testing": {
+                "days_to_deadline": "None",
+                "easy_correct": 21,
+                "easy_total": 22,
+                "hard_correct": 24,
+                "hard_total": 39,
+                "medium_correct": 10,
+                "medium_total": 11,
+                "upcoming_assignment": 0
+            },
+            "Image Processing": {
+                "days_to_deadline": "None",
+                "easy_correct": 12,
+                "easy_total": 14,
+                "hard_correct": 15,
+                "hard_total": 28,
+                "medium_correct": 71,
+                "medium_total": 80,
+                "upcoming_assignment": 0
+            },
+            "Intro to Natural Language Processing": {
+                "days_to_deadline": 0.7871103404419195,
+                "easy_correct": 40,
+                "easy_total": 47,
+                "hard_correct": 25,
+                "hard_total": 36,
+                "medium_correct": 18,
+                "medium_total": 31,
+                "upcoming_assignment": 1
+            },
+            "Introduction to Data Science and Data Type": {
+                "days_to_deadline": 0.3939122060850121,
+                "easy_correct": 24,
+                "easy_total": 25,
+                "hard_correct": 49,
+                "hard_total": 75,
+                "medium_correct": 16,
+                "medium_total": 22,
+                "upcoming_assignment": 1
+            },
+            "Introduction to Graph Theory": {
+                "days_to_deadline": 0.0023213675481721374,
+                "easy_correct": 13,
+                "easy_total": 14,
+                "hard_correct": 79,
+                "hard_total": 88,
+                "medium_correct": 62,
+                "medium_total": 86,
+                "upcoming_assignment": 1
+            },
+            "Introduction to Machine Learning": {
+                "days_to_deadline": 0.28128155969863833,
+                "easy_correct": 12,
+                "easy_total": 13,
+                "hard_correct": 75,
+                "hard_total": 84,
+                "medium_correct": 34,
+                "medium_total": 45,
+                "upcoming_assignment": 1
+            },
+            "Introduction to Neural Network": {
+                "days_to_deadline": "None",
+                "easy_correct": 94,
+                "easy_total": 95,
+                "hard_correct": 96,
+                "hard_total": 97,
+                "medium_correct": 34,
+                "medium_total": 39,
+                "upcoming_assignment": 0
+            },
+            "Pandas and SQL": {
+                "days_to_deadline": 0.484428168433753,
+                "easy_correct": 31,
+                "easy_total": 44,
+                "hard_correct": 57,
+                "hard_total": 73,
+                "medium_correct": 19,
+                "medium_total": 26,
+                "upcoming_assignment": 1
+            },
+            "Probability, Distributions, and Summary Stats": {
+                "days_to_deadline": 0.9437226950782629,
+                "easy_correct": 47,
+                "easy_total": 53,
+                "hard_correct": 66,
+                "hard_total": 70,
+                "medium_correct": 43,
+                "medium_total": 66,
+                "upcoming_assignment": 1
+            },
+            "Recommender System": {
+                "days_to_deadline": 0.09311420745123344,
+                "easy_correct": 78,
+                "easy_total": 80,
+                "hard_correct": 59,
+                "hard_total": 72,
+                "medium_correct": 25,
+                "medium_total": 29,
+                "upcoming_assignment": 1
+            },
+            "Regression": {
+                "days_to_deadline": 0.2809575012172377,
+                "easy_correct": 67,
+                "easy_total": 77,
+                "hard_correct": 39,
+                "hard_total": 63,
+                "medium_correct": 49,
+                "medium_total": 54,
+                "upcoming_assignment": 1
+            },
+            "Unsupervised Learning & Dimensionality Reduction": {
+                "days_to_deadline": 0.4015068027478662,
+                "easy_correct": 74,
+                "easy_total": 86,
+                "hard_correct": 31,
+                "hard_total": 38,
+                "medium_correct": 52,
+                "medium_total": 58,
+                "upcoming_assignment": 1
+            }
+        }
+    },
+    "CMSC351": {
+        "grade": 78.51263557884991,
+        "topics": {
+            "Big Notation": {
+                "days_to_deadline": "None",
+                "easy_correct": 67,
+                "easy_total": 95,
+                "hard_correct": 60,
+                "hard_total": 68,
+                "medium_correct": 53,
+                "medium_total": 56,
+                "upcoming_assignment": 0
+            },
+            "Binary Search": {
+                "days_to_deadline": 0.6275809652410386,
+                "easy_correct": 15,
+                "easy_total": 17,
+                "hard_correct": 49,
+                "hard_total": 64,
+                "medium_correct": 86,
+                "medium_total": 98,
+                "upcoming_assignment": 1
+            },
+            "Breadth-First Traverse": {
+                "days_to_deadline": 0.5634204037661437,
+                "easy_correct": 41,
+                "easy_total": 42,
+                "hard_correct": 84,
+                "hard_total": 96,
+                "medium_correct": 43,
+                "medium_total": 45,
+                "upcoming_assignment": 1
+            },
+            "BubbleSort": {
+                "days_to_deadline": 0.2126763967198152,
+                "easy_correct": 35,
+                "easy_total": 42,
+                "hard_correct": 90,
+                "hard_total": 94,
+                "medium_correct": 36,
+                "medium_total": 39,
+                "upcoming_assignment": 1
+            },
+            "Coin Changing": {
+                "days_to_deadline": "None",
+                "easy_correct": 54,
+                "easy_total": 56,
+                "hard_correct": 49,
+                "hard_total": 62,
+                "medium_correct": 24,
+                "medium_total": 28,
+                "upcoming_assignment": 0
+            },
+            "CountingSort": {
+                "days_to_deadline": 0.13906731347365742,
+                "easy_correct": 15,
+                "easy_total": 16,
+                "hard_correct": 38,
+                "hard_total": 50,
+                "medium_correct": 74,
+                "medium_total": 90,
+                "upcoming_assignment": 1
+            },
+            "Depth-First Traverse": {
+                "days_to_deadline": 0.5344458902581681,
+                "easy_correct": 42,
+                "easy_total": 50,
+                "hard_correct": 27,
+                "hard_total": 47,
+                "medium_correct": 56,
+                "medium_total": 68,
+                "upcoming_assignment": 1
+            },
+            "Dijkstras Algorithm": {
+                "days_to_deadline": "None",
+                "easy_correct": 77,
+                "easy_total": 89,
+                "hard_correct": 40,
+                "hard_total": 44,
+                "medium_correct": 21,
+                "medium_total": 32,
+                "upcoming_assignment": 0
+            },
+            "Floyds Algorithm": {
+                "days_to_deadline": 0.29200834050995994,
+                "easy_correct": 63,
+                "easy_total": 68,
+                "hard_correct": 42,
+                "hard_total": 49,
+                "medium_correct": 26,
+                "medium_total": 43,
+                "upcoming_assignment": 1
+            },
+            "Graphs": {
+                "days_to_deadline": 0.5860478004696182,
+                "easy_correct": 31,
+                "easy_total": 32,
+                "hard_correct": 83,
+                "hard_total": 86,
+                "medium_correct": 87,
+                "medium_total": 94,
+                "upcoming_assignment": 1
+            },
+            "Heaps and HeapSort": {
+                "days_to_deadline": "None",
+                "easy_correct": 79,
+                "easy_total": 93,
+                "hard_correct": 8,
+                "hard_total": 17,
+                "medium_correct": 77,
+                "medium_total": 78,
+                "upcoming_assignment": 0
+            },
+            "Huffmans Algorithm": {
+                "days_to_deadline": "None",
+                "easy_correct": 48,
+                "easy_total": 74,
+                "hard_correct": 34,
+                "hard_total": 60,
+                "medium_correct": 44,
+                "medium_total": 64,
+                "upcoming_assignment": 0
+            },
+            "InsertionSort": {
+                "days_to_deadline": 0.3589971841421046,
+                "easy_correct": 44,
+                "easy_total": 49,
+                "hard_correct": 83,
+                "hard_total": 99,
+                "medium_correct": 32,
+                "medium_total": 53,
+                "upcoming_assignment": 1
+            },
+            "Integer Multiplication": {
+                "days_to_deadline": 0.5668010977334995,
+                "easy_correct": 68,
+                "easy_total": 78,
+                "hard_correct": 47,
+                "hard_total": 71,
+                "medium_correct": 49,
+                "medium_total": 64,
+                "upcoming_assignment": 1
+            },
+            "Introduction": {
+                "days_to_deadline": 0.29548890152643503,
+                "easy_correct": 21,
+                "easy_total": 22,
+                "hard_correct": 18,
+                "hard_total": 42,
+                "medium_correct": 53,
+                "medium_total": 65,
+                "upcoming_assignment": 1
+            },
+            "Limitations on Comparison-Based Sorting": {
+                "days_to_deadline": 0.053449562049436294,
+                "easy_correct": 35,
+                "easy_total": 43,
+                "hard_correct": 48,
+                "hard_total": 59,
+                "medium_correct": 62,
+                "medium_total": 76,
+                "upcoming_assignment": 1
+            },
+            "Master Theorem": {
+                "days_to_deadline": 0.8453340398288112,
+                "easy_correct": 85,
+                "easy_total": 88,
+                "hard_correct": 27,
+                "hard_total": 29,
+                "medium_correct": 76,
+                "medium_total": 77,
+                "upcoming_assignment": 1
+            },
+            "Maximum Contiguous Sum": {
+                "days_to_deadline": "None",
+                "easy_correct": 47,
+                "easy_total": 68,
+                "hard_correct": 20,
+                "hard_total": 41,
+                "medium_correct": 16,
+                "medium_total": 20,
+                "upcoming_assignment": 0
+            },
+            "MergeSort": {
+                "days_to_deadline": 0.9645637332222999,
+                "easy_correct": 52,
+                "easy_total": 64,
+                "hard_correct": 39,
+                "hard_total": 49,
+                "medium_correct": 59,
+                "medium_total": 88,
+                "upcoming_assignment": 1
+            },
+            "Minimax Algorithm": {
+                "days_to_deadline": 0.18892708769143807,
+                "easy_correct": 60,
+                "easy_total": 66,
+                "hard_correct": 13,
+                "hard_total": 16,
+                "medium_correct": 88,
+                "medium_total": 93,
+                "upcoming_assignment": 1
+            },
+            "P and NP": {
+                "days_to_deadline": 0.6510654713973836,
+                "easy_correct": 78,
+                "easy_total": 87,
+                "hard_correct": 36,
+                "hard_total": 37,
+                "medium_correct": 77,
+                "medium_total": 82,
+                "upcoming_assignment": 1
+            },
+            "QuickSort": {
+                "days_to_deadline": 0.9246356259065943,
+                "easy_correct": 50,
+                "easy_total": 65,
+                "hard_correct": 24,
+                "hard_total": 34,
+                "medium_correct": 50,
+                "medium_total": 52,
+                "upcoming_assignment": 1
+            },
+            "RadixSort": {
+                "days_to_deadline": 0.31672046871708626,
+                "easy_correct": 75,
+                "easy_total": 86,
+                "hard_correct": 93,
+                "hard_total": 100,
+                "medium_correct": 35,
+                "medium_total": 54,
+                "upcoming_assignment": 1
+            },
+            "Recurrence Relations, Trees, Digging Down": {
+                "days_to_deadline": 0.9729425182967093,
+                "easy_correct": 31,
+                "easy_total": 35,
+                "hard_correct": 89,
+                "hard_total": 94,
+                "medium_correct": 53,
+                "medium_total": 96,
+                "upcoming_assignment": 1
+            },
+            "Rigorous Time": {
+                "days_to_deadline": "None",
+                "easy_correct": 27,
+                "easy_total": 33,
+                "hard_correct": 38,
+                "hard_total": 44,
+                "medium_correct": 46,
+                "medium_total": 49,
+                "upcoming_assignment": 0
+            },
+            "SelectionSort": {
+                "days_to_deadline": 0.9015196628327597,
+                "easy_correct": 54,
+                "easy_total": 61,
+                "hard_correct": 27,
+                "hard_total": 40,
+                "medium_correct": 71,
+                "medium_total": 79,
+                "upcoming_assignment": 1
+            },
+            "Shortest Path": {
+                "days_to_deadline": 0.5047032719851536,
+                "easy_correct": 32,
+                "easy_total": 50,
+                "hard_correct": 62,
+                "hard_total": 80,
+                "medium_correct": 36,
+                "medium_total": 41,
+                "upcoming_assignment": 1
+            },
+            "Spanning Trees": {
+                "days_to_deadline": "None",
+                "easy_correct": 23,
+                "easy_total": 29,
+                "hard_correct": 39,
+                "hard_total": 43,
+                "medium_correct": 25,
+                "medium_total": 27,
+                "upcoming_assignment": 0
+            }
+        }
+    },
+    "COMM107": {
+        "grade": 85.0637868033824,
+        "topics": {
+            "Final Presentation": {
+                "days_to_deadline": 0.9321134592082386,
+                "easy_correct": 30,
+                "easy_total": 35,
+                "hard_correct": 13,
+                "hard_total": 31,
+                "medium_correct": 51,
+                "medium_total": 54,
+                "upcoming_assignment": 1
+            },
+            "Informative Presentation": {
+                "days_to_deadline": 0.24231506226701616,
+                "easy_correct": 85,
+                "easy_total": 89,
+                "hard_correct": 34,
+                "hard_total": 43,
+                "medium_correct": 59,
+                "medium_total": 91,
+                "upcoming_assignment": 1
+            },
+            "Persuasive Presentation": {
+                "days_to_deadline": 0.6707538733123539,
+                "easy_correct": 27,
+                "easy_total": 28,
+                "hard_correct": 7,
+                "hard_total": 10,
+                "medium_correct": 32,
+                "medium_total": 43,
+                "upcoming_assignment": 1
+            },
+            "Small Group Presentation": {
+                "days_to_deadline": "None",
+                "easy_correct": 72,
+                "easy_total": 82,
+                "hard_correct": 45,
+                "hard_total": 48,
+                "medium_correct": 73,
+                "medium_total": 90,
+                "upcoming_assignment": 0
+            }
+        }
+    },
+    "MATH240": {
+        "grade": 90.39024729173248,
+        "topics": {
+            "Change of Basis": {
+                "days_to_deadline": 0.8672095457704936,
+                "easy_correct": 67,
+                "easy_total": 75,
+                "hard_correct": 46,
+                "hard_total": 51,
+                "medium_correct": 49,
+                "medium_total": 56,
+                "upcoming_assignment": 1
+            },
+            "Characterizations of Invertible Matrices": {
+                "days_to_deadline": "None",
+                "easy_correct": 26,
+                "easy_total": 28,
+                "hard_correct": 17,
+                "hard_total": 31,
+                "medium_correct": 19,
+                "medium_total": 25,
+                "upcoming_assignment": 0
+            },
+            "Complex Eigenvalues": {
+                "days_to_deadline": "None",
+                "easy_correct": 50,
+                "easy_total": 57,
+                "hard_correct": 72,
+                "hard_total": 83,
+                "medium_correct": 43,
+                "medium_total": 52,
+                "upcoming_assignment": 0
+            },
+            "Coordinate Systems": {
+                "days_to_deadline": "None",
+                "easy_correct": 29,
+                "easy_total": 36,
+                "hard_correct": 71,
+                "hard_total": 75,
+                "medium_correct": 64,
+                "medium_total": 89,
+                "upcoming_assignment": 0
+            },
+            "Cramers Rule, Volume, and Linear Transformations": {
+                "days_to_deadline": "None",
+                "easy_correct": 13,
+                "easy_total": 18,
+                "hard_correct": 33,
+                "hard_total": 38,
+                "medium_correct": 21,
+                "medium_total": 22,
+                "upcoming_assignment": 0
+            },
+            "Diagonalization": {
+                "days_to_deadline": 0.607422093263071,
+                "easy_correct": 17,
+                "easy_total": 18,
+                "hard_correct": 65,
+                "hard_total": 80,
+                "medium_correct": 70,
+                "medium_total": 78,
+                "upcoming_assignment": 1
+            },
+            "Diagonalization of Symmetric Matrices": {
+                "days_to_deadline": 0.9716001910436924,
+                "easy_correct": 44,
+                "easy_total": 52,
+                "hard_correct": 28,
+                "hard_total": 31,
+                "medium_correct": 10,
+                "medium_total": 12,
+                "upcoming_assignment": 1
+            },
+            "Eigenvectors and Eigenvalues": {
+                "days_to_deadline": 0.03604032995887185,
+                "easy_correct": 58,
+                "easy_total": 61,
+                "hard_correct": 82,
+                "hard_total": 84,
+                "medium_correct": 49,
+                "medium_total": 53,
+                "upcoming_assignment": 1
+            },
+            "Eigenvectors and Linear Transformations": {
+                "days_to_deadline": 0.2656078328895417,
+                "easy_correct": 85,
+                "easy_total": 92,
+                "hard_correct": 26,
+                "hard_total": 33,
+                "medium_correct": 82,
+                "medium_total": 95,
+                "upcoming_assignment": 1
+            },
+            "Inner Product Spaces": {
+                "days_to_deadline": 0.06885560284338876,
+                "easy_correct": 40,
+                "easy_total": 49,
+                "hard_correct": 13,
+                "hard_total": 14,
+                "medium_correct": 80,
+                "medium_total": 94,
+                "upcoming_assignment": 1
+            },
+            "Inner Product, Length, and Orthogonality": {
+                "days_to_deadline": 0.05128432146952644,
+                "easy_correct": 75,
+                "easy_total": 86,
+                "hard_correct": 69,
+                "hard_total": 80,
+                "medium_correct": 62,
+                "medium_total": 81,
+                "upcoming_assignment": 1
+            },
+            "Introduction to Determinants": {
+                "days_to_deadline": 0.43099710143147874,
+                "easy_correct": 67,
+                "easy_total": 74,
+                "hard_correct": 11,
+                "hard_total": 14,
+                "medium_correct": 64,
+                "medium_total": 67,
+                "upcoming_assignment": 1
+            },
+            "Introduction to Linear Transformations": {
+                "days_to_deadline": 0.6517291908150922,
+                "easy_correct": 63,
+                "easy_total": 87,
+                "hard_correct": 42,
+                "hard_total": 47,
+                "medium_correct": 33,
+                "medium_total": 37,
+                "upcoming_assignment": 1
+            },
+            "Least-Squares Problems": {
+                "days_to_deadline": 0.11645348262875954,
+                "easy_correct": 10,
+                "easy_total": 15,
+                "hard_correct": 40,
+                "hard_total": 70,
+                "medium_correct": 63,
+                "medium_total": 76,
+                "upcoming_assignment": 1
+            },
+            "Linear Independence": {
+                "days_to_deadline": 0.7907841668516985,
+                "easy_correct": 79,
+                "easy_total": 93,
+                "hard_correct": 76,
+                "hard_total": 90,
+                "medium_correct": 37,
+                "medium_total": 39,
+                "upcoming_assignment": 1
+            },
+            "Linearly Independent Sets and Bases": {
+                "days_to_deadline": 0.9409321154796345,
+                "easy_correct": 55,
+                "easy_total": 66,
+                "hard_correct": 27,
+                "hard_total": 38,
+                "medium_correct": 77,
+                "medium_total": 83,
+                "upcoming_assignment": 1
+            },
+            "Machine Learning and Linear Models": {
+                "days_to_deadline": 0.7297926742058545,
+                "easy_correct": 88,
+                "easy_total": 93,
+                "hard_correct": 57,
+                "hard_total": 68,
+                "medium_correct": 37,
+                "medium_total": 40,
+                "upcoming_assignment": 1
+            },
+            "Matrix Operations": {
+                "days_to_deadline": 0.7106694759671012,
+                "easy_correct": 13,
+                "easy_total": 14,
+                "hard_correct": 77,
+                "hard_total": 84,
+                "medium_correct": 67,
+                "medium_total": 79,
+                "upcoming_assignment": 1
+            },
+            "Null Spaces, Column Spaces, Row Spaces, and Linear Transformations": {
+                "days_to_deadline": 0.43063404044251874,
+                "easy_correct": 52,
+                "easy_total": 70,
+                "hard_correct": 87,
+                "hard_total": 99,
+                "medium_correct": 36,
+                "medium_total": 40,
+                "upcoming_assignment": 1
+            },
+            "Orthogonal Projections": {
+                "days_to_deadline": "None",
+                "easy_correct": 44,
+                "easy_total": 50,
+                "hard_correct": 22,
+                "hard_total": 28,
+                "medium_correct": 14,
+                "medium_total": 17,
+                "upcoming_assignment": 0
+            },
+            "Orthogonal Sets": {
+                "days_to_deadline": "None",
+                "easy_correct": 50,
+                "easy_total": 62,
+                "hard_correct": 17,
+                "hard_total": 28,
+                "medium_correct": 64,
+                "medium_total": 99,
+                "upcoming_assignment": 0
+            },
+            "Properties of Determinants": {
+                "days_to_deadline": "None",
+                "easy_correct": 57,
+                "easy_total": 74,
+                "hard_correct": 81,
+                "hard_total": 85,
+                "medium_correct": 35,
+                "medium_total": 43,
+                "upcoming_assignment": 0
+            },
+            "Row Reduction and Echelon Forms": {
+                "days_to_deadline": 0.415928316562325,
+                "easy_correct": 60,
+                "easy_total": 64,
+                "hard_correct": 58,
+                "hard_total": 79,
+                "medium_correct": 80,
+                "medium_total": 82,
+                "upcoming_assignment": 1
+            },
+            "Solution Sets of Linear Systems": {
+                "days_to_deadline": 0.9071803182780772,
+                "easy_correct": 28,
+                "easy_total": 44,
+                "hard_correct": 53,
+                "hard_total": 60,
+                "medium_correct": 51,
+                "medium_total": 61,
+                "upcoming_assignment": 1
+            },
+            "Subspaces of Rn": {
+                "days_to_deadline": 0.9620677633701942,
+                "easy_correct": 78,
+                "easy_total": 91,
+                "hard_correct": 55,
+                "hard_total": 79,
+                "medium_correct": 64,
+                "medium_total": 86,
+                "upcoming_assignment": 1
+            },
+            "Systems of Linear Equations": {
+                "days_to_deadline": 0.2107814302703246,
+                "easy_correct": 93,
+                "easy_total": 95,
+                "hard_correct": 84,
+                "hard_total": 94,
+                "medium_correct": 87,
+                "medium_total": 100,
+                "upcoming_assignment": 1
+            },
+            "The Characteristic Equation": {
+                "days_to_deadline": "None",
+                "easy_correct": 91,
+                "easy_total": 96,
+                "hard_correct": 78,
+                "hard_total": 93,
+                "medium_correct": 57,
+                "medium_total": 59,
+                "upcoming_assignment": 0
+            },
+            "The Dimension of a Vector Space": {
+                "days_to_deadline": 0.697486928686665,
+                "easy_correct": 33,
+                "easy_total": 39,
+                "hard_correct": 71,
+                "hard_total": 79,
+                "medium_correct": 67,
+                "medium_total": 79,
+                "upcoming_assignment": 1
+            },
+            "The Gram-Schmidt Process": {
+                "days_to_deadline": 0.333941545311237,
+                "easy_correct": 26,
+                "easy_total": 29,
+                "hard_correct": 42,
+                "hard_total": 60,
+                "medium_correct": 68,
+                "medium_total": 69,
+                "upcoming_assignment": 1
+            },
+            "The Inverse of a Matrix": {
+                "days_to_deadline": 0.9247393684324532,
+                "easy_correct": 53,
+                "easy_total": 55,
+                "hard_correct": 78,
+                "hard_total": 100,
+                "medium_correct": 10,
+                "medium_total": 12,
+                "upcoming_assignment": 1
+            },
+            "The Matrix Equation": {
+                "days_to_deadline": "None",
+                "easy_correct": 15,
+                "easy_total": 19,
+                "hard_correct": 15,
+                "hard_total": 23,
+                "medium_correct": 80,
+                "medium_total": 88,
+                "upcoming_assignment": 0
+            },
+            "The Matrix of a Linear Transformation": {
+                "days_to_deadline": 0.8419494540997698,
+                "easy_correct": 28,
+                "easy_total": 30,
+                "hard_correct": 6,
+                "hard_total": 13,
+                "medium_correct": 45,
+                "medium_total": 49,
+                "upcoming_assignment": 1
+            },
+            "The Singular Value Decomposition": {
+                "days_to_deadline": 0.4577806301533337,
+                "easy_correct": 65,
+                "easy_total": 81,
+                "hard_correct": 46,
+                "hard_total": 75,
+                "medium_correct": 92,
+                "medium_total": 96,
+                "upcoming_assignment": 1
+            },
+            "Vector Equations": {
+                "days_to_deadline": "None",
+                "easy_correct": 32,
+                "easy_total": 35,
+                "hard_correct": 85,
+                "hard_total": 87,
+                "medium_correct": 22,
+                "medium_total": 34,
+                "upcoming_assignment": 0
+            },
+            "Vector Spaces and Subspaces": {
+                "days_to_deadline": 0.11881792549151626,
+                "easy_correct": 72,
+                "easy_total": 93,
+                "hard_correct": 56,
+                "hard_total": 63,
+                "medium_correct": 82,
+                "medium_total": 92,
+                "upcoming_assignment": 1
+            }
+        }
+    },
+    "MATH241": {
+        "grade": 92.1849642308218,
+        "topics": {
+            "3D": {
+                "days_to_deadline": 0.24992713758925,
+                "easy_correct": 16,
+                "easy_total": 17,
+                "hard_correct": 30,
+                "hard_total": 42,
+                "medium_correct": 91,
+                "medium_total": 99,
+                "upcoming_assignment": 1
+            },
+            "Basics of Vector Valued Functions": {
+                "days_to_deadline": 0.8178141778552857,
+                "easy_correct": 23,
+                "easy_total": 31,
+                "hard_correct": 88,
+                "hard_total": 97,
+                "medium_correct": 66,
+                "medium_total": 70,
+                "upcoming_assignment": 1
+            },
+            "Change of Variables": {
+                "days_to_deadline": 0.26171808351496917,
+                "easy_correct": 55,
+                "easy_total": 58,
+                "hard_correct": 68,
+                "hard_total": 96,
+                "medium_correct": 58,
+                "medium_total": 61,
+                "upcoming_assignment": 1
+            },
+            "Cross Product": {
+                "days_to_deadline": "None",
+                "easy_correct": 28,
+                "easy_total": 40,
+                "hard_correct": 34,
+                "hard_total": 35,
+                "medium_correct": 21,
+                "medium_total": 27,
+                "upcoming_assignment": 0
+            },
+            "Curves and Associated Definitions": {
+                "days_to_deadline": 0.5255276454109652,
+                "easy_correct": 37,
+                "easy_total": 38,
+                "hard_correct": 44,
+                "hard_total": 57,
+                "medium_correct": 91,
+                "medium_total": 97,
+                "upcoming_assignment": 1
+            },
+            "Derivatives and Integrals of Vector Valued Functions": {
+                "days_to_deadline": 0.2738796734317288,
+                "easy_correct": 31,
+                "easy_total": 32,
+                "hard_correct": 34,
+                "hard_total": 52,
+                "medium_correct": 49,
+                "medium_total": 53,
+                "upcoming_assignment": 1
+            },
+            "Dot Product": {
+                "days_to_deadline": "None",
+                "easy_correct": 69,
+                "easy_total": 77,
+                "hard_correct": 53,
+                "hard_total": 59,
+                "medium_correct": 41,
+                "medium_total": 60,
+                "upcoming_assignment": 0
+            },
+            "Double Integrals": {
+                "days_to_deadline": 0.8756172919954407,
+                "easy_correct": 24,
+                "easy_total": 25,
+                "hard_correct": 24,
+                "hard_total": 35,
+                "medium_correct": 47,
+                "medium_total": 54,
+                "upcoming_assignment": 1
+            },
+            "Double Integrals in Polar": {
+                "days_to_deadline": 0.1883486235989198,
+                "easy_correct": 38,
+                "easy_total": 44,
+                "hard_correct": 85,
+                "hard_total": 98,
+                "medium_correct": 13,
+                "medium_total": 14,
+                "upcoming_assignment": 1
+            },
+            "Equations of Lines": {
+                "days_to_deadline": "None",
+                "easy_correct": 43,
+                "easy_total": 49,
+                "hard_correct": 28,
+                "hard_total": 42,
+                "medium_correct": 68,
+                "medium_total": 74,
+                "upcoming_assignment": 0
+            },
+            "Equations of Planes": {
+                "days_to_deadline": "None",
+                "easy_correct": 36,
+                "easy_total": 45,
+                "hard_correct": 10,
+                "hard_total": 11,
+                "medium_correct": 42,
+                "medium_total": 63,
+                "upcoming_assignment": 0
+            },
+            "Functions of Several Variables": {
+                "days_to_deadline": "None",
+                "easy_correct": 86,
+                "easy_total": 94,
+                "hard_correct": 86,
+                "hard_total": 94,
+                "medium_correct": 9,
+                "medium_total": 14,
+                "upcoming_assignment": 0
+            },
+            "Greens Theorem": {
+                "days_to_deadline": "None",
+                "easy_correct": 77,
+                "easy_total": 82,
+                "hard_correct": 32,
+                "hard_total": 55,
+                "medium_correct": 16,
+                "medium_total": 20,
+                "upcoming_assignment": 0
+            },
+            "Lagrange Multipliers": {
+                "days_to_deadline": 0.014376971430531849,
+                "easy_correct": 30,
+                "easy_total": 35,
+                "hard_correct": 90,
+                "hard_total": 97,
+                "medium_correct": 23,
+                "medium_total": 24,
+                "upcoming_assignment": 1
+            },
+            "Limits of Vector Valued Functions": {
+                "days_to_deadline": 0.9308090067033683,
+                "easy_correct": 17,
+                "easy_total": 24,
+                "hard_correct": 9,
+                "hard_total": 12,
+                "medium_correct": 24,
+                "medium_total": 43,
+                "upcoming_assignment": 1
+            },
+            "Line Integrals of Functions and VFs": {
+                "days_to_deadline": 0.9450421053761521,
+                "easy_correct": 59,
+                "easy_total": 70,
+                "hard_correct": 61,
+                "hard_total": 75,
+                "medium_correct": 79,
+                "medium_total": 91,
+                "upcoming_assignment": 1
+            },
+            "Maxima and Minima": {
+                "days_to_deadline": 0.3667692627588244,
+                "easy_correct": 55,
+                "easy_total": 66,
+                "hard_correct": 9,
+                "hard_total": 11,
+                "medium_correct": 28,
+                "medium_total": 34,
+                "upcoming_assignment": 1
+            },
+            "Parametrization of Surfaces": {
+                "days_to_deadline": "None",
+                "easy_correct": 47,
+                "easy_total": 48,
+                "hard_correct": 10,
+                "hard_total": 12,
+                "medium_correct": 90,
+                "medium_total": 97,
+                "upcoming_assignment": 0
+            },
+            "Partial Derivatives": {
+                "days_to_deadline": 0.21085089740631402,
+                "easy_correct": 57,
+                "easy_total": 58,
+                "hard_correct": 24,
+                "hard_total": 59,
+                "medium_correct": 21,
+                "medium_total": 28,
+                "upcoming_assignment": 1
+            },
+            "Points, Axes, Spheres, Distance": {
+                "days_to_deadline": 0.4074998181220568,
+                "easy_correct": 27,
+                "easy_total": 31,
+                "hard_correct": 42,
+                "hard_total": 49,
+                "medium_correct": 73,
+                "medium_total": 80,
+                "upcoming_assignment": 1
+            },
+            "Stokes Theorem": {
+                "days_to_deadline": 0.14969045772345413,
+                "easy_correct": 21,
+                "easy_total": 28,
+                "hard_correct": 47,
+                "hard_total": 68,
+                "medium_correct": 79,
+                "medium_total": 83,
+                "upcoming_assignment": 1
+            },
+            "Surface Integrals of Functions": {
+                "days_to_deadline": "None",
+                "easy_correct": 59,
+                "easy_total": 67,
+                "hard_correct": 72,
+                "hard_total": 83,
+                "medium_correct": 39,
+                "medium_total": 41,
+                "upcoming_assignment": 0
+            },
+            "Surface Integrals of Vector Fields": {
+                "days_to_deadline": 0.8579294113507255,
+                "easy_correct": 25,
+                "easy_total": 32,
+                "hard_correct": 63,
+                "hard_total": 66,
+                "medium_correct": 37,
+                "medium_total": 44,
+                "upcoming_assignment": 1
+            },
+            "Tangent Plane Approximation": {
+                "days_to_deadline": 0.8606803588576467,
+                "easy_correct": 50,
+                "easy_total": 58,
+                "hard_correct": 45,
+                "hard_total": 48,
+                "medium_correct": 75,
+                "medium_total": 87,
+                "upcoming_assignment": 1
+            },
+            "Tangents and Normals to Curves": {
+                "days_to_deadline": "None",
+                "easy_correct": 53,
+                "easy_total": 57,
+                "hard_correct": 30,
+                "hard_total": 36,
+                "medium_correct": 30,
+                "medium_total": 36,
+                "upcoming_assignment": 0
+            },
+            "The Chain Rule": {
+                "days_to_deadline": "None",
+                "easy_correct": 45,
+                "easy_total": 63,
+                "hard_correct": 15,
+                "hard_total": 23,
+                "medium_correct": 51,
+                "medium_total": 62,
+                "upcoming_assignment": 0
+            },
+            "The Directional Derivative": {
+                "days_to_deadline": "None",
+                "easy_correct": 40,
+                "easy_total": 42,
+                "hard_correct": 82,
+                "hard_total": 89,
+                "medium_correct": 41,
+                "medium_total": 49,
+                "upcoming_assignment": 0
+            },
+            "The Divergence Theorem (Gausss theorem)": {
+                "days_to_deadline": 0.3452338254178158,
+                "easy_correct": 92,
+                "easy_total": 93,
+                "hard_correct": 17,
+                "hard_total": 22,
+                "medium_correct": 65,
+                "medium_total": 73,
+                "upcoming_assignment": 1
+            },
+            "The Fundamental Theorem of Line Integrals": {
+                "days_to_deadline": 0.2894273605755493,
+                "easy_correct": 81,
+                "easy_total": 87,
+                "hard_correct": 54,
+                "hard_total": 72,
+                "medium_correct": 59,
+                "medium_total": 86,
+                "upcoming_assignment": 1
+            },
+            "The Gradient": {
+                "days_to_deadline": 0.18541282995817654,
+                "easy_correct": 95,
+                "easy_total": 99,
+                "hard_correct": 23,
+                "hard_total": 31,
+                "medium_correct": 36,
+                "medium_total": 43,
+                "upcoming_assignment": 1
+            },
+            "Triple Integrals in Polar": {
+                "days_to_deadline": 0.26823368646165713,
+                "easy_correct": 33,
+                "easy_total": 42,
+                "hard_correct": 8,
+                "hard_total": 10,
+                "medium_correct": 9,
+                "medium_total": 17,
+                "upcoming_assignment": 1
+            },
+            "Triple Integrals in Rectangular": {
+                "days_to_deadline": "None",
+                "easy_correct": 10,
+                "easy_total": 12,
+                "hard_correct": 81,
+                "hard_total": 86,
+                "medium_correct": 31,
+                "medium_total": 51,
+                "upcoming_assignment": 0
+            },
+            "Triple Integrals in Spherical": {
+                "days_to_deadline": 0.3125273291513767,
+                "easy_correct": 40,
+                "easy_total": 42,
+                "hard_correct": 53,
+                "hard_total": 57,
+                "medium_correct": 29,
+                "medium_total": 39,
+                "upcoming_assignment": 1
+            },
+            "Vector Fields": {
+                "days_to_deadline": 0.5013811058173167,
+                "easy_correct": 38,
+                "easy_total": 43,
+                "hard_correct": 14,
+                "hard_total": 26,
+                "medium_correct": 17,
+                "medium_total": 23,
+                "upcoming_assignment": 1
+            },
+            "Vectors": {
+                "days_to_deadline": 0.16219242699052216,
+                "easy_correct": 81,
+                "easy_total": 91,
+                "hard_correct": 26,
+                "hard_total": 30,
+                "medium_correct": 50,
+                "medium_total": 85,
+                "upcoming_assignment": 1
+            }
+        }
+    },
+    "MATH246": {
+        "grade": 90.23493975192841,
+        "topics": {
+            "Applications": {
+                "days_to_deadline": 0.36103128003485563,
+                "easy_correct": 50,
+                "easy_total": 54,
+                "hard_correct": 9,
+                "hard_total": 12,
+                "medium_correct": 64,
+                "medium_total": 70,
+                "upcoming_assignment": 1
+            },
+            "Approximation Methods": {
+                "days_to_deadline": "None",
+                "easy_correct": 50,
+                "easy_total": 59,
+                "hard_correct": 23,
+                "hard_total": 31,
+                "medium_correct": 16,
+                "medium_total": 29,
+                "upcoming_assignment": 0
+            },
+            "Exact Differential Equations": {
+                "days_to_deadline": 0.9134037317188648,
+                "easy_correct": 51,
+                "easy_total": 59,
+                "hard_correct": 26,
+                "hard_total": 29,
+                "medium_correct": 53,
+                "medium_total": 65,
+                "upcoming_assignment": 1
+            },
+            "Graphical Methods": {
+                "days_to_deadline": 0.010937850708400143,
+                "easy_correct": 50,
+                "easy_total": 64,
+                "hard_correct": 33,
+                "hard_total": 36,
+                "medium_correct": 36,
+                "medium_total": 51,
+                "upcoming_assignment": 1
+            },
+            "Graphing Solutions": {
+                "days_to_deadline": 0.31518869144820283,
+                "easy_correct": 76,
+                "easy_total": 87,
+                "hard_correct": 61,
+                "hard_total": 78,
+                "medium_correct": 51,
+                "medium_total": 84,
+                "upcoming_assignment": 1
+            },
+            "Hamiltonian Systems": {
+                "days_to_deadline": "None",
+                "easy_correct": 43,
+                "easy_total": 49,
+                "hard_correct": 13,
+                "hard_total": 19,
+                "medium_correct": 72,
+                "medium_total": 84,
+                "upcoming_assignment": 0
+            },
+            "Homogeneous DEs - Method and Theory": {
+                "days_to_deadline": 0.4407190618719672,
+                "easy_correct": 75,
+                "easy_total": 78,
+                "hard_correct": 24,
+                "hard_total": 43,
+                "medium_correct": 49,
+                "medium_total": 50,
+                "upcoming_assignment": 1
+            },
+            "Homogeneous DEs with Constant Coefficients": {
+                "days_to_deadline": "None",
+                "easy_correct": 13,
+                "easy_total": 17,
+                "hard_correct": 52,
+                "hard_total": 55,
+                "medium_correct": 90,
+                "medium_total": 99,
+                "upcoming_assignment": 0
+            },
+            "Introduction to First Order Systems": {
+                "days_to_deadline": "None",
+                "easy_correct": 77,
+                "easy_total": 92,
+                "hard_correct": 36,
+                "hard_total": 37,
+                "medium_correct": 64,
+                "medium_total": 68,
+                "upcoming_assignment": 0
+            },
+            "Introduction to First-Order DEs": {
+                "days_to_deadline": 0.6146794915872471,
+                "easy_correct": 24,
+                "easy_total": 30,
+                "hard_correct": 9,
+                "hard_total": 12,
+                "medium_correct": 59,
+                "medium_total": 70,
+                "upcoming_assignment": 1
+            },
+            "Introduction to Higher Order Linear Differential Equations": {
+                "days_to_deadline": "None",
+                "easy_correct": 73,
+                "easy_total": 76,
+                "hard_correct": 19,
+                "hard_total": 25,
+                "medium_correct": 15,
+                "medium_total": 16,
+                "upcoming_assignment": 0
+            },
+            "Laplace Transforms": {
+                "days_to_deadline": 0.17574754817794258,
+                "easy_correct": 64,
+                "easy_total": 81,
+                "hard_correct": 12,
+                "hard_total": 18,
+                "medium_correct": 46,
+                "medium_total": 56,
+                "upcoming_assignment": 1
+            },
+            "Linear First-Order DEs": {
+                "days_to_deadline": 0.5533873172732363,
+                "easy_correct": 17,
+                "easy_total": 18,
+                "hard_correct": 20,
+                "hard_total": 27,
+                "medium_correct": 53,
+                "medium_total": 82,
+                "upcoming_assignment": 1
+            },
+            "Linearization of Nonlinear Systems": {
+                "days_to_deadline": 0.3104230642600575,
+                "easy_correct": 79,
+                "easy_total": 80,
+                "hard_correct": 21,
+                "hard_total": 48,
+                "medium_correct": 19,
+                "medium_total": 31,
+                "upcoming_assignment": 1
+            },
+            "Matrices and Determinants": {
+                "days_to_deadline": "None",
+                "easy_correct": 17,
+                "easy_total": 18,
+                "hard_correct": 15,
+                "hard_total": 25,
+                "medium_correct": 86,
+                "medium_total": 93,
+                "upcoming_assignment": 0
+            },
+            "Matrix and Vector Essentials": {
+                "days_to_deadline": 0.6431332425911905,
+                "easy_correct": 43,
+                "easy_total": 50,
+                "hard_correct": 31,
+                "hard_total": 33,
+                "medium_correct": 40,
+                "medium_total": 53,
+                "upcoming_assignment": 1
+            },
+            "Mechanical Vibrations": {
+                "days_to_deadline": "None",
+                "easy_correct": 85,
+                "easy_total": 87,
+                "hard_correct": 93,
+                "hard_total": 97,
+                "medium_correct": 24,
+                "medium_total": 34,
+                "upcoming_assignment": 0
+            },
+            "Nonhomogeneous DEs - Method and Theory": {
+                "days_to_deadline": "None",
+                "easy_correct": 68,
+                "easy_total": 69,
+                "hard_correct": 17,
+                "hard_total": 23,
+                "medium_correct": 30,
+                "medium_total": 32,
+                "upcoming_assignment": 0
+            },
+            "Notations and Theory for Systems": {
+                "days_to_deadline": 0.48038976574386716,
+                "easy_correct": 86,
+                "easy_total": 87,
+                "hard_correct": 22,
+                "hard_total": 29,
+                "medium_correct": 42,
+                "medium_total": 47,
+                "upcoming_assignment": 1
+            },
+            "Population Dynamics": {
+                "days_to_deadline": "None",
+                "easy_correct": 26,
+                "easy_total": 34,
+                "hard_correct": 25,
+                "hard_total": 29,
+                "medium_correct": 57,
+                "medium_total": 90,
+                "upcoming_assignment": 0
+            },
+            "Separable DEs": {
+                "days_to_deadline": 0.357916118116562,
+                "easy_correct": 46,
+                "easy_total": 47,
+                "hard_correct": 39,
+                "hard_total": 49,
+                "medium_correct": 21,
+                "medium_total": 22,
+                "upcoming_assignment": 1
+            },
+            "The Method of Undetermined Coefficients": {
+                "days_to_deadline": 0.7020604763793843,
+                "easy_correct": 60,
+                "easy_total": 67,
+                "hard_correct": 56,
+                "hard_total": 76,
+                "medium_correct": 38,
+                "medium_total": 60,
+                "upcoming_assignment": 1
+            },
+            "Using Eigenpairs to Construct Solutions": {
+                "days_to_deadline": "None",
+                "easy_correct": 95,
+                "easy_total": 98,
+                "hard_correct": 28,
+                "hard_total": 43,
+                "medium_correct": 14,
+                "medium_total": 25,
+                "upcoming_assignment": 0
+            },
+            "Variation of Parameters": {
+                "days_to_deadline": 0.41792804027021835,
+                "easy_correct": 84,
+                "easy_total": 98,
+                "hard_correct": 93,
+                "hard_total": 99,
+                "medium_correct": 31,
+                "medium_total": 44,
+                "upcoming_assignment": 1
+            }
+        }
+    }
+}
