@@ -114,13 +114,13 @@ def api_generate_question():
                     "course_topic": [course_topic],
                     "course_grade": [user["grades"][course]["grade"]],
                     "easy_correct": [
-                        user["grades"][course][course_topic]["easy_correct"]
+                        user["grades"][course][course_topic]["easy_correct"] / user["grades"][course][course_topic]["easy_total"]
                     ],
                     "medium_correct": [
-                        user["grades"][course][course_topic]["medium_correct"]
+                        user["grades"][course][course_topic]["medium_correct"] / user["grades"][course][course_topic]["medium_total"]
                     ],
                     "hard_correct": [
-                        user["grades"][course][course_topic]["hard_correct"]
+                        user["grades"][course][course_topic]["hard_correct"] / user["grades"][course][course_topic]["hard_total"]
                     ],
                     "upcoming_assignment": [upcoming_assignments],
                     "days_to_deadline": [days_to_deadline],
@@ -180,8 +180,6 @@ def api_check_answer():
     user["grades"][course][course_topic][question_type + "_total"] += 1
     if result == "Great JOB! Your answer is correct.":
         user["grades"][course][course_topic][question_type + "_correct"] += 1
-    else:
-        user["grades"][course][course_topic][question_type + "_incorrect"] += 1
 
     main_db["users"].update_one(
         {"_id": ObjectId(user_id)}, {"$set": {"grades": user["grades"]}}
