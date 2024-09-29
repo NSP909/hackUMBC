@@ -29,9 +29,9 @@ load_dotenv()
 os.environ['OPENAI_API_KEY']=os.getenv("OPENAI_API_KEY")
 MODEL_ID=os.getenv("MODEL_ID")
 PINECONE_API_KEY=os.getenv("PINECONE_API_KEY")
-model1 = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+
 model2 = ChatOpenAI(model="gpt-4o", temperature=0)
-model3=  Baseten( model=MODEL_ID, deployment="production")
+
 parser = StrOutputParser()
 embeddings = OpenAIEmbeddings()
 
@@ -47,7 +47,7 @@ syllabi=PineconeVectorStore(index3, embeddings)
 
 
 llm = model2
-llm2=model1
+
 
 web_search_prompt="""You are an educational assistant and your job is to answer the question asked by the user based on the information scraped from a website.
     This is the question: {question}
@@ -79,6 +79,8 @@ This is the question: {question}
 This is the context: {context}
 
 Return 1 if you think the question is related to the context and 2 if you think the question is not related to the context.
+
+NOTE - ONLY RESPOBD WITH 1 OR 2 AND NOTHING ELSE
 
 """
 

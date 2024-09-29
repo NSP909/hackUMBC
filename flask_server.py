@@ -30,6 +30,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from bson.objectid import ObjectId
 from pymongo.errors import PyMongoError
 import pandas as pd
+import random
 
 load_dotenv()
 
@@ -42,6 +43,7 @@ main_db = client["main"]
 CORS(app)
 
 messages = []
+past_topics = []
 
 
 @app.route("/create_user", methods=["POST"])
@@ -95,6 +97,18 @@ def api_generate_question():
     user_id = request.args.get("user_id")
     flag = request.args.get("flag", type=bool)
     course = request.args.get("course")
+
+    if flag:
+        #set it to false sometimes so we regenerate the recommendation
+        rand = random.randint(0, 2)
+        course_topic = request.args.get("course_topic")
+        past_topics.append(course_topic)
+        if rand == 0:
+            flag = False
+
+    rand = random.randint(0, 15)
+    if rand == 0:
+        past_topics.clear()
 
     if not user_id:
         return jsonify({"error": "user_id is required"}), 400
@@ -152,6 +166,11 @@ def api_generate_question():
             for i, (topic, topic_data) in enumerate(course_data["topics"].items()):
                 topic_data["importance"] = float(predictions[i])
 
+
+            for topic in past_topics:
+                course_data["topics"].pop(topic, None)
+
+
         if course:
             # Find the most important topic within the specified course
             if course not in user["grades"]:
@@ -198,14 +217,22 @@ def api_check_answer():
     sample = data["sample"]
     answer = data["answer"]
     user_id = data["user_id"]
+    question_type = question["question_type"]
+    difficulty = question["difficulty"].lower()
 
     # Validate question structure
     required_question_fields = ["course", "course_topic", "question_type"]
     if not all(field in question for field in required_question_fields):
         return jsonify({"error": "Invalid question structure"}), 400
-
+    print(data)
     try:
-        result = check_answer(question, sample, answer)
+        if question_type == "MCQ":
+            if sample == answer:
+                result = "Great JOB! Your answer is correct."
+            else:
+                result = "Sorry, your answer is incorrect. The correct answer is " + sample
+        else:
+            result = check_answer(question, sample, answer)
 
         course = question["course"]
         course_topic = question["course_topic"]
@@ -219,7 +246,7 @@ def api_check_answer():
         # If the answer is correct, increment the correct count
         if result == "Great JOB! Your answer is correct.":
             update_operation["$inc"][
-                f"grades.{course}.topics.{course_topic}.{question_type}_correct"
+                f"grades.{course}.topics.{course_topic}.{difficulty}_correct"
             ] = 1
 
         # Update user grades
@@ -229,7 +256,7 @@ def api_check_answer():
 
         if update_result.matched_count == 0:
             return jsonify({"error": "User not found"}), 404
-
+            
         return jsonify({"result": result})
 
     except Exception as e:

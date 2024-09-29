@@ -32,8 +32,8 @@ import json
 # test for the following function:
 
 
-# request = requests.post("http://localhost:5000/query", json={"question":"What is the time complexity of finding the maximum contiguous sum?"})
-# print(request.json())
+request = requests.post("http://localhost:5000/query", json={"question":"What is the time complexity of finding the maximum contiguous sum?"})
+print(request.json())
 
 # {'course': 'CMSC351', 'course_topic': 'Maximum Contiguous Sum', 'result': {'difficulty': 'Easy', 'question': {'Answer': 'The brute force method for finding the maximum contiguous sum involves checking the sum of every possible sublist of the given list of integers and keeping track of the maximum sum found. This method has a high time complexity as it requires examining all possible sublists.', 'Question': 'What is the brute force method for finding the maximum contiguous sum in a list of integers?'}, 'type': 'Written'}}
 # based on the output above, call the following function:
@@ -138,9 +138,9 @@ import json
 #     user_id = main_db["users"].insert_one(user).inserted_id
 #     return jsonify({"user_id": str(user_id)})
 
-request = requests.post(
-    "http://localhost:5000/create_user",
-    json={"user_id": "999", "grades": {}}
-)
+# request = requests.post(
+#     "http://localhost:5000/create_user",
+#     json={"user_id": "999", "grades": {}}
+# )
 
-print(request.json())
+# print(request.json())
