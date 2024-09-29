@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import styles from './ChatContainer.module.css';
 import MessageList from './MessageList';
 
 function ChatContainer() {
@@ -142,23 +141,23 @@ function ChatContainer() {
   };
 
   return (
-    <div className={styles.chatbot}>
+    <div className="flex flex-col h-screen w-full bg-white overflow-hidden">
       <MessageList
         messages={messages}
         writtenAnswer={writtenAnswer}
         setWrittenAnswer={setWrittenAnswer}
         handleWrittenAnswerSubmit={handleWrittenAnswerSubmit}
       />
-      <div className={styles.inputContainer}>
-        <form onSubmit={handleSubmit} className={styles.chatForm}>
+      <div className="flex p-4 border-t border-gray-200">
+        <form onSubmit={handleSubmit} className="flex w-full">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
-            className={styles.chatInput}
+            className="flex-1 p-2 border-none text-lg focus:outline-none"
           />
-          <button type="submit" className={styles.sendButton}>Send</button>
+          <button type="submit" className="p-2 ml-4 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600">Send</button>
         </form>
       </div>
     </div>
