@@ -19,7 +19,7 @@ function CourseDetail() {
   useEffect(() => {
     // Fetch analytics data based on the selected course
     async function fetchCourseData() {
-      const response = await fetch(`http://localhost:5000/get_analytics?user_id=1`); // You can replace `1` with dynamic user_id
+      const response = await fetch(`http://161.35.127.128:5000/get_analytics?user_id=1`); // You can replace `1` with dynamic user_id
       const data = await response.json();
       console.log(data);
       const selectedCourse = courses.find((course) => course.id === parseInt(id));
