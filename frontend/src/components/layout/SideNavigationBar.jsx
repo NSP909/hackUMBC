@@ -7,6 +7,7 @@ import { PiExam } from "react-icons/pi";
 import { MdOutlineAssignmentTurnedIn } from "react-icons/md";
 import { CiPen } from "react-icons/ci";
 import { IoCalendarOutline } from "react-icons/io5";
+import { motion, AnimatePresence } from "framer-motion";
 
 const SidebarContext = createContext();
 
@@ -16,117 +17,121 @@ export default function SideNavigationBar({ children }) {
 
   return (
     <SidebarContext.Provider value={{ expanded }}>
-      <aside className={`h-screen transition-width duration-300 ${expanded ? 'w-64' : 'w-16'} bg-gray-800`}>
-        <nav className="h-full flex flex-col text-white border-r shadow-sm">
+      <motion.aside
+        initial={false}
+        animate={{ width: expanded ? "16rem" : "4rem" }}
+        className="h-screen bg-gradient-to-b from-blue-900 via-purple-900 to-indigo-900 overflow-hidden"
+      >
+        <nav className="h-full flex flex-col text-white border-r border-indigo-800 shadow-lg">
           <div className="p-4 pb-2 flex justify-between items-center">
-            <Link
-              to="/"
-              className={`text-lg transition-opacity duration-300 ${expanded ? 'opacity-100' : 'opacity-0'}`}
-            >
-              LMS
-            </Link>
-            <button
+            <AnimatePresence>
+              {expanded && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Link to="/" className="text-xl font-bold text-blue-300">
+                    LMS
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => setExpanded((curr) => !curr)}
-              className={`p-1.5 rounded-lg bg-gray-700 hover:bg-gray-600 transition-transform duration-300 ${expanded ? 'transform-none' : 'transform translate-x-8'}`}
+              className="p-1.5 rounded-lg bg-indigo-800 hover:bg-indigo-700 transition-colors duration-200"
             >
               {expanded ? <ChevronFirst /> : <ChevronLast />}
-            </button>
+            </motion.button>
           </div>
 
           <ul className="flex-1 px-3">
             <SidebarItem
               to="/dashboard"
+              icon={<IoBookOutline />}
+              text="Course Selector"
               active={location.pathname === "/dashboard"}
-            >
-              <div className={`flex items-center ${!expanded && 'justify-center w-full'}`}>
-                <IoBookOutline className="icon" />
-                {expanded && (
-                  <span className="ml-2">Course Selector</span>
-                )}
-              </div>
-            </SidebarItem>
+              expanded={expanded}
+            />
 
             {location.pathname.includes("/course/") && (
               <>
                 <SidebarItem
                   to={`${location.pathname}/grades`}
+                  icon={<PiExam />}
+                  text="Grades"
                   active={location.pathname.endsWith("/grades")}
-                >
-                  <div className={`flex items-center ${!expanded && 'justify-center w-full'}`}>
-                    <PiExam className="icon" />
-                    {expanded && (
-                      <span className="ml-2">Grades</span>
-                    )}
-                  </div>
-                </SidebarItem>
-
+                  expanded={expanded}
+                />
                 <SidebarItem
                   to={`${location.pathname}/assignments`}
+                  icon={<MdOutlineAssignmentTurnedIn />}
+                  text="Assignments"
                   active={location.pathname.endsWith("/assignments")}
-                >
-                  <div className={`flex items-center ${!expanded && 'justify-center w-full'}`}>
-                    <MdOutlineAssignmentTurnedIn className="icon" />
-                    {expanded && (
-                      <span className="ml-2">Assignments</span>
-                    )}
-                  </div>
-                </SidebarItem>
-
+                  expanded={expanded}
+                />
                 <SidebarItem
                   to={`${location.pathname}/exams`}
+                  icon={<CiPen />}
+                  text="Exams"
                   active={location.pathname.endsWith("/exams")}
-                >
-                  <div className={`flex items-center ${!expanded && 'justify-center w-full'}`}>
-                    <CiPen className="icon" />
-                    {expanded && (
-                      <span className="ml-2">Exams</span>
-                    )}
-                  </div>
-                </SidebarItem>
-
+                  expanded={expanded}
+                />
                 <SidebarItem
                   to={`${location.pathname}/events`}
+                  icon={<IoCalendarOutline />}
+                  text="Upcoming Events"
                   active={location.pathname.endsWith("/events")}
-                >
-                  <div className={`flex items-center ${!expanded && 'justify-center w-full'}`}>
-                    <IoCalendarOutline className="icon" />
-                    {expanded && (
-                      <span className="ml-2">Upcoming Events</span>
-                    )}
-                  </div>
-                </SidebarItem>
+                  expanded={expanded}
+                />
               </>
             )}
 
             <SidebarItem
               to="/chatbot"
+              icon={<TbMessageChatbot />}
+              text="Chatbot"
               active={location.pathname === "/chatbot"}
-            >
-              <div className={`flex items-center ${!expanded && 'justify-center w-full'}`}>
-                <TbMessageChatbot className="icon" />
-                {expanded && (
-                  <span className="ml-2">Chatbot</span>
-                )}
-              </div>
-            </SidebarItem>
+              expanded={expanded}
+            />
           </ul>
         </nav>
-      </aside>
+      </motion.aside>
     </SidebarContext.Provider>
   );
 }
 
-function SidebarItem({ to, active, children }) {
+function SidebarItem({ to, icon, text, active, expanded }) {
   return (
-    <li
-      className={`relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors group ${
-        active
-          ? "bg-indigo-500 text-white"
-          : "hover:bg-indigo-600 text-gray-300"
-      }`}
-    >
-      <Link to={to} className="flex w-full items-center">
-        {children}
+    <li>
+      <Link to={to}>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className={`flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors ${
+            active
+              ? "bg-indigo-600 text-white"
+              : "text-blue-300 hover:bg-indigo-800 hover:text-white"
+          }`}
+        >
+          <div className={`text-xl ${!expanded && 'mx-auto'}`}>{icon}</div>
+          <AnimatePresence>
+            {expanded && (
+              <motion.span
+                initial={{ opacity: 0, width: 0 }}
+                animate={{ opacity: 1, width: "auto" }}
+                exit={{ opacity: 0, width: 0 }}
+                transition={{ duration: 0.2 }}
+                className="ml-2 whitespace-nowrap"
+              >
+                {text}
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </motion.div>
       </Link>
     </li>
   );
