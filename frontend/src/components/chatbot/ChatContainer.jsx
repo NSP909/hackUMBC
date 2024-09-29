@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from './ChatContainer.module.css';
 import MessageList from './MessageList';
 
@@ -7,13 +8,25 @@ function ChatContainer() {
   const [input, setInput] = useState('');
   const [writtenAnswer, setWrittenAnswer] = useState('');
   const [selectedCourse, setSelectedCourse] = useState('');
+  const location = useLocation();
+  const [initialMessageSent, setInitialMessageSent] = useState(false); // Flag to prevent multiple submissions
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!input.trim()) return;
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const inputValue = searchParams.get('input');
+    if (inputValue && !initialMessageSent) {
+      setInput(inputValue);
+      handleInitialSubmit(inputValue); // Call a separate function for initial submission
+      setInitialMessageSent(true); // Set the flag to true after the initial message is sent
+    }
+  }, [location.search, initialMessageSent]);
+
+  const handleInitialSubmit = async (initialInput) => {
+    const messageToSend = initialInput.trim();
+    if (!messageToSend) return;
 
     // Add the user's message to the chat
-    setMessages([...messages, { text: input, sender: 'user' }]);
+    setMessages([...messages, { text: messageToSend, sender: 'user' }]);
     setInput('');
 
     try {
@@ -23,7 +36,51 @@ function ChatContainer() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userMessage: input, course: selectedCourse }),
+        body: JSON.stringify({ userMessage: messageToSend, course: selectedCourse }),
+      });
+
+      const quizData = await response.json();
+
+      // Add the quiz question to the chat
+      setMessages(prevMessages => [
+        ...prevMessages,
+        {
+          text: quizData.Question,
+          sender: 'bot',
+          type: quizData.Type,
+          options: quizData.Options,
+          correctAnswer: quizData.CorrectAnswer,
+        },
+      ]);
+    } catch (error) {
+      console.error('Error fetching quiz:', error);
+      setMessages(prevMessages => [
+        ...prevMessages,
+        { text: 'What is the capital of France?',
+          sender: 'bot',
+          type: 'Written',
+          correctAnswer: 'Paris',},
+      ]);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const messageToSend = input.trim();
+    if (!messageToSend) return;
+
+    // Add the user's message to the chat
+    setMessages([...messages, { text: messageToSend, sender: 'user' }]);
+    setInput('');
+
+    try {
+      // Simulate an HTTP request to the backend server
+      const response = await fetch('https://your-backend-server.com/get-quiz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userMessage: messageToSend, course: selectedCourse }),
       });
 
       const quizData = await response.json();

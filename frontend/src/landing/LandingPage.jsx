@@ -1,16 +1,15 @@
-// src/components/LandingPage.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from "@nextui-org/react"; // Importing Next UI Button
 import styles from './LandingPage.module.css';
 
 function LandingPage() {
   const [inputValue, setInputValue] = useState('');
+  const [inputHeight, setInputHeight] = useState('auto');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/chatbot');
+    navigate(`/chatbot?input=${encodeURIComponent(inputValue)}`);
   };
 
   const handleButtonClick = (path) => {
@@ -18,32 +17,62 @@ function LandingPage() {
   };
 
   const handleBoxClick = () => {
-    document.getElementById('searchInput').focus(); // Focus the input when the box is clicked
+    document.getElementById('searchInput').focus(); 
   };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    setInputHeight('auto');
+    setInputHeight(`${e.target.scrollHeight}px`);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      navigate(`/chatbot?input=${encodeURIComponent(inputValue)}`);
+    }
+  };
+
+  useEffect(() => {
+    const input = document.getElementById('searchInput');
+    input.style.caretColor = 'transparent';
+    input.addEventListener('focus', () => {
+      input.style.caretColor = '#fff';
+    });
+    input.addEventListener('blur', () => {
+      input.style.caretColor = 'transparent';
+    });
+  }, []);
 
   return (
     <div className={styles.landingPage}>
+      <h1 className={styles.title}>Hi User</h1>
       <div className={styles.searchContainer} onClick={handleBoxClick}>
         <form onSubmit={handleSubmit} className={styles.form}>
-          <input
+          <textarea
             id="searchInput"
-            type="text"
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown} 
             placeholder="Type to search..."
             className={styles.input}
+            style={{ height: inputHeight }} 
           />
         </form>
       </div>
 
       <div className={styles.buttons}>
-        <Button color="grey" variant="faded" onClick={() => handleButtonClick('/dashboard')}>
+        <button className={styles.button} color="grey" variant="faded" onClick={() => handleButtonClick('/dashboard')}>
           Dashboard
-        </Button>
-        <Button color="grey" variant="faded" onClick={() => handleButtonClick('/chatbot')}>
+        </button>
+        <button className={styles.button} color="grey" variant="faded" onClick={() => handleButtonClick('/chatbot')}>
           Chat
-        </Button>
+        </button>
+        <button className={styles.button} color="grey" variant="faded" onClick={() => handleButtonClick('/study')}>
+          Study
+        </button>
       </div>
+      
     </div>
   );
 }
