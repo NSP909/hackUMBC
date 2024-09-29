@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./login.css"; // Import your custom styles
-import "@fortawesome/fontawesome-free/css/all.min.css"; // Import FontAwesome icons
 
-const App = () => {
+const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
 
   const handleToggle = () => {
@@ -68,4 +67,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Login;

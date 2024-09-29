@@ -1,20 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: url('/src/assets/trial.jpeg') no-repeat center center fixed; /* Set your background image */
-    background-size: cover; /* Cover the entire background */
-}
-
-#root {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .container {
     background-color: rgba(255, 255, 255); /* Add transparency to the container */
     border-radius: 30px;
