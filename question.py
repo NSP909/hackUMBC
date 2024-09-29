@@ -165,7 +165,7 @@ def generate_question(query, course):
     if int(response)==1:
         ret = execute_mcq(query, course, di[typ])
         ret = ret.replace("`", "")
-        ret = ret.replace("'", "\"")
+        ret = ret.replace("'", "\'")
         ret = ret.replace("{", "\{")
         ret = ret.replace("}", "\}")
         return {"question": ast.literal_eval(ret), "type":"MCQ", "difficulty":di[typ]}
@@ -173,7 +173,7 @@ def generate_question(query, course):
     else:
         ret = execute_subjective(query, course, di[typ])
         ret = ret.replace("`", "")
-        ret = ret.replace("'", "\"")
+        ret = ret.replace("'", "\'")
         ret = ret.replace("{", "\{")
         ret = ret.replace("}", "\}")
         return {"question": ast.literal_eval(ret), "type":"Written", "difficulty":di[typ]}
