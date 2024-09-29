@@ -163,13 +163,15 @@ def generate_question(query, course):
     if int(response)==1:
         ret = execute_mcq(query, course, di[typ])
         #replace all invalid thigns such as `
-        ret = ret.replace("`", "")
-        return {"question": ast.literal_eval(ret), "type":"MCQ", "difficulty":di[typ]}
+        # ret = ret.replace("`", "")
+        # return {"question": ast.literal_eval(ret), "type":"MCQ", "difficulty":di[typ]}
+        return {'course': 'CMSC351', 'course_topic': 'Minimax Algorithm', 'result': {'difficulty': 'Easy', 'question': {'Answer': 'To achieve the maximum possible value', 'Options': ['To achieve the maximum possible value', 'To achieve the minimum possible value', 'To achieve an average value', 'To achieve a random value'], 'Question': 'In the Minimax Algorithm, what is the primary goal of the player named Max?'}, 'type': 'MCQ'}}
     else:
         ret = execute_subjective(query, course, di[typ])
         #replace all invalid thigns such as `
-        ret = ret.replace("`", "")
-        return {"question": ast.literal_eval(ret), "type":"Written", "difficulty":di[typ]}
+        # ret = ret.replace("`", "")
+        # return {"question": ast.literal_eval(ret), "type":"Written", "difficulty":di[typ]}
+        return {'course': 'CMSC351', 'course_topic': 'Maximum Contiguous Sum', 'result': {'difficulty': 'Easy', 'question': {'Answer': 'The brute force method for finding the maximum contiguous sum involves checking the sum of every possible sublist of the given list of integers and keeping track of the maximum sum found. This method has a high time complexity as it requires examining all possible sublists.', 'Question': 'What is the brute force method for finding the maximum contiguous sum in a list of integers?'}, 'type': 'Written'}}
 
 def execute_mcq(query, course, typ):
     prompt=ChatPromptTemplate.from_template(generate_question_prompt)
