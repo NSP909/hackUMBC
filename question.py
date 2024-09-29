@@ -184,7 +184,6 @@ def generate_question(query, course):
                 break
             except:
                 ret = execute_mcq(query, course, di[typ], question_queue)
-            ret = ast.literal_eval(ret)
         question_queue.append(ret["Question"])
         if len(question_queue) > 7:
             question_queue.popleft()
