@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import MCQQuiz from './MCQQuiz';
-import leftArrow from '../../assets/left-arrow.svg';
-import rightArrow from '../../assets/right-arrow.svg';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const QuestionPanel = ({ type, question, answer, onChange, onSubmit, showNextButton, onNextQuestion, onPreviousQuestion, currentQuestionIndex, totalQuestions, isFinalQuestionAnswered }) => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -11,33 +11,37 @@ const QuestionPanel = ({ type, question, answer, onChange, onSubmit, showNextBut
     onSubmit();
   };
 
-  // Reset selectedOption when moving to the next question
   const handleNextQuestion = () => {
-    setSelectedOption(null); // Reset selectedOption
+    setSelectedOption(null);
     onNextQuestion();
   };
 
-  // Reset selectedOption when moving to the previous question
   const handlePreviousQuestion = () => {
-    setSelectedOption(null); // Reset selectedOption
+    setSelectedOption(null);
     onPreviousQuestion();
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-3/5 w-3/5 bg-white p-5 rounded-3xl shadow-lg relative ">
-      <h3 className="text-2xl mb-5 text-blue-900">{question.Question}</h3>
+    <div className="w-full max-w-3xl mx-auto">
+      <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">{question.Question}</h3>
+      
       {type === 'Written' ? (
-        <div className="flex flex-col items-center">
-          <input
-            type="text"
+        <div className="mb-6">
+          <textarea
             value={answer}
             onChange={onChange}
-            placeholder="Your answer"
-            className="p-2 mb-2 w-4/5 border border-gray-300 rounded-md"
+            placeholder="Type your answer here..."
+            className="w-full p-3 bg-white bg-opacity-30 text-white placeholder-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            rows={4}
           />
-          <button onClick={onSubmit} className="p-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors duration-300">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onSubmit}
+            className="mt-4 px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-md hover:from-green-500 hover:to-blue-600 transition-all duration-300"
+          >
             Submit
-          </button>
+          </motion.button>
         </div>
       ) : (
         <MCQQuiz
@@ -47,26 +51,35 @@ const QuestionPanel = ({ type, question, answer, onChange, onSubmit, showNextBut
           onOptionClick={handleOptionClick}
         />
       )}
-      <div className="flex justify-between items-center w-2/5 absolute bottom-2">
-        <button
-          className={`p-2 bg-blue-500 text-white rounded-md shadow-md transition-colors duration-300 ${
-            currentQuestionIndex === 0 ? 'bg-gray-400 cursor-not-allowed shadow-none' : 'hover:bg-blue-600'
+      
+      <div className="flex justify-between items-center mt-8">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className={`p-2 rounded-full ${
+            currentQuestionIndex === 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
           }`}
           onClick={handlePreviousQuestion}
           disabled={currentQuestionIndex === 0}
         >
-          <img src={leftArrow} alt="Previous" className="w-5 h-5" />
-        </button>
-        <div className="text-lg text-blue-900">{currentQuestionIndex + 1} / {totalQuestions}</div>
-        <button
-          className={`p-2 bg-blue-500 text-white rounded-md shadow-md transition-colors duration-300 ${
-            !isFinalQuestionAnswered ? 'bg-gray-400 cursor-not-allowed shadow-none' : 'hover:bg-blue-600'
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </motion.button>
+        
+        <div className="text-lg text-white font-semibold">
+          {currentQuestionIndex + 1} / {totalQuestions}
+        </div>
+        
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className={`p-2 rounded-full ${
+            !isFinalQuestionAnswered ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
           }`}
           onClick={handleNextQuestion}
           disabled={!isFinalQuestionAnswered}
         >
-          <img src={rightArrow} alt="Next" className="w-5 h-5" />
-        </button>
+          <ChevronRight className="w-6 h-6 text-white" />
+        </motion.button>
       </div>
     </div>
   );
