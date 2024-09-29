@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
 import QuestionPanel from './QuestionPanel';
 
 const courses = ["CMSC351", "CMSC320", "COMM107", "MATH240", "MATH246", "MATH241"];
@@ -175,7 +176,7 @@ const Study = () => {
               exit={{ opacity: 0 }}
               className="text-red-500 text-center mb-4"
             >
-              {error}
+              <ReactMarkdown>{error}</ReactMarkdown>
             </motion.div>
           )}
           {!selectedCourse ? (
@@ -250,7 +251,7 @@ const Study = () => {
               transition={{ duration: 0.3 }}
               className="text-4xl text-center text-white font-bold"
             >
-              No questions available. Please try again.
+              <ReactMarkdown>No questions available. Please try again.</ReactMarkdown>
             </motion.h2>
           )}
         </AnimatePresence>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 const QuestionPanel = ({
   type,
@@ -23,7 +24,7 @@ const QuestionPanel = ({
   return (
     <div className="w-full max-w-3xl mx-auto">
       <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
-        {question.Question}
+        <ReactMarkdown>{question.Question}</ReactMarkdown>
       </h3>
       <p className="text-white text-center mb-4">Difficulty: {difficulty}</p>
       
@@ -59,7 +60,9 @@ const QuestionPanel = ({
               onClick={() => !mcqSelectedOption && onMcqOptionSelect(option)}
               disabled={mcqSelectedOption !== null}
             >
-              <span className="text-center text-lg">{option}</span>
+              <span className="text-center text-lg">
+                <ReactMarkdown>{option}</ReactMarkdown>
+              </span>
             </motion.button>
           ))}
         </div>
@@ -77,7 +80,7 @@ const QuestionPanel = ({
 
       {feedback && (
         <div className={`mt-4 p-3 rounded-md ${feedback.isCorrect ? 'bg-green-500' : 'bg-red-500'}`}>
-          {feedback.message}
+          <ReactMarkdown>{feedback.message}</ReactMarkdown>
         </div>
       )}
       
