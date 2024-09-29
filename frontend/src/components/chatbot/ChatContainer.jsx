@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Send } from 'lucide-react';
 import MessageList from './MessageList';
 
 function ChatContainer() {
@@ -8,17 +9,22 @@ function ChatContainer() {
   const [writtenAnswer, setWrittenAnswer] = useState('');
   const [selectedCourse, setSelectedCourse] = useState('');
   const location = useLocation();
-  const [initialMessageSent, setInitialMessageSent] = useState(false); // Flag to prevent multiple submissions
+  const [initialMessageSent, setInitialMessageSent] = useState(false);
+  const messageEndRef = useRef(null);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const inputValue = searchParams.get('input');
     if (inputValue && !initialMessageSent) {
       setInput(inputValue);
-      handleInitialSubmit(inputValue); // Call a separate function for initial submission
-      setInitialMessageSent(true); // Set the flag to true after the initial message is sent
+      handleInitialSubmit(inputValue);
+      setInitialMessageSent(true);
     }
   }, [location.search, initialMessageSent]);
+
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const handleInitialSubmit = async (initialInput) => {
     const messageToSend = initialInput.trim();
@@ -141,23 +147,28 @@ function ChatContainer() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full bg-white overflow-hidden">
-      <MessageList
-        messages={messages}
-        writtenAnswer={writtenAnswer}
-        setWrittenAnswer={setWrittenAnswer}
-        handleWrittenAnswerSubmit={handleWrittenAnswerSubmit}
-      />
-      <div className="flex p-4 border-t border-gray-200">
-        <form onSubmit={handleSubmit} className="flex w-full">
+    <div className="flex flex-col h-screen bg-gradient-to-br from-blue-400 via-purple-500 to-indigo-600 overflow-hidden">
+      <div className="flex-grow overflow-auto">
+        <MessageList
+          messages={messages}
+          writtenAnswer={writtenAnswer}
+          setWrittenAnswer={setWrittenAnswer}
+          handleWrittenAnswerSubmit={handleWrittenAnswerSubmit}
+        />
+        <div ref={messageEndRef} />
+      </div>
+      <div className="p-4">
+        <form onSubmit={handleSubmit} className="flex items-center bg-[#393937] bg-opacity-80 rounded-lg p-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
-            className="flex-1 p-2 border-none text-lg focus:outline-none"
+            className="flex-grow bg-transparent text-white placeholder-gray-400 focus:outline-none"
           />
-          <button type="submit" className="p-2 ml-4 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600">Send</button>
+          <button type="submit" className="ml-2 text-white hover:text-blue-300 transition-colors">
+            <Send size={24} />
+          </button>
         </form>
       </div>
     </div>
