@@ -12,7 +12,7 @@ function App() {
   const [isExpanded, setIsExpanded] = useState(true);
 
   const toggleSidebar = () => {
-    setIsExpanded(!isExpanded);
+    setIsExpanded(prevState => !prevState);
   };
 
   return (
