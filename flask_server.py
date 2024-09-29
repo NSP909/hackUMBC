@@ -57,7 +57,7 @@ def get_user():
     user_id = request.args.get("user_id")
     if not user_id:
         return jsonify({"error": "user_id is required"}), 400
-    user = main_db["users"].find_one({"_id": ObjectId(user_id)})
+    user = main_db["users"].find_one({"user_id": user_id})
     if not user:
         return jsonify({"error": "User not found"}), 404
     return jsonify(user)
@@ -68,7 +68,7 @@ def get_grades():
     user_id = request.args.get("user_id")
     if not user_id:
         return jsonify({"error": "user_id is required"}), 400
-    user = main_db["users"].find_one({"_id": ObjectId(user_id)})
+    user = main_db["users"].find_one({"user_id": user_id})
     if not user:
         return jsonify({"error": "User not found"}), 404
     return jsonify(user["grades"])
@@ -96,7 +96,7 @@ def api_generate_question():
     if not user_id:
         return jsonify({"error": "user_id is required"}), 400
 
-    user = main_db["users"].find_one({"_id": ObjectId(user_id)})
+    user = main_db["users"].find_one({"user_id": user_id})
     if not user:
         return jsonify({"error": "User not found"}), 404
 
@@ -112,26 +112,38 @@ def api_generate_question():
     else:
         # Update importance for all courses and topics
         for c, course_data in user["grades"].items():
-            for topic, topic_data in course_data.items():
-                if topic != "grade":  # Assuming "grade" is not a topic
-                    new_data = {
-                        "course": [c],
-                        "course_topic": [topic],
-                        "course_grade": [course_data["grade"]],
-                        "easy_correct": [
-                            topic_data["easy_correct"] / topic_data["easy_total"]
-                        ],
-                        "medium_correct": [
-                            topic_data["medium_correct"] / topic_data["medium_total"]
-                        ],
-                        "hard_correct": [
-                            topic_data["hard_correct"] / topic_data["hard_total"]
-                        ],
-                        "upcoming_assignment": [0],  # Replace with actual data
-                        "days_to_deadline": [0],  # Replace with actual data
-                    }
-                    predictions = recommend_study(new_data)
-                    topic_data["importance"] = predictions[0]
+            topics_data = []
+            for topic, topic_data in course_data["topics"].items():
+                new_data = {
+                    "course": [c],
+                    "course_topic": [topic],
+                    "course_grade": [course_data["grade"]],
+                    "easy_correct": [
+                        topic_data["easy_correct"] / topic_data["easy_total"]
+                    ],
+                    "medium_correct": [
+                        topic_data["medium_correct"] / topic_data["medium_total"]
+                    ],
+                    "hard_correct": [
+                        topic_data["hard_correct"] / topic_data["hard_total"]
+                    ],
+                    "upcoming_assignment": [topic_data["upcoming_assignment"]],
+                    "days_to_deadline": [
+                        (
+                            topic_data["days_to_deadline"]
+                            if topic_data["days_to_deadline"] is not None
+                            else 0
+                        )
+                    ],
+                }
+                topics_data.append(new_data)
+
+            # Batch predict importance for all topics in the course
+            predictions = recommend_study(pd.concat(topics_data, ignore_index=True))
+
+            # Update importance for each topic
+            for i, (topic, topic_data) in enumerate(course_data["topics"].items()):
+                topic_data["importance"] = float(predictions[i])
 
         if course:
             # Find the most important topic within the specified course
@@ -144,8 +156,7 @@ def api_generate_question():
             most_important = max(
                 (
                     (topic, data["importance"])
-                    for topic, data in user["grades"][course].items()
-                    if topic != "grade"
+                    for topic, data in user["grades"][course]["topics"].items()
                 ),
                 key=lambda x: x[1],
             )
@@ -156,8 +167,7 @@ def api_generate_question():
                 (
                     (c, topic, data["importance"])
                     for c, course_data in user["grades"].items()
-                    for topic, data in course_data.items()
-                    if topic != "grade"
+                    for topic, data in course_data["topics"].items()
                 ),
                 key=lambda x: x[2],
             )
@@ -196,18 +206,18 @@ def api_check_answer():
 
         # Prepare the update operation
         update_operation = {
-            "$inc": {f"grades.{course}.{course_topic}.{question_type}_total": 1}
+            "$inc": {f"grades.{course}.topics.{course_topic}.{question_type}_total": 1}
         }
 
         # If the answer is correct, increment the correct count
         if result == "Great JOB! Your answer is correct.":
             update_operation["$inc"][
-                f"grades.{course}.{course_topic}.{question_type}_correct"
+                f"grades.{course}.topics.{course_topic}.{question_type}_correct"
             ] = 1
 
         # Update user grades
         update_result = main_db["users"].update_one(
-            {"_id": ObjectId(user_id)}, update_operation
+            {"user_id": user_id}, update_operation
         )
 
         if update_result.matched_count == 0:
@@ -215,9 +225,6 @@ def api_check_answer():
 
         return jsonify({"result": result})
 
-    except PyMongoError as e:
-        # Log the error here
-        return jsonify({"error": "Database error occurred"}), 500
     except Exception as e:
         # Log the error here
         return jsonify({"error": "An unexpected error occurred"}), 500
