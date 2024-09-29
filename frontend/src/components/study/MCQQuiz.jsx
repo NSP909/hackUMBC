@@ -1,14 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const MCQQuiz = ({ options, answer, selectedOption, onOptionClick }) => {
+const MCQQuiz = ({ options, answer, selectedOption, onOptionClick, onSubmit }) => {
+  const handleOptionClick = (option) => {
+    onOptionClick(option);
+    onSubmit();
+  };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
       {options.map((option, index) => (
         <motion.button
           key={index}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: selectedOption ? 1 : 1.02 }}
+          whileTap={{ scale: selectedOption ? 1 : 0.98 }}
           className={`
             flex flex-col justify-center items-center
             p-4 text-white font-medium rounded-lg shadow-md
@@ -21,8 +26,10 @@ const MCQQuiz = ({ options, answer, selectedOption, onOptionClick }) => {
                   : 'bg-gradient-to-r from-red-400 to-red-600'
                 : 'bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700'
             }
+            ${selectedOption ? 'cursor-not-allowed' : 'cursor-pointer'}
           `}
-          onClick={() => onOptionClick(option)}
+          onClick={() => !selectedOption && handleOptionClick(option)}
+          disabled={selectedOption !== null}
         >
           <span className="text-center text-lg">{option}</span>
           {selectedOption === option && (

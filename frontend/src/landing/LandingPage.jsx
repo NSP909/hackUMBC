@@ -138,8 +138,6 @@ function LandingPage() {
         <div className={styles.buttons}>
           <button
             className={styles.button}
-            color="grey"
-            variant="faded"
             onClick={() => handleButtonClick("/dashboard")}
           >
             Dashboard

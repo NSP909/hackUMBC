@@ -6,6 +6,7 @@ import CourseDetail from './components/courses/CourseDetail';
 import Chatbot from './components/chatbot/ChatBot';
 import Study from './components/study/Study';
 import LandingPage from '../src/landing/LandingPage';
+import Login from '../src/login-page/login';
 import './App.css';
 
 function App() {
@@ -24,14 +25,15 @@ function App() {
 
 function AppContent({ isExpanded, toggleSidebar }) {
   const location = useLocation();
-  const isLandingPage = location.pathname === '/';
+  const isLandingPage = location.pathname === '/' || location.pathname === '/landing';
 
   return (
     <div className="app">
       {!isLandingPage && <SideNavigationBar isExpanded={isExpanded} toggleSidebar={toggleSidebar} />}
       <div className={`content-area ${isExpanded ? '' : 'collapsed'}`}>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/landing" element={<LandingPage />} />
           <Route path="/dashboard" element={<CourseSelector />} />
           <Route path="/course/:id" element={<CourseDetail />} />
           <Route path="/chatbot" element={<Chatbot />} />
