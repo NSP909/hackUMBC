@@ -98,8 +98,8 @@ def api_generate_question():
     user_id = data["user_id"]
     flag = data["flag"]
     if flag:
-        course = data.get("course")
-        course_topic = data.get("course_topic")
+        course = data["course"]
+        course_topic = data["course_topic"]
     else:
 
         user = main_db["users"].find_one({"_id": ObjectId(user_id)})
@@ -163,9 +163,9 @@ def api_generate_question():
 @app.route("/check_answer", methods=["GET"])
 def api_check_answer():
     data = request.json
-    question = data.get("question")
-    sample = data.get("sample")
-    answer = data.get("answer")
+    question = data["question"]
+    sample = data["sample"]
+    answer = data["answer"]
     user_id = data["user_id"]
 
     if not question or not sample or not answer:
@@ -191,9 +191,9 @@ def api_check_answer():
 @app.route("/clear_doubt", methods=["GET"])
 def api_clear_doubt():
     data = request.json
-    conversation = data.get("conversation")
-    question = data.get("question")
-    course = data.get("course")
+    conversation = data["conversation"]
+    question = data["question"]
+    course = data["course"]
 
     if not conversation or not question or not course:
         return jsonify({"error": "Missing conversation, question, or course"}), 400
