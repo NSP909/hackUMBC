@@ -8,11 +8,13 @@ const Study = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answer, setAnswer] = useState('');
+  const [writtenAnswer, setWrittenAnswer] = useState('');
+  const [mcqSelectedOption, setMcqSelectedOption] = useState(null);
   const [showNextButton, setShowNextButton] = useState(false);
   const [currentTopic, setCurrentTopic] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [feedback, setFeedback] = useState(null);
 
   const handleCourseSelect = async (course) => {
     setSelectedCourse(course);
@@ -29,7 +31,11 @@ const Study = () => {
       console.log("Initial data:", initialData);
       if (initialData.result) {
         setCurrentTopic(initialData.course_topic);
-        setQuestions([initialData.result]);
+        setQuestions([{
+          type: initialData.result.type,
+          difficulty: initialData.result.difficulty,
+          question: initialData.result.question
+        }]);
         setCurrentQuestionIndex(0);
       } else {
         throw new Error("No question data in the response");
@@ -42,54 +48,118 @@ const Study = () => {
     }
   };
 
-  const handleAnswerChange = (e) => {
-    setAnswer(e.target.value);
+  const handleWrittenAnswerChange = (e) => {
+    setWrittenAnswer(e.target.value);
   };
 
-  const handleSubmit = () => {
-    setShowNextButton(true);
+  const handleMcqOptionSelect = (option) => {
+    setMcqSelectedOption(option);
+  };
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    setError(null);
+    setFeedback(null);
+
+    const currentQuestion = questions[currentQuestionIndex];
+    
+    try {
+      let answerToSubmit;
+      if (currentQuestion.type === 'MCQ') {
+        answerToSubmit = mcqSelectedOption;
+      } else {
+        answerToSubmit = writtenAnswer;
+      }
+
+      const response = await fetch('http://161.35.127.128:5000/check_answer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          question: {
+            course: selectedCourse,
+            course_topic: currentTopic,
+            question_type: currentQuestion.type,
+            difficulty: currentQuestion.difficulty,
+            ...currentQuestion.question
+          },
+          sample: currentQuestion.question.Answer,
+          answer: answerToSubmit,
+          user_id: "1" // Replace with actual user ID
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to check answer');
+      }
+
+      const data = await response.json();
+      setFeedback(data.result);
+      setShowNextButton(true);
+    } catch (error) {
+      console.error('Error checking answer:', error);
+      setError('Failed to check answer. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleNextQuestion = async () => {
     setIsLoading(true);
     setError(null);
-    try {
-      console.log("Fetching next question for:", selectedCourse, currentTopic);
-      const response = await fetch(`http://161.35.127.128:5000/generate_question?user_id=${1}&flag=${true}&course=${selectedCourse}&course_topic=${currentTopic}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const newQuestionData = await response.json();
-      console.log("New question data:", newQuestionData);
-      if (newQuestionData.result) {
-        setQuestions(prevQuestions => [...prevQuestions, newQuestionData.result]);
-        setCurrentQuestionIndex(prevIndex => prevIndex + 1);
-        setCurrentTopic(newQuestionData.course_topic);
-        setAnswer('');
-        setShowNextButton(false);
-      } else {
-        throw new Error("No question data in the response");
-      }
-    } catch (error) {
-      console.error('Error fetching next question:', error);
-      setError("Failed to fetch the next question. Please try again.");
-    } finally {
+    setFeedback(null);
+    setWrittenAnswer('');
+    setMcqSelectedOption(null);
+
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+      setShowNextButton(false);
       setIsLoading(false);
+    } else {
+      try {
+        console.log("Fetching next question for:", selectedCourse, currentTopic);
+        const response = await fetch(`http://161.35.127.128:5000/generate_question?user_id=${1}&flag=${true}&course=${selectedCourse}&course_topic=${currentTopic}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        const newQuestionData = await response.json();
+        console.log("New question data:", newQuestionData);
+        if (newQuestionData.result) {
+          setQuestions(prevQuestions => [...prevQuestions, {
+            type: newQuestionData.result.type,
+            difficulty: newQuestionData.result.difficulty,
+            question: newQuestionData.result.question
+          }]);
+          setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+          setCurrentTopic(newQuestionData.course_topic);
+          setShowNextButton(false);
+        } else {
+          throw new Error("No question data in the response");
+        }
+      } catch (error) {
+        console.error('Error fetching next question:', error);
+        setError("Failed to fetch the next question. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
   const handlePreviousQuestion = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(prevIndex => prevIndex - 1);
-      setAnswer('');
+      setWrittenAnswer('');
+      setMcqSelectedOption(null);
       setShowNextButton(false);
+      setFeedback(null);
     }
   };
 
   const isFinalQuestionAnswered = () => {
-    return showNextButton || currentQuestionIndex < questions.length - 1;
+    return showNextButton;
   };
 
   return (
@@ -159,9 +229,12 @@ const Study = () => {
             >
               <QuestionPanel
                 type={questions[currentQuestionIndex].type}
+                difficulty={questions[currentQuestionIndex].difficulty}
                 question={questions[currentQuestionIndex].question}
-                answer={answer}
-                onChange={handleAnswerChange}
+                writtenAnswer={writtenAnswer}
+                mcqSelectedOption={mcqSelectedOption}
+                onWrittenAnswerChange={handleWrittenAnswerChange}
+                onMcqOptionSelect={handleMcqOptionSelect}
                 onSubmit={handleSubmit}
                 showNextButton={showNextButton}
                 onNextQuestion={handleNextQuestion}
@@ -169,6 +242,8 @@ const Study = () => {
                 currentQuestionIndex={currentQuestionIndex}
                 totalQuestions={questions.length}
                 isFinalQuestionAnswered={isFinalQuestionAnswered()}
+                isLoading={isLoading}
+                feedback={feedback}
               />
             </motion.div>
           ) : (
