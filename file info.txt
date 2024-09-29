@@ -1,0 +1,19 @@
+C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\MATH246.pdf
+C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\MATH241 Notes.pdf
+C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\CMSC351 Notes.pdf
+C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\COMM107.pdf
+
+
+syallabi\CMSC320.pdf
+syallabi\MATH240.pdf
+syallabi\MATH241.pdf
+syallabi\CMSC351.pdf
+syallabi\COMM107.pdf
+syallabi\MATH246.pdf
+
+C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\COMM107.json
+C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\CMSC351.json
+C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\CMSC320.json
+C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\MATH241.json
+C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\MATH240.json
+C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\MATH246.json
