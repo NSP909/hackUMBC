@@ -2,15 +2,55 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import { useLocation } from 'react-router-dom';
 
 function ChatContainer() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const messageEndRef = useRef(null);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const initialMessage = searchParams.get("input") || "";
+
+  useEffect(() => {
+    if (initialMessage) {
+      // Add the initial message to the chat
+      setMessages([{ text: initialMessage, sender: 'user' }]);
+      // Trigger the HTTP request for the initial message
+      handleInitialMessage(initialMessage);
+    }
+  }, [initialMessage]);
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  const handleInitialMessage = async (message) => {
+    try {
+      // Simulate an HTTP request to the backend server
+      const response = await fetch(`http://161.35.127.128:5000/query`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ question: message }),
+      });
+
+      const botResponse = await response.json();
+      console.log(botResponse);
+      // Add the bot's response to the chat
+      setMessages(prevMessages => [
+        ...prevMessages,
+        { text: botResponse[botResponse.length - 1], sender: 'bot' },
+      ]);
+    } catch (error) {
+      console.error('Error fetching response:', error);
+      setMessages(prevMessages => [
+        ...prevMessages,
+        { text: 'Sorry, there was an error processing your request.', sender: 'bot' },
+      ]);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

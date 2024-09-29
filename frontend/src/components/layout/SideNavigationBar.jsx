@@ -34,8 +34,8 @@ export default function SideNavigationBar({ children }) {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Link to="/" className="text-xl font-bold text-blue-300">
-                    LMS
+                  <Link to="/landing" className="text-xl font-bold text-blue-300">
+                    Vector Mentor
                   </Link>
                 </motion.div>
               )}
@@ -54,7 +54,7 @@ export default function SideNavigationBar({ children }) {
             <SidebarItem
               to="/dashboard"
               icon={<TbSelect />}
-              text="Course Selector"
+              text="Dashboard"
               active={location.pathname === "/dashboard"}
               expanded={expanded}
             />

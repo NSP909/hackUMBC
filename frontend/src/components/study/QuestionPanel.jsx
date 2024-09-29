@@ -1,57 +1,84 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import MCQQuiz from './MCQQuiz';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const QuestionPanel = ({ type, question, answer, onChange, onSubmit, showNextButton, onNextQuestion, onPreviousQuestion, currentQuestionIndex, totalQuestions, isFinalQuestionAnswered }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
-  
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-    onSubmit();
-  };
-
-  console.log(question);
-
-  const handleNextQuestion = () => {
-    setSelectedOption(null);
-    onNextQuestion();
-  };
-
-  const handlePreviousQuestion = () => {
-    setSelectedOption(null);
-    onPreviousQuestion();
-  };
-
+const QuestionPanel = ({
+  type,
+  difficulty,
+  question,
+  writtenAnswer,
+  mcqSelectedOption,
+  onWrittenAnswerChange,
+  onMcqOptionSelect,
+  onSubmit,
+  showNextButton,
+  onNextQuestion,
+  onPreviousQuestion,
+  currentQuestionIndex,
+  totalQuestions,
+  isFinalQuestionAnswered,
+  isLoading,
+  feedback
+}) => {
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">{question.Question}</h3>
+      <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
+        {question.Question}
+      </h3>
+      <p className="text-white text-center mb-4">Difficulty: {difficulty}</p>
       
       {type === 'Written' ? (
         <div className="mb-6">
           <textarea
-            value={answer}
-            onChange={onChange}
+            value={writtenAnswer}
+            onChange={onWrittenAnswerChange}
             placeholder="Type your answer here..."
             className="w-full p-3 bg-white bg-opacity-30 text-white placeholder-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             rows={4}
           />
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={onSubmit}
-            className="mt-4 px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-md hover:from-green-500 hover:to-blue-600 transition-all duration-300"
-          >
-            Submit
-          </motion.button>
         </div>
       ) : (
-        <MCQQuiz
-          options={question.Options}
-          answer={question.Answer}
-          selectedOption={selectedOption}
-          onOptionClick={handleOptionClick}
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+          {question.Options.map((option, index) => (
+            <motion.button
+              key={index}
+              whileHover={{ scale: mcqSelectedOption ? 1 : 1.02 }}
+              whileTap={{ scale: mcqSelectedOption ? 1 : 0.98 }}
+              className={`
+                flex flex-col justify-center items-center
+                p-4 text-white font-medium rounded-lg shadow-md
+                transition-all duration-300 ease-in-out
+                min-h-[100px] w-full
+                ${
+                  mcqSelectedOption === option
+                    ? 'bg-gradient-to-r from-green-400 to-green-600'
+                    : 'bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700'
+                }
+                ${mcqSelectedOption ? 'cursor-not-allowed' : 'cursor-pointer'}
+              `}
+              onClick={() => !mcqSelectedOption && onMcqOptionSelect(option)}
+              disabled={mcqSelectedOption !== null}
+            >
+              <span className="text-center text-lg">{option}</span>
+            </motion.button>
+          ))}
+        </div>
+      )}
+
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={onSubmit}
+        disabled={isLoading || (type === 'MCQ' && !mcqSelectedOption) || (type === 'Written' && !writtenAnswer.trim())}
+        className={`mt-4 px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-md hover:from-green-500 hover:to-blue-600 transition-all duration-300 ${(isLoading || (type === 'MCQ' && !mcqSelectedOption) || (type === 'Written' && !writtenAnswer.trim())) ? 'opacity-50 cursor-not-allowed' : ''}`}
+      >
+        {isLoading ? 'Checking...' : 'Submit'}
+      </motion.button>
+
+      {feedback && (
+        <div className={`mt-4 p-3 rounded-md ${feedback.includes('correct') ? 'bg-green-500' : 'bg-red-500'}`}>
+          {feedback}
+        </div>
       )}
       
       <div className="flex justify-between items-center mt-8">
@@ -61,7 +88,7 @@ const QuestionPanel = ({ type, question, answer, onChange, onSubmit, showNextBut
           className={`p-2 rounded-full ${
             currentQuestionIndex === 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
           }`}
-          onClick={handlePreviousQuestion}
+          onClick={onPreviousQuestion}
           disabled={currentQuestionIndex === 0}
         >
           <ChevronLeft className="w-6 h-6 text-white" />
@@ -77,7 +104,7 @@ const QuestionPanel = ({ type, question, answer, onChange, onSubmit, showNextBut
           className={`p-2 rounded-full ${
             !isFinalQuestionAnswered ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
           }`}
-          onClick={handleNextQuestion}
+          onClick={onNextQuestion}
           disabled={!isFinalQuestionAnswered}
         >
           <ChevronRight className="w-6 h-6 text-white" />
