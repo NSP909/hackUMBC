@@ -11,6 +11,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #e2e8f0;
+    position: relative;
   }
   
   .questionPanel h3 {
@@ -46,4 +47,28 @@
   
   .writtenQuiz button:hover {
     background-color: #27ae60;
+  }
+  
+  .nextButton {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nextButton:hover {
+    background-color: #2980b9;
+  }
+  
+  .arrowIcon {
+    font-size: 1.2rem;
   }

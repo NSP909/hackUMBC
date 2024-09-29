@@ -4,7 +4,7 @@ import styles from './Study.module.css';
 
 const courses = ["CMSC351", "CMSC320", "CMSC330", "MATH241", "MATH246"];
 
-const questions = [
+const initialQuestions = [
   { type: 'Written', question: 'What is the capital of France?', answer: 'Paris' },
   { type: 'MCQ', question: 'Which of these is a programming language?', options: ['Java', 'HTML', 'CSS', 'XML'], answer: 'Java' },
   // Add more questions as needed
@@ -12,8 +12,10 @@ const questions = [
 
 const Study = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [questions, setQuestions] = useState(initialQuestions);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answer, setAnswer] = useState('');
+  const [showNextButton, setShowNextButton] = useState(false);
 
   const handleCourseSelect = (course) => {
     setSelectedCourse(course);
@@ -24,8 +26,33 @@ const Study = () => {
   };
 
   const handleSubmit = () => {
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-    setAnswer('');
+    setShowNextButton(true);
+  };
+
+  const handleNextQuestion = async () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setAnswer('');
+      setShowNextButton(false);
+    } else {
+      try {
+        // Simulate an HTTP request to get new question data
+        const response = await fetch('/api/nextQuestion');
+        const newQuestion = await response.json();
+        setQuestions((prevQuestions) => [...prevQuestions, newQuestion]);
+        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+        setAnswer('');
+        setShowNextButton(false);
+      } catch (error) {
+        const placeHolderQuestion = Math.random() < 0.5
+          ? { type: 'Written', question: 'Placeholder question?', answer: 'Placeholder answer' }
+          : { type: 'MCQ', question: 'Which of these is a placeholder option?', options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'], answer: 'Option 1' };
+        setQuestions((prevQuestions) => [...prevQuestions, placeHolderQuestion]);
+        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+        setAnswer('');
+        setShowNextButton(false);
+      }
+    }
   };
 
   if (!selectedCourse) {
@@ -52,6 +79,8 @@ const Study = () => {
           answer={answer}
           onChange={handleAnswerChange}
           onSubmit={handleSubmit}
+          showNextButton={showNextButton}
+          onNextQuestion={handleNextQuestion}
         />
       </div>
     );

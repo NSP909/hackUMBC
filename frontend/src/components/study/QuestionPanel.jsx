@@ -2,7 +2,7 @@ import React from 'react';
 import MCQQuiz from './MCQQuiz';
 import styles from './QuestionPanel.module.css';
 
-const QuestionPanel = ({ question, answer, onChange, onSubmit }) => {
+const QuestionPanel = ({ question, answer, onChange, onSubmit, showNextButton, onNextQuestion }) => {
   return (
     <div className={styles.questionPanel}>
       <h3>{question.question}</h3>
@@ -18,6 +18,11 @@ const QuestionPanel = ({ question, answer, onChange, onSubmit }) => {
         </div>
       ) : (
         <MCQQuiz options={question.options} onSubmit={onSubmit} />
+      )}
+      {showNextButton && (
+        <button className={styles.nextButton} onClick={onNextQuestion}>
+          <span className={styles.arrowIcon}>&#8594;</span>
+        </button>
       )}
     </div>
   );
