@@ -178,12 +178,15 @@ def generate_question(query, course):
     response = random.randint(1, 100)
     if int(response) % 2 == 0:
         ret = execute_mcq(query, course, di[typ], question_queue)
-        while True:
-            try:
-                ret = ast.literal_eval(ret)
-                break
-            except:
-                ret = execute_mcq(query, course, di[typ], question_queue)
+        ret = ret.replace("```json", "").replace("```", "").replace("json", "")
+        ret = ast.literal_eval(ret)
+        # while True:
+        #     try:
+        #         ret = ast.literal_eval(ret)
+        #         break
+        #     except Exception as e:
+        #         print(e)
+        #         ret = execute_mcq(query, course, di[typ], question_queue)
         question_queue.append(ret["Question"])
         if len(question_queue) > 7:
             question_queue.popleft()
@@ -191,12 +194,15 @@ def generate_question(query, course):
         # return {'difficulty': 'Easy', 'question': {'Answer': 'To achieve the maximum possible value', 'Options': ['To achieve the maximum possible value', 'To achieve the minimum possible value', 'To achieve an average value', 'To achieve a random value'], 'Question': 'In the Minimax Algorithm, what is the primary goal of the player named Max?'}, 'type': 'MCQ'}
     else:
         ret = execute_subjective(query, course, di[typ], question_queue)
-        while True:
-            try:
-                ret = ast.literal_eval(ret)
-                break
-            except:
-                ret = execute_mcq(query, course, di[typ], question_queue)
+        ret = ret.replace("```json", "").replace("```", "").replace("json", "")
+        ret = ast.literal_eval(ret)
+        # while True:
+        #     try:
+        #         ret = ast.literal_eval(ret)
+        #         break
+        #     except Exception as e:
+        #         print(e)
+        #         ret = execute_mcq(query, course, di[typ], question_queue)
         question_queue.append(ret["Question"])
         if len(question_queue) > 7:
             question_queue.popleft()
