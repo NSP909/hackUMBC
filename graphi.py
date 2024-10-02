@@ -104,7 +104,7 @@ syllabi_dict = {
     "CMSC351": r"syallabi\CMSC351.pdf",
     "COMM107": r"syallabi\COMM107.pdf",
     "MATH246": r"syallabi\MATH246.pdf",
-    "CMSC216": r"../extra/syllabi\CMSC216.pdf"
+    "CMSC216": r"../extra/syllabi\CMSC216s.pdf"
 }
 json_dict = {
     "COMM107": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\COMM107.json",
