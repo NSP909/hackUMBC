@@ -22,7 +22,7 @@ model2 = ChatOpenAI(model="gpt-4o", temperature=0)
 parser = StrOutputParser()
 
 pc=Pinecone(api_key=PINECONE_API_KEY)
-index=pc.Index("notes")
+index=pc.Index("assignments")
 embeddings = OpenAIEmbeddings( model="text-embedding-3-small")
 vectorstore=PineconeVectorStore(index, embeddings)
 
@@ -48,7 +48,7 @@ def load_data(folder_path):
     )
     docs = text_splitter.split_documents(documents)
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-    index_name = "notes"
+    index_name = "assignments"
     Pinecone = PineconeVectorStore.from_documents(docs, embeddings, index_name=index_name)
     print(Pinecone.similarity_search("Coin Changing", k=3))
 
@@ -72,8 +72,8 @@ def get_unique_filenames(index, top_k=10000):
 
 
 if __name__=="__main__":
-    # load_data("books")
-    index=pc.Index("notes")
+    # load_data(r"../extra/assignments")
+    index=pc.Index("assignments")
     unique_filenames = get_unique_filenames(index)
     print(f"Unique filenames in the index:")
     for filename in unique_filenames:

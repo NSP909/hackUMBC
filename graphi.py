@@ -93,7 +93,8 @@ notes_dict = {
     "CMSC351": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\CMSC351 Notes.pdf",
     "COMM107": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\notes\COMM107.pdf",
     "CMSC320": r"books\datascience.pdf",
-    "MATH240": r"books\linalg.pdf"
+    "MATH240": r"books\linalg.pdf",
+    "CMSC216": r"../extra/notes\CMSC216.pdf"
 }
 
 syllabi_dict = {
@@ -102,7 +103,8 @@ syllabi_dict = {
     "MATH241": r"syallabi\MATH241.pdf",
     "CMSC351": r"syallabi\CMSC351.pdf",
     "COMM107": r"syallabi\COMM107.pdf",
-    "MATH246": r"syallabi\MATH246.pdf"
+    "MATH246": r"syallabi\MATH246.pdf",
+    "CMSC216": r"../extra/syllabi\CMSC216.pdf"
 }
 json_dict = {
     "COMM107": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\COMM107.json",
@@ -110,7 +112,8 @@ json_dict = {
     "CMSC320": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\CMSC320.json",
     "MATH241": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\MATH241.json",
     "MATH240": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\MATH240.json",
-    "MATH246": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\MATH246.json"
+    "MATH246": r"C:\Users\sange\OneDrive\Desktop\hackUMBC\hackUMBC\canjson\MATH246.json",
+    "CMSC216": r"../extra/assignments\CMSC216assignments.pdf"
 }
 
 def web_search(state):
@@ -130,7 +133,8 @@ def detect_course(state):
         "math241": "MATH241",
         "math246": "MATH246",
         "cmsc351": "CMSC351",
-        "cmsc320": "CMSC320"
+        "cmsc320": "CMSC320",
+        "cmsc216": "CMSC216"
     }
     question = state["question"]
     query_lower = question.lower()
