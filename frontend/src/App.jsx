@@ -6,7 +6,7 @@ import CourseDetail from './components/courses/CourseDetail';
 import Chatbot from './components/chatbot/ChatBot';
 import Study from './components/study/Study';
 import LandingPage from '../src/landing/LandingPage';
-import Login from '../src/login-page/login';
+import Login from './login-page/Login';
 import UpcomingEvents from './components/courseModules/UpcomingEvents'; // Import UpcomingEvents component
 import './App.css';
 
