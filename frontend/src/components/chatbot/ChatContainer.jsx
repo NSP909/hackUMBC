@@ -28,7 +28,7 @@ function ChatContainer() {
   const handleInitialMessage = async (message) => {
     try {
       // Simulate an HTTP request to the backend server
-      const response = await fetch(`http://161.35.127.128:5000/query`, {
+      const response = await fetch(`http://127.0.0.1:5000/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ function ChatContainer() {
 
     try {
       // Simulate an HTTP request to the backend server
-      const response = await fetch(`http://161.35.127.128:5000/query`, {
+      const response = await fetch(`http://127.0.0.1:5000/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

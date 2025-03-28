@@ -18,7 +18,6 @@ from langchain.prompts import ChatPromptTemplate
 from langchain.schema import Document
 from langchain_core.runnables import RunnablePassthrough
 from langgraph.graph import StateGraph, END, START
-from langchain_iris import IRISVector
 from todo import get_todo
 from websearch import extract_url, scrape_website, google_search
 from langchain_community.vectorstores import Pinecone as Pine
@@ -27,7 +26,6 @@ from langchain_pinecone import PineconeVectorStore
 load_dotenv()
 
 os.environ['OPENAI_API_KEY']=os.getenv("OPENAI_API_KEY")
-MODEL_ID=os.getenv("MODEL_ID")
 PINECONE_API_KEY=os.getenv("PINECONE_API_KEY")
 
 model2 = ChatOpenAI(model="gpt-4o", temperature=0)
@@ -67,7 +65,6 @@ NOTE- Only respond with the number 1, 2 or 3"""
 
 template = """You are an educational assistant 
 and your job is to answer the question asked by the user based on the context provided.
-
 This is the question: {question} 
 This is the context: {context}
 

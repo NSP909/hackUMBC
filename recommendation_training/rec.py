@@ -28,11 +28,11 @@ class StudyRecommenderModel(nn.Module):
     
 
 model = StudyRecommenderModel(6, 146, 32, 64)
-model.load_state_dict(torch.load(r'/home/aryan/hackUMBC/recommendation_training/model.pth'))
+model.load_state_dict(torch.load('/Users/priyadarshannarayanasamy/Desktop/vmentor/hackUMBC/recommendation_training/model.pth'))
 model.eval()
-course_encoder = joblib.load(r'/home/aryan/hackUMBC/recommendation_training/course_encoder.pkl')
-topic_encoder = joblib.load(r'/home/aryan/hackUMBC/recommendation_training/topic_encoder.pkl')
-scaler = joblib.load(r'/home/aryan/hackUMBC/recommendation_training/scaler.pkl')
+course_encoder = joblib.load('/Users/priyadarshannarayanasamy/Desktop/vmentor/hackUMBC/recommendation_training/course_encoder.pkl')
+topic_encoder = joblib.load('/Users/priyadarshannarayanasamy/Desktop/vmentor/hackUMBC/recommendation_training/topic_encoder.pkl')
+scaler = joblib.load('/Users/priyadarshannarayanasamy/Desktop/vmentor/hackUMBC/recommendation_training/scaler.pkl')
 
 def recommend_study(new_data):
     new_data['course'] = course_encoder.transform(new_data['course'])

@@ -11,7 +11,7 @@ const UpcomingEvents = () => {
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const response = await fetch('http://161.35.127.128:5000/todo');
+        const response = await fetch('http://127.0.0.1:5000/todo');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

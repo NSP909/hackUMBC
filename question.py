@@ -17,7 +17,6 @@ from langchain.prompts import ChatPromptTemplate
 from langchain.schema import Document
 from langchain_core.runnables import RunnablePassthrough
 from langgraph.graph import StateGraph, END, START
-from langchain_iris import IRISVector
 from todo import get_todo
 from websearch import extract_url, scrape_website, google_search
 from langchain_community.vectorstores import Pinecone as Pine

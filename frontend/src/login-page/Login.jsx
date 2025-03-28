@@ -17,7 +17,7 @@ const Login = () => {
 
   const handleSignIn = () => {
     // Check if the email and password are correct
-    if (email === "umbchacks@umbc.edu" && password === "UMBCHacks24") {
+    if (email === "nsp" && password === "nsp") {
       // Start fade out effect
       setIsFading(true);
 

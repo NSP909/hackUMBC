@@ -76,7 +76,7 @@ function LandingPage() {
         <div className={styles.title}>
           <Typewriter
             options={{
-              strings: ["Hi Ritesh!"],
+              strings: ["Hi Priyadarshan!"],
               autoStart: true,
               loop: false,
               delay: 75,
@@ -85,7 +85,7 @@ function LandingPage() {
             onInit={(typewriter) => {
               if (!firstLineTyped.current) {
                 typewriter
-                  .typeString("Hi Ritesh!")
+                  .typeString("Hi Priyadarshan!")
                   .callFunction(() => {
                     console.log("First line typed out!");
                     firstLineTyped.current = true;

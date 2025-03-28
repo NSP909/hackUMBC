@@ -14,7 +14,7 @@ from langchain_community.vectorstores import Pinecone as Pine
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-load_dotenv()
+load_dotenv(override==True)
 os.environ['OPENAI_API_KEY']=os.getenv("OPENAI_API_KEY")
 PINECONE_API_KEY=os.getenv("PINECONE_API_KEY")
 

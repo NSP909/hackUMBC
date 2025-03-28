@@ -22,7 +22,7 @@ const Study = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://161.35.127.128:5000/generate_question?user_id=${1}&course=${course}`, {
+      const response = await fetch(`http://127.0.0.1:5000/generate_question?user_id=${1}&course=${course}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const Study = () => {
         answerToSubmit = writtenAnswer;
       }
 
-      const response = await fetch('http://161.35.127.128:5000/check_answer', {
+      const response = await fetch('http://127.0.0.1:5000/check_answer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ const Study = () => {
     } else {
       try {
         console.log("Fetching next question for:", selectedCourse, currentTopic);
-        const response = await fetch(`http://161.35.127.128:5000/generate_question?user_id=${1}&flag=${true}&course=${selectedCourse}&course_topic=${currentTopic}`, {
+        const response = await fetch(`http://127.0.0.1:5000/generate_question?user_id=${1}&flag=${true}&course=${selectedCourse}&course_topic=${currentTopic}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
